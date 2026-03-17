@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "9eefaac8172cd5bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "f4ba8326a17c0e5b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0247fc762155f566",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "claude/skills/_template.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "_template"
+            }
+          }
+        ]
+      },
+      {
+        "id": "215cd4794386793b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36a2b80f5e5bfd93",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8df6081a92436e06",
+    "type": "split",
+    "children": [
+      {
+        "id": "987433a12253b589",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d8566bad8d099d0f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "30a249c1bd248b64",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fdae781fb34d08c1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c515fd52b9a9c62c",
+    "type": "split",
+    "children": [
+      {
+        "id": "39ae9ac8948ced47",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "149a134d5853a76e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "claude/skills/_template.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for _template"
+            }
+          },
+          {
+            "id": "ecd89e826ee66a04",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "claude/skills/_template.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from _template"
+            }
+          },
+          {
+            "id": "ef8a4e9307f2f153",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d3d109b3e33ea164",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "0824e05461af4b6d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "claude/skills/_template.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of _template"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "0247fc762155f566",
+  "lastOpenFiles": [
+    "claude/agents/_template.md",
+    "claude/skills/_template.md",
+    "claude/skills",
+    "claude/CLAUDE.md",
+    "claude/agents",
+    "agency/commercial.md",
+    "agency/tone.md",
+    "agency/workflow.md",
+    "agency/stack.md",
+    "agency/identity.md",
+    "Untitled.md",
+    "Welcome.md",
+    "claude",
+    "daily-notes",
+    "inbox",
+    "research",
+    "clients",
+    "knowledge",
+    "agency"
+  ]
+}
