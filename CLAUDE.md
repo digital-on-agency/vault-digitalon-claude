@@ -27,3 +27,9 @@ Quando un CLAUDE.md contiene sezioni `<!-- DA COMPLETARE -->`, chiedere all'uten
 ### Formato commit git
 
 I commit automatici usano il formato `session: YYYY-MM-DD HH:MM`. Per commit manuali su azioni specifiche usare formato descrittivo: `onboarding: cliente X`, `knowledge: aggiunto GTM avanzato`, `fix: aggiornato stato progetto Y`.
+
+## Hook git
+
+- **Inizio task:** eseguire `bash ~/vault-digitalon/claude/hooks/task-start.sh`
+- **Fine task:** generare un messaggio di commit nel formato definito nel memory agent ed eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+- Se `task-end.sh` restituisce errori, segnalarli senza bloccare il flusso di lavoro
