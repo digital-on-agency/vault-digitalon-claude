@@ -98,6 +98,17 @@ Quando l'utente scrive "chiudi sessione":
 2. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 3. Poi scrivere: "Sessione chiusa. Usa /exit per uscire."
 
+## Commit durante la sessione
+
+Claude esegue `task-end.sh` autonomamente (senza aspettare "chiudi sessione") quando:
+- Ha completato un'operazione logica su uno o più file (es. onboarding cliente, aggiornamento stato progetto, modifica knowledge)
+- Le modifiche intermedie sono finite e il risultato è coerente e completo
+- NON dopo ogni singola modifica di file — solo quando l'operazione logica è conclusa
+
+### Conferma utente
+- **Non richiesta** per operazioni routinarie (aggiornamento memoria, aggiornamento stato progetto)
+- **Richiesta** quando l'operazione è significativa o irreversibile (es. eliminazione file, ristrutturazione vault)
+
 ## Sessioni Discord
 
 Ogni invocazione da Discord è un task atomico:
