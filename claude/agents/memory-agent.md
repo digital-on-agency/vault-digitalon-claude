@@ -90,6 +90,14 @@ Quando l'utente digita "exit":
 2. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 3. Poi uscire davvero
 
+## Comando fine sessione
+
+Il comando per chiudere la sessione in modo corretto è "chiudi sessione" (non /exit).
+Quando l'utente scrive "chiudi sessione":
+1. Aggiornare la memoria con tutto quello che è successo nella sessione
+2. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+3. Poi scrivere: "Sessione chiusa. Usa /exit per uscire."
+
 ## Sessioni Discord
 
 Ogni invocazione da Discord è un task atomico:
