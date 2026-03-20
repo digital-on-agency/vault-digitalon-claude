@@ -26,7 +26,7 @@ Autonomo — crea o aggiorna la nota solo se necessario, non crea file vuoti o i
 Se esiste già `daily-notes/YYYY-MM-DD.md` per oggi: aggiorna il file esistente aggiungendo in coda, non creare un secondo file.
 
 ## Struttura della nota
-
+```md
 # YYYY-MM-DD
 ## Fatto oggi
 * [sintesi delle attività rilevanti]
@@ -36,7 +36,7 @@ Se esiste già `daily-notes/YYYY-MM-DD.md` per oggi: aggiorna il file esistente 
 * [decisioni su progetti, clienti, infrastruttura, agenzia, stack]
 ## Note per la prossima sessione
 * [contesto utile da ricordare]
-
+```
 ## Processo
 1. Valuta se la sessione ha prodotto contenuto che rientra nei criteri sopra
 2. Se no: non fare nulla
