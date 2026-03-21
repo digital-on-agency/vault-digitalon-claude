@@ -1,2 +1,3 @@
 .silverbullet.auth.json
 .mcp.json
+clients/**/secrets.md
