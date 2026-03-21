@@ -1,23 +1,30 @@
-# [Nome Progetto]
+# [Nome Progetto] — [Nome Cliente]
+<!-- ultimo aggiornamento: YYYY-MM-DD -->
 
 ## Obiettivo
+<!-- DA COMPLETARE -->
+Cosa deve raggiungere questo progetto e per chi.
 
-<!-- DA COMPLETARE: cosa deve ottenere questo progetto, KPI di riferimento -->
+## Stato attuale
+Stato: <!-- attivo / in pausa / completato / archiviato -->
+Ultimo aggiornamento stato: YYYY-MM-DD
 
-## Stato
+## Stack tecnologico
+<!-- Tool e tecnologie usate specificamente in questo progetto -->
 
-- **Fase attuale**: <!-- DA COMPLETARE -->
-- **Ultimo aggiornamento**: <!-- DA COMPLETARE -->
-- **Percentuale completamento**: <!-- DA COMPLETARE -->
+## Decisioni prese
+<!-- Decisioni significative prese durante il progetto, in ordine cronologico -->
+<!-- Formato: - [YYYY-MM-DD] [decisione] -->
 
 ## Prossimi passi
+<!-- Lista di task da fare -->
 
-<!-- Azioni concrete da fare, in ordine di priorità. Formato: [ ] azione — responsabile — scadenza -->
+## Problemi aperti
+<!-- Problemi noti o blocchi attuali -->
 
-## Problemi e blocchi
-
-<!-- Problemi aperti che impediscono l'avanzamento. Formato: data — problema — stato (aperto/risolto) — soluzione -->
+## Storico
+<!-- Riassunto delle fasi precedenti. Popolato automaticamente durante la compressione del file -->
 
 ## Note operative
-
-<!-- Dettagli tecnici, configurazioni, accessi, scelte implementative specifiche di questo progetto -->
+<!-- Informazioni tecniche, configurazioni, link utili specifici del progetto -->
+<!-- Per credenziali e accessi sensibili usa secrets.md nella stessa cartella -->
