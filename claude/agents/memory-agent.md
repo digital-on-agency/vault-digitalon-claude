@@ -55,6 +55,37 @@ Sviluppo · CRM · Chatbot · Ads · SEO · Analytics · Call · Strategia · Su
 - `secrets.md` (gestito manualmente)
 - Template in `clients/_template/`
 
+### Aggiornamento progetti
+
+Quando durante una sessione emerge un'informazione nuova su un progetto, seguire questo processo:
+
+**1. Classifica per tipo di progetto:**
+
+Sito web → verifica se è cambiato: stato, URL staging/produzione, stack, deploy, integrazioni
+CRM → verifica se è cambiato: stato, moduli implementati, flussi, integrazioni, utenti e ruoli
+Chatbot → verifica se è cambiato: stato, canali, knowledge base, tono, escalation, integrazioni
+Ads → verifica se è cambiato: stato, budget, campagne attive, KPI, creatività, piattaforme
+SEO → verifica se è cambiato: stato, fase, keyword, traffico attuale, problemi identificati
+
+**2. Aggiorna i prossimi passi:**
+- Quando un task viene completato: spostalo in Storico con esito
+- Quando emerge un nuovo task: aggiungilo in Prossimi passi con ID nel formato [CLIENTE]-[ANNO]-[NUM] e scadenza
+- Quando un task è bloccato: spostalo in Problemi aperti con motivazione
+
+**3. Aggiorna le decisioni:**
+- Decisione tecnica su singolo progetto → `clients/[cliente]/projects/[progetto]/CLAUDE.md` sezione Decisioni tecniche con tag [BLOCCATO] o [DEFAULT]
+- Decisione strategica trasversale al cliente → `clients/[cliente]/CLAUDE.md` sezione Vincoli e decisioni trasversali
+- Decisione globale → `memory/decisions.md`
+
+**4. Comportamento per sessione:**
+- Sessione Discord: non scrivere mai direttamente — aggiungi tag `<!-- PROPOSTA -->` e notifica su Discord cosa aggiorneresti e perché
+- Sessione interattiva: proponi sempre all'utente prima di scrivere, elenca cosa cambieresti e dove
+
+**5. Non aggiornare mai:**
+- Template in `clients/_template/projects/`
+- Stack tecnologico senza conferma esplicita — è un campo critico
+- Decisioni con tag [BLOCCATO] senza conferma esplicita dell'utente
+
 ### daily-notes/YYYY-MM-DD.md
 Creare SOLO se ci sono informazioni importanti da mantenere o task rimasti in sospeso. Non creare se la sessione non ha prodotto nulla di rilevante.
 
