@@ -18,7 +18,7 @@
 **Note relazionali**: Michele ingaggia e paga, referente per report e attività ordinarie. Anna solo per autorizzazioni specifiche (Google Search Console, accessi). WhatsApp studio: +39 347 607 3402
 
 ## Vincoli e decisioni trasversali
-<!-- DA COMPLETARE -->
+[BLOCCATO] 2026-03-03 — SEO 6h/mese a €35/h per 12 mesi — accordo con Michele
 
 ## Ecosistema tecnico condiviso
 **Domini**: legalepompei.it
