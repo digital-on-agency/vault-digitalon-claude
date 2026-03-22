@@ -19,11 +19,11 @@ Prima call conoscitiva per avviare collaborazione SEO/GEO sul sito legalepompei.
 [SEO] Referente accessi: Anna Zangrillo (studio@legalepompei.com) + Michele (hauteinnova@gmail.com) — mail condivise
 
 ## Action item
-- [ ] Inviare preventivo aggiornato con dettaglio ore — Guido — ID: POMPEI-26-009
-- [ ] Inviare lista accessi necessari (host, sito, dominio, GTM, GSC) — Guido — ID: POMPEI-26-010
-- [ ] Eseguire audit SEO/GEO preliminare — Guido — ID: POMPEI-26-011
-- [ ] Onboarding portale report Digital On — Guido — ID: POMPEI-26-012
-- [ ] Condividere accessi richiesti — Michele/Anna — <!-- DA CHIARIRE: task cliente, non Digital On -->
+- [x] Inviare preventivo aggiornato con dettaglio ore — Guido — ID: POMPEI-26-009 ✓ completato
+- [x] Inviare lista accessi necessari (host, sito, dominio, GTM, GSC) — Guido — ID: POMPEI-26-010 ✓ completato
+- [x] Eseguire audit SEO/GEO preliminare — Guido — ID: POMPEI-26-011 ✓ completato 2026-03-06
+- [ ] Onboarding portale report Digital On — Guido — ID: POMPEI-26-012 — in corso
+- [x] Condividere accessi richiesti — Michele/Anna ✓ completato
 
 ## Problemi emersi
 - Sito non strutturato per SEO: H1 = nome studio (brand-only), mancano landing geolocalizzate per servizi
