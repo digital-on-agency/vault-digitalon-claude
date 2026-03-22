@@ -29,3 +29,21 @@ Minuscolo, spazi→trattini, no caratteri speciali. "Acme S.r.l."→`acme`
 
 ## Step 3 — Crea struttura
 `cp -r clients/_template clients/[slug]`
+
+## Step 4 — Compila i file
+**CLAUDE.md** — compila con le info raccolte. Campi mancanti → `<!-- DA COMPLETARE -->`
+**log.md** — solo titolo: `# Log attività — [Nome Cliente]`
+**secrets.md** — solo titolo: `# Accessi — [Nome Cliente]`
+**calls/YYYY-MM-DD-[tema].md** — template invariato
+
+## Step 5 — Commit
+`git add clients/[slug]/`
+`git commit -m "onboarding: [Nome Cliente]"`
+Non includere mai secrets.md (già in .gitignore)
+
+## Regole
+- Verifica che lo slug non esista già in clients/
+- Non creare file fuori da clients/[slug]/
+- Progetti interni (Global x Connect, Bid House, Trovapulizie) → stessa struttura clienti esterni
+- Al termine comunica i campi DA COMPLETARE e i prossimi passi
+- Report mensile: Claude legge log.md, filtra per mese/categoria, produce tabella per Softr
