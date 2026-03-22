@@ -55,3 +55,4 @@ Salvare il testo grezzo in calls/raw/YYYY-MM-DD-[tema]-raw.md
 - Non aggiornare mai i CLAUDE.md senza prima mostrare cosa cambierà
 - Task su Airtable solo per action item di competenza Digital On
 - Se la call riguarda più clienti: creare un file separato per cliente
+- MAI eseguire operazioni su Airtable (create, update) senza conferma esplicita dell'utente nella stessa conversazione. Mostrare sempre il riepilogo e attendere "sì", "confermo" o simile. Se l'utente cambia argomento o non risponde: non fare nulla.

@@ -66,3 +66,4 @@ Se il progetto non esiste su Airtable: crealo prima, poi collegalo subito al Bus
 - Ore accetta decimali (es. 1.5 per 1h30m)
 - Default Priorità: Media — Default Stato: Da iniziare
 - Non modificare mai record esistenti — solo creazione
+- MAI eseguire operazioni su Airtable (create, update) senza conferma esplicita dell'utente nella stessa conversazione. Mostrare sempre il riepilogo e attendere "sì", "confermo" o simile. Se l'utente cambia argomento o non risponde: non fare nulla.

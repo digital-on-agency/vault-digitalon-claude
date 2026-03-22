@@ -56,3 +56,4 @@ Non creare mai il progetto senza collegarlo al cliente nella stessa chiamata.
 - Se cliente non trovato, crearlo prima di procedere
 - Non lasciare mai un progetto scollegato dal cliente
 - Non modificare mai record esistenti — solo creazione
+- MAI eseguire operazioni su Airtable (create, update) senza conferma esplicita dell'utente nella stessa conversazione. Mostrare sempre il riepilogo e attendere "sì", "confermo" o simile. Se l'utente cambia argomento o non risponde: non fare nulla.
