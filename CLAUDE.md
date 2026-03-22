@@ -45,7 +45,7 @@ Quando un CLAUDE.md contiene sezioni `<!-- DA COMPLETARE -->`, chiedere all'uten
 
 ## Aggiungere nuovo contenuto al vault
 
-- Nuovo cliente → segui @skills/onboarding-cliente.md
+- Nuovo cliente → segui @skills/client-onboarding.md
 - Nuova competenza → segui @skills/aggiungi-knowledge.md
 - Non creare file o cartelle al di fuori della struttura definita senza indicazione esplicita
 

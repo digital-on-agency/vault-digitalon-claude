@@ -7,11 +7,11 @@ Non scrivere contenuti qui — solo link e riferimenti sintetici.
 
 ## Clienti attivi
 
-<!-- Formato: - [[clients/nome-cliente/CLAUDE.md]] — breve descrizione stato -->
+- [[clients/studio-legale-pompei/CLAUDE.md]] — SEO retainer 12 mesi, referente Michele, sito Webflow legalepompei.it
 
 ## Progetti in corso
 
-<!-- Formato: - [[clients/nome-cliente/projects/nome-progetto/CLAUDE.md]] — breve descrizione stato -->
+- [[clients/studio-legale-pompei/projects/seo-legalepompei/CLAUDE.md]] — SEO legalepompei.it, Fase 1 fix tecnici, 8 task aperti entro 2026-03-31
 
 ## Stato infrastruttura
 
@@ -35,6 +35,8 @@ Non scrivere contenuti qui — solo link e riferimenti sintetici.
 - `clients/_template/CLAUDE.md` — template cliente con identità, comunicazione, ecosistema tecnico, progetti e storico
 - `clients/_template/log.md` — template log attività per report mensili portale Softr
 - `clients/_template/calls/` — template riassunti call con action item
+- `clients/_template/projects/{sito-web,crm,chatbot,ads,seo}/CLAUDE.md` — template progetto per tipo con sezioni specifiche
+- `claude/skills/client-onboarding.md` — skill onboarding nuovo cliente (raccolta info, creazione struttura, commit)
 - `claude/agents/memory-manager.md` — sub-agent per gestione memoria, invoca le skill appropriate
 - `claude/compression-log.md` — log e contatore compressioni automatiche
 
