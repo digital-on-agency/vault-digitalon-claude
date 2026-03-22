@@ -74,7 +74,7 @@ Webflow: modifiche solo tramite editor — nessun accesso FTP/server
 
 ## Storico
 2026-02-25 — call conoscitiva — budget 6h/mese confermato, priorità Formia/Cassino, SEO prima di GEO
-2026-02-25 — preventivo inviato e accettato — POMPEI-26-009 completato
+2026-02-25 — preventivo non necessario, accordo diretto — POMPEI-26-009 annullato
 2026-02-25 — accessi ricevuti (host, sito, GTM, GSC) — POMPEI-26-010 completato
 2026-03-06 — audit SEO+GEO iniziale completato — POMPEI-26-011 completato
 2026-03-22 — onboarding portale report in corso — POMPEI-26-012 in corso
