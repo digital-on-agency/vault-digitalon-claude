@@ -17,7 +17,7 @@
 **Note relazionali**: Guido è il decisore principale. Christian coinvolgere su governance. Team interno: Nicolò, Mattia + specialisti part-time su reliability e security.
 
 ## Vincoli e decisioni trasversali
-[BLOCCATO] 2026-01-01 — Go-live commerciale Roma-first 2026 — strategia approvata
+[BLOCCATO] 2026-04-01 — Go-live commerciale Roma-first — strategia approvata
 [ATTENZIONE] Pre-go-live: decisioni tecniche e GTM hanno impatto diretto su fundraising
 
 ## Ecosistema tecnico condiviso
