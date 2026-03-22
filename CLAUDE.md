@@ -17,6 +17,12 @@
 2. Se trovi materiale in `inbox/`, processalo e classificalo nei posti giusti prima di iniziare il task
 3. Carica i CLAUDE.md del cliente/progetto su cui lavorerai
 
+## Gestione errori MCP
+
+Se durante una sessione un tool MCP restituisce errore o risulta disconnesso:
+- **GA4 (Stape)**: invoca automaticamente la skill `claude/skills/rinova-ga4.md` prima di segnalare l'errore all'utente
+- Per altri MCP: segnala l'errore all'utente con il nome del MCP e il messaggio di errore
+
 ## Memoria
 
 Le regole complete sulla gestione della memoria sono in `claude/agents/memory-agent.md`. Quello è il documento di riferimento per: quando scrivere, dove scrivere, principio di conservazione, compressione automatica.
