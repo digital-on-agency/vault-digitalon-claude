@@ -33,6 +33,28 @@ Tutto sul cliente: info, contatti, preferenze specifiche, storico decisioni, tas
 ### clients/[cliente]/projects/[progetto]/CLAUDE.md
 Stato avanzamento, decisioni di progetto, prossimi passi, problemi aperti, note tecniche.
 
+### Aggiornamento scheda cliente e progetto
+
+Quando durante una sessione emerge un'informazione nuova su un cliente o progetto, seguire questo processo prima di scrivere qualsiasi cosa:
+
+**1. Classifica l'informazione:**
+- Cambia qualcosa sul cliente in generale (referente, contratto, canale, vincoli, ecosistema tecnico)? → `clients/[cliente]/CLAUDE.md`
+- Cambia qualcosa su un progetto specifico (stato, stack, decisioni tecniche, prossimi passi, problemi)? → `clients/[cliente]/projects/[progetto]/CLAUDE.md`
+- È un'attività svolta o un task completato/aggiornato? → `clients/[cliente]/log.md` con formato: `[CLIENTE]-[ANNO]-[NUM] | YYYY-MM-DD | progetto | attività | categoria | tempo | operatore | stato | note portale`
+- È una decisione trasversale a tutti i clienti? → `memory/decisions.md`
+
+**2. Categorie log valide:**
+Sviluppo · CRM · Chatbot · Ads · SEO · Analytics · Call · Strategia · Supporto
+
+**3. Comportamento per sessione:**
+- Sessione Discord: non scrivere mai direttamente — aggiungi tag `<!-- PROPOSTA -->` e notifica su Discord cosa aggiorneresti e perché
+- Sessione interattiva: proponi sempre all'utente prima di scrivere, elenca cosa cambieresti e dove
+
+**4. Non aggiornare mai:**
+- Campi che non sono cambiati esplicitamente
+- `secrets.md` (gestito manualmente)
+- Template in `clients/_template/`
+
 ### daily-notes/YYYY-MM-DD.md
 Creare SOLO se ci sono informazioni importanti da mantenere o task rimasti in sospeso. Non creare se la sessione non ha prodotto nulla di rilevante.
 
