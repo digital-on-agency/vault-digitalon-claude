@@ -162,6 +162,8 @@ Claude esegue `task-end.sh` autonomamente (senza aspettare "chiudi sessione") qu
 - **Non richiesta** per operazioni routinarie (aggiornamento memoria, aggiornamento stato progetto)
 - **Richiesta** quando l'operazione è significativa o irreversibile (es. eliminazione file, ristrutturazione vault)
 
+**Attenzione rename detection git**: dopo operazioni che coinvolgono più file in sequenza (es. cp, mv, eliminazioni), verificare sempre con `git status` che i file siano nei path corretti prima di eseguire il commit. In particolare controllare che log.md e secrets.md siano dentro la cartella cliente e non siano stati rinominati da git.
+
 ## Sessioni Discord
 
 Ogni invocazione da Discord è un task atomico:
