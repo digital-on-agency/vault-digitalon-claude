@@ -37,4 +37,5 @@
 | | SEO legalepompei.it | SEO | Attivo | clients/studio-legale-pompei/projects/seo-legalepompei/ |
 
 ## Storico attività
-<!-- 2026-03-03 — inizio collaborazione — SEO retainer 12 mesi -->
+2026-02-25 — call conoscitiva SEO/GEO — budget confermato, strategia definita, priorità Formia/Cassino
+2026-03-03 — inizio collaborazione — SEO retainer 12 mesi

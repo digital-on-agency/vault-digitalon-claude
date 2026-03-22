@@ -73,4 +73,5 @@ Accessi GSC e Ahrefs → secrets.md
 Webflow: modifiche solo tramite editor — nessun accesso FTP/server
 
 ## Storico
-<!-- 2026-03-06 — audit SEO+GEO iniziale completato — baseline stabilita -->
+2026-02-25 — call conoscitiva — budget 6h/mese confermato, priorità Formia/Cassino, SEO prima di GEO
+2026-03-06 — audit SEO+GEO iniziale completato — baseline stabilita
