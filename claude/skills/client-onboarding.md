@@ -27,8 +27,19 @@ clients/[slug]/
 ## Step 2 — Slug
 Minuscolo, spazi→trattini, no caratteri speciali. "Acme S.r.l."→`acme`
 
-## Step 3 — Crea struttura
-`cp -r clients/_template clients/[slug]`
+### Step 3 — Crea la struttura
+
+Esegui in ordine — NON usare cp -r sulla cartella template intera, copia solo i file necessari:
+```bash
+mkdir -p clients/[slug]
+cp clients/_template/CLAUDE.md clients/[slug]/CLAUDE.md
+cp clients/_template/log.md clients/[slug]/log.md
+cp clients/_template/secrets.md clients/[slug]/secrets.md
+mkdir -p clients/[slug]/calls
+cp clients/_template/calls/YYYY-MM-DD-[tema].md clients/[slug]/calls/
+mkdir -p clients/[slug]/projects/_template
+cp clients/_template/projects/_template/CLAUDE.md clients/[slug]/projects/_template/CLAUDE.md
+```
 
 ## Step 4 — Compila i file
 **CLAUDE.md** — compila con le info raccolte. Campi mancanti → `<!-- DA COMPLETARE -->`
