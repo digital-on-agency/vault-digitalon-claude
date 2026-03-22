@@ -18,10 +18,15 @@ npx -y mcp-remote@0.1.30 https://mcp-ga.stape.ai/mcp > "$LOG_FILE" 2>&1 &
 MCP_PID=$!
 
 # 3. Aspetta che il log si popoli
-sleep 3
+for i in $(seq 1 15); do
+    sleep 1
+    if grep -q "authorize this client" "$LOG_FILE"; then
+        break
+    fi
+done
 
 # 4. Estrai porta OAuth
-PORT=$(grep -oP 'OAuth callback server running at.*:(\K\d+)' "$LOG_FILE" | head -1)
+PORT=$(grep -oP 'callback port: \K\d+' "$LOG_FILE" | head -1)
 if [ -z "$PORT" ]; then
     echo "ERRORE: non riesco a trovare la porta OAuth nel log."
     echo "Contenuto del log:"
@@ -31,7 +36,7 @@ if [ -z "$PORT" ]; then
 fi
 
 # 5. Estrai URL di autorizzazione
-AUTH_URL=$(grep -oP 'Please authorize this client by visiting:\s*\K\S+' "$LOG_FILE" | head -1)
+AUTH_URL=$(grep -A1 'Please authorize this client by visiting:' "$LOG_FILE" | tail -1 | tr -d '[:space:][:cntrl:]')
 if [ -z "$AUTH_URL" ]; then
     echo "ERRORE: non riesco a trovare l'URL di autorizzazione nel log."
     echo "Contenuto del log:"
