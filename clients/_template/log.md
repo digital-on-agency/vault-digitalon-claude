@@ -16,7 +16,7 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 
 | ID Task | Data | Progetto | Attività | Categoria | Tempo (h) | Operatore | Stato | Note portale |
 |---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
-| | | | | | | | | |
+|         |      |          |          |           |           |           |       |              |
 
 <!-- 
 ID Task: formato [CLIENTE]-[ANNO]-[NUM] es: ACME-26-001 — stesso ID usato sul portale Softr
