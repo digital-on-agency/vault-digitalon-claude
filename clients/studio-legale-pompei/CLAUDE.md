@@ -39,3 +39,4 @@
 ## Storico attività
 2026-02-25 — call conoscitiva SEO/GEO — budget confermato, strategia definita, priorità Formia/Cassino
 2026-03-03 — inizio collaborazione — SEO retainer 12 mesi
+2026-03-23 — fattura €1.000 marzo 2026 caricata su portale — stato: Pagata (ID: reclgaJbTQBgaRliZ)
