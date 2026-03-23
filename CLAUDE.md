@@ -53,6 +53,19 @@ Quando un CLAUDE.md contiene sezioni `<!-- DA COMPLETARE -->`, chiedere all'uten
 
 I commit automatici usano il formato `session: YYYY-MM-DD HH:MM`. Per commit manuali su azioni specifiche usare formato descrittivo: `onboarding: cliente X`, `knowledge: aggiunto GTM avanzato`, `fix: aggiornato stato progetto Y`.
 
+## Notifiche Discord
+
+Per inviare notifiche nel canale #sistema di Discord usa sempre:
+`bash ~/vault-digitalon/claude/scripts/notify-discord.sh "messaggio"`
+
+Invia una notifica quando:
+- Una skill di manutenzione completa il suo lavoro (comprimi-memoria, handle-daily-notes, svuota-inbox)
+- Si verifica un errore MCP che richiede attenzione
+- Una riautenticazione MCP viene completata
+- Il cron job di manutenzione completa il suo ciclo
+
+Non inviare notifiche per operazioni routinarie o aggiornamenti normali del vault.
+
 ## Hook git
 
 - **Inizio task:** eseguire `bash ~/vault-digitalon/claude/hooks/task-start.sh`
