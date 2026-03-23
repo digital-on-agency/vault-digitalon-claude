@@ -19,6 +19,10 @@
 ## Vincoli e decisioni trasversali
 [BLOCCATO] 2026-04-01 — Go-live commerciale Roma-first — strategia approvata
 [ATTENZIONE] Pre-go-live: decisioni tecniche e GTM hanno impatto diretto su fundraising
+[DEFAULT] 2026-03-23 — Espansione per microaree (qualità > copertura), no lancio aggressivo su tutta Roma
+[DEFAULT] 2026-03-23 — Priorità assoluta sull'assorbimento offerta (cleaner) prima di generare domanda
+[DEFAULT] 2026-03-23 — Metodo di lavoro: brain dump settimanale → call → task in roadmap
+[DEFAULT] 2026-03-23 — Nuovi stati task: "Bloccato" e "Collo di bottiglia"
 
 ## Ecosistema tecnico condiviso
 **Domini**: trovapulizie.it
@@ -38,6 +42,11 @@
 | recE1N3FD5rpVlJWf | SEO | SEO | Attivo | clients/trovapulizie/projects/seo/ |
 | recYVmZc1Ty5HFelf | CRM & Tracking | CRM | Attivo | clients/trovapulizie/projects/crm-tracking/ |
 | rec3TrvmAcx5qaWcx | Partnership PM | Generico | Attivo | clients/trovapulizie/projects/partnership-pm/ |
+| recOy0DaOECLLZsEh | Acquisizione Cleaner | Generico | Attivo | clients/trovapulizie/projects/acquisizione-cleaner/ |
+| recJm38vTzSikTZxY | GTM & Lancio Roma | Generico | Attivo | clients/trovapulizie/projects/gtm-lancio-roma/ |
+| recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-23 — Call strategia lancio: definito metodo lavoro (brain dump settimanale), focus Instant Booking, espansione microaree, recupero 120 cleaner, marketing organico/volantinaggio, logo da rifare, assistente AI in-app futuro. Partecipanti: Guido, Niccolò, Matti, Christian. Vedi calls/2026-03-23-strategia-lancio.md -->
+<!-- 2026-03-23 — Creati 3 nuovi progetti: Acquisizione Cleaner, GTM & Lancio Roma, Brand Identity -->
 <!-- 2026-02-20 — inizio collaborazione -->
