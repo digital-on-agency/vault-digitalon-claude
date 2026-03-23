@@ -18,12 +18,20 @@ Questa skill crea il profilo utente su Airtable, lo collega al cliente e al prog
 - Tabella Users: `tblUZSu2Goo77rTf5`
   - Nome: `fldgSde4cXK4QEzAh`
   - Email: `fldbBaFVRaRtb4ivM`
-  - User Type: `fldveDXZqw548IAAo` → valore: `Client`
-  - Progetti: `fldC3XoqnOtg7AqWR`
+  - User Type: `fldveDXZqw548IAAo` → valore: `Client` (solo informativo, non usato da Softr per i gruppi)
+  - User Group: `fldfrfb3UKRAovtxK` (link a tabella User Group)
+- Tabella User Group: `tblyNGER0nZVFezfE` ← QUI Softr assegna i gruppi
+  - Group: `fldFGnXiv12WqPVM7`
+  - Users: `fldvd2Ln22rrHRhnQ`
+  - Record ID gruppo Client: `recDvbTRzYAiSRCL5`
+  - Record ID gruppo Agency: `recftK9cHonWFa98O`
+  - Record ID gruppo Collaborator: `rec1Pb3NExJRhMHyR`
 - Tabella Clienti/Business: `tbldMv8I4Wlo9s9BM`
   - Users: `fld4t8fcrVJV8S0DZ`
 - Tabella Progetti/Servizi: `tblylhAgyc47wEal2`
   - Users: `fldFRHwtKtTdVnQa0`
+
+**IMPORTANTE:** Softr assegna i gruppi tramite la tabella `User Group`, non tramite il campo `User Type`. Per assegnare il gruppo Client a un utente, aggiungere il suo record ID al campo Users (`fldvd2Ln22rrHRhnQ`) del record Client in User Group (`recDvbTRzYAiSRCL5`).
 
 ---
 
@@ -70,21 +78,19 @@ Procedere SOLO dopo conferma esplicita.
 
 ### Step 4 — Crea il profilo su Airtable
 
-Se non esiste ancora, usa `create_records_for_table` sulla tabella Users:
-```json
-{
-  "fldgSde4cXK4QEzAh": "[nome]",
-  "fldbBaFVRaRtb4ivM": "[email]",
-  "fldveDXZqw548IAAo": "Client"
-}
-```
+Se non esiste ancora, usa `create_records_for_table` sulla tabella Users con nome ed email.
+Salva il record ID restituito — serve per il passo successivo.
 
 ---
 
-### Step 5 — Collega a cliente e progetti
+### Step 5 — Collega a cliente, progetti e gruppo Softr
 
 1. Aggiorna il record cliente in Clienti/Business — aggiungi l'utente al campo `Users` (`fld4t8fcrVJV8S0DZ`)
 2. Per ogni progetto, aggiorna il record in Progetti/Servizi — aggiungi l'utente al campo `Users` (`fldFRHwtKtTdVnQa0`)
+3. **CRITICO per Softr** — aggiungi l'utente al gruppo Client nella tabella User Group:
+   - Leggi prima i membri attuali del record `recDvbTRzYAiSRCL5` nella tabella `tblyNGER0nZVFezfE`
+   - Aggiorna il campo `fldvd2Ln22rrHRhnQ` aggiungendo il nuovo record ID utente alla lista esistente
+   - Senza questo passaggio Softr non riconosce il gruppo e l'utente vede tutto
 
 ---
 
