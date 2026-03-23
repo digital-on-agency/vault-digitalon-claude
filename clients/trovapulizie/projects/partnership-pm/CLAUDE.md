@@ -2,38 +2,31 @@
 Tipo: Generico
 
 ## Obiettivo
-<!-- Cosa deve raggiungere questo progetto, per chi e perché -->
+Attività commerciali e di partnership volte ad attrarre sulla piattaforma property manager e proprietari di strutture ricettive (B&B, hotel, case vacanza). Focus su acquisizione e gestione delle relazioni commerciali lato domanda professionale.
 
 ## Stato attuale
-**Stato**: <!-- In analisi / In corso / In pausa / Completato -->
-**Ultimo aggiornamento**: YYYY-MM-DD
-**Fase attuale**: <!-- descrizione libera della fase -->
-
-## Descrizione
-<!-- Contesto esteso del progetto — cosa è, come funziona, dipendenze -->
+**Stato**: Attivo
+**Ultimo aggiornamento**: 2026-03-23
+**Fase attuale**: Pre-lancio — strategia da definire post go-live microarea
 
 ## Attività principali
-<!-- Lista delle macro-attività che compongono il progetto -->
-- [ ]
-
-## Stack / Tool
-<!-- Tool, piattaforme, tecnologie coinvolte — se applicabile -->
-
-## Integrazioni
-<!-- Sistemi collegati, API, dipendenze esterne -->
+- Identificare e contattare property manager nella microarea di lancio
+- Sviluppare offerta dedicata per strutture ricettive
+- Gestire relazioni commerciali con partner B2B
 
 ## Decisioni prese
-<!-- [BLOCCATO] o [DEFAULT] — decisione — motivazione -->
+[DEFAULT] 2026-03-23 — Priorità sull'offerta (cleaner) prima di attivare canali B2B
+[ATTENZIONE] Le attività di partnership partono dopo il consolidamento dell'offerta cleaner
 
 ## Prossimi passi
-<!-- [ ] task — ID: [CLIENTE]-[ANNO]-[NUM] — entro: YYYY-MM-DD -->
+<!-- DA DEFINIRE — in attesa di go-live e consolidamento offerta cleaner -->
 
 ## Problemi aperti
-<!-- Blocchi attivi, rischi, dipendenze non risolte -->
+<!-- Nessun blocco attivo — progetto in standby pre-lancio -->
 
 ## Note operative
-<!-- Tutto ciò che serve sapere prima di lavorarci
-     Credenziali → secrets.md -->
+Referente principale: Guido per decisioni commerciali.
+Christian da coinvolgere su governance delle partnership.
 
 ## Storico
-<!-- YYYY-MM-DD — attività — esito -->
+<!-- 2026-03-23 — onboarding vault — progetto definito come canale B2B property manager -->
