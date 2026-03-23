@@ -1,6 +1,6 @@
 ---
 name: comprimi-memoria
-description: Comprime i file di memoria quando superano 50KB o ogni 20 commit. Autonomo, notifica su Discord al termine. Tiene log in claude/compression-log.md.
+description: Comprime i file di memoria quando superano 50KB o ogni 20 commit. Autonomo, notifica su Discord al termine tramite notify-discord.sh. Tiene log in claude/compression-log.md.
 allowed-tools: bash, read, write, edit, glob
 ---
 
@@ -61,7 +61,7 @@ Se trova materiale in `inbox/` durante l'esecuzione, invoca la skill `svuota-inb
       - Sezione "Ultimo commit compressione": scrivi il numero attuale di commit
       - Sezione "Storico compressioni": appendi un nuovo blocco con data, trigger, file compressi e sintesi di cosa è stato riassunto e dove
 
-   d. Invia notifica su Discord con: lista file compressi e sintesi delle modifiche
+   d. Invia notifica su Discord: `bash ~/vault-digitalon/claude/scripts/notify-discord.sh "Compressione memoria: [lista file] — [sintesi modifiche]"`
 
    e. Commit con messaggio `compress: compressa memoria - [lista file] - [sintesi]`
 
