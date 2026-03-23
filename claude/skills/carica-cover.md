@@ -75,6 +75,10 @@ Cartella: `Cover/[slug-cliente]/`
 Nome file: `[nome-progetto]-cover.[ext]`
 
 Ottieni il link pubblico dopo l'upload.
+IMPORTANTE: il link deve essere in formato diretto per Airtable:
+https://drive.google.com/uc?export=download&id=[FILE_ID]
+NON usare il link di condivisione (https://drive.google.com/file/d/.../view) — Airtable scaricherebbe la pagina HTML invece del file.
+Per ottenere il FILE_ID dal link di condivisione: estrai la stringa tra /d/ e /view.
 
 ---
 
