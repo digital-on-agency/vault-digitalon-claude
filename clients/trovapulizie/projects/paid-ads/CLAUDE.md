@@ -2,48 +2,45 @@
 Tipo: Ads
 
 ## Obiettivo
+Generare domanda qualificata sulla piattaforma tramite campagne Google Search (local intent) e Meta (retargeting). Le campagne partiranno dopo il go-live commerciale, una volta consolidata l'offerta nella microarea di lancio.
 
 ## Stato attuale
-**Stato**: <!-- In setup / Attivo / In pausa / Concluso -->
-**Ultimo aggiornamento**: YYYY-MM-DD
+**Stato**: Attivo
+**Ultimo aggiornamento**: 2026-03-23
+**Fase attuale**: Setup/pre-lancio — in attesa di go-live commerciale (2026-04-01)
 
 ## Account e piattaforme
-**Meta Ads**: 
-**Google Ads**: 
-**Altre piattaforme**: 
-**Google Analytics**: 
-**Pixel/Tag**: 
+**Meta Ads**: DA COMPLETARE
+**Google Ads**: DA COMPLETARE
+**Google Analytics**: GA4 — property ID 428236871
+**Pixel/Tag**: DA COMPLETARE
 
 ## Budget
-**Budget mensile totale**: 
-**Ripartizione per piattaforma**: 
-**Modello**: 
+**Budget mensile totale**: DA DEFINIRE
+**Ripartizione per piattaforma**: DA DEFINIRE
+**Modello**: DA DEFINIRE
 
 ## Target
-**Pubblico principale**: 
-**Geolocalizzazione**: 
-**Audience personalizzate**: 
+**Pubblico principale**: Privati e famiglie che cercano servizi di pulizia a Roma
+**Geolocalizzazione**: Roma — microarea di lancio (da identificare)
+**Audience personalizzate**: Retargeting visitatori sito
 
 ## Campagne attive
-<!-- Nome — obiettivo — piattaforma — budget — stato -->
-
-## Creatività
-**Formato principale**: 
-**Chi produce**: 
-**Frequenza rinnovo**: 
-
-## KPI e obiettivi
+<!-- Nessuna campagna attiva — pre-lancio -->
 
 ## Decisioni strategiche
-<!-- [BLOCCATO] o [DEFAULT] — decisione — motivazione -->
+[DEFAULT] 2026-03-23 — Google Search su local intent + Meta retargeting come canali principali
+[ATTENZIONE] Le campagne partono solo dopo che l'offerta nella microarea è consolidata
 
 ## Prossimi passi
-<!-- [ ] task — ID: [CLIENTE]-[ANNO]-[NUM] — entro: YYYY-MM-DD -->
+<!-- DA DEFINIRE post go-live -->
 
 ## Problemi aperti
+<!-- Nessun blocco attivo — in attesa go-live -->
 
 ## Note operative
-<!-- Credenziali → secrets.md -->
+Coordinare con GTM & Lancio Roma per allineamento su microarea e timing attivazione campagne.
+Accessi → secrets.md
 
 ## Storico
-<!-- YYYY-MM-DD — attività — esito -->
+<!-- 2026-03-23 — onboarding vault — progetto in setup pre-lancio -->
