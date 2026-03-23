@@ -2,36 +2,39 @@
 Tipo: CRM
 
 ## Obiettivo
+Strutturare il tracking degli eventi chiave sulla piattaforma e configurare una dashboard KPI per monitorare le performance operative e di business in tempo reale.
 
 ## Stato attuale
-**Stato**: <!-- In analisi / In sviluppo / In staging / Live / In manutenzione -->
-**Ultimo aggiornamento**: YYYY-MM-DD
-**URL produzione**: 
-**URL staging**: 
+**Stato**: Attivo
+**Ultimo aggiornamento**: 2026-03-23
+**Fase attuale**: Setup — configurazione dashboard KPI in corso
 
-## Stack tecnologico
-**Base**: 
-**Database**: 
-**Hosting**: 
-**Repository**: 
-**Deploy**: 
+## Stack
+**Analytics**: GA4 — property ID 428236871
+**CRM/Ops**: Airtable (single source of truth operativa)
+**Tag Management**: DA COMPLETARE
+**Dashboard**: DA DEFINIRE
 
-## Moduli e flussi implementati
+## KPI da tracciare
+<!-- DA DEFINIRE — da allineare con il team -->
+- Prenotazioni completate
+- Tasso di conversione booking
+- Cleaner attivi / disponibili
+- Transazioni completate vs abbandonate
+- Retargeting audiences
 
-## Integrazioni
-
-## Utenti e ruoli
-
-## Decisioni tecniche
-<!-- [BLOCCATO] o [DEFAULT] — decisione — motivazione -->
+## Decisioni prese
+[DEFAULT] 2026-03-23 — Configurare dashboard KPI piattaforma — Matti — entro 04/04/2026
 
 ## Prossimi passi
-<!-- [ ] task — ID: [CLIENTE]-[ANNO]-[NUM] — entro: YYYY-MM-DD -->
+- [ ] Configurare dashboard KPI piattaforma — Matti — entro: 2026-04-04
 
 ## Problemi aperti
+<!-- Nessun blocco attivo al momento -->
 
 ## Note operative
-<!-- Struttura DB, convention sviluppo. Credenziali → secrets.md -->
+Airtable è il layer operativo/CRM — GA4 per analytics web.
+Accessi → secrets.md
 
 ## Storico
-<!-- YYYY-MM-DD — attività — esito -->
+<!-- 2026-03-23 — onboarding vault — KPI dashboard identificata come priorità pre-lancio -->
