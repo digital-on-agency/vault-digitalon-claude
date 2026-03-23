@@ -18,7 +18,7 @@ echo "[$TIMESTAMP] Inizio manutenzione vault"
 
 cd ~/vault-digitalon
 
-if claude -p "esegui la skill manutenzione-vault"; then
+if claude --dangerously-skip-permissions -p "esegui la skill manutenzione-vault"; then
     echo "[$TIMESTAMP] Manutenzione completata con successo"
 else
     EXIT_CODE=$?
