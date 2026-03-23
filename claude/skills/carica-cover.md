@@ -12,7 +12,7 @@ Questa skill carica un'immagine su Google Drive e aggiorna il campo Cover del pr
 **Base:** appHtzPRdNURXVvgo
 **Tabella Progetti/Servizi:** tblylhAgyc47wEal2
 - Nome: fldhGdGhIRk8Op4uL
-- Cover: fldH90Nx5evEFikFW (attachment — URL pubblico)
+- Cover URL: fldSQUzIP2dKwOdBT (url — link pubblico Drive)
 - Business: fld1WwX7YCdV6l9U0
 **Tabella Clienti/Business:** tbldMv8I4Wlo9s9BM
 
@@ -93,7 +93,7 @@ curl -s -X PATCH "https://api.airtable.com/v0/appHtzPRdNURXVvgo/tblylhAgyc47wEal
   -H "Content-Type: application/json" \
   -d '{
     "fields": {
-      "fldH90Nx5evEFikFW": [{"url": "[LINK_DRIVE]", "filename": "[NOME_FILE]"}]
+      "fldSQUzIP2dKwOdBT": "[LINK_DRIVE]"
     }
   }'
 ```
