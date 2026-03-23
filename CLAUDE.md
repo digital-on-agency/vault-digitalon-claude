@@ -3,7 +3,7 @@
 ## Struttura del vault
 
 - `agency/` — identità, stack, workflow, tono e info commerciali di Digital On. File statici, mai modificare senza istruzione esplicita
-- `clients/` — un sottofolder per cliente, ognuno con CLAUDE.md e projects/. Template in `_template/`
+- `clients/` — un sottofolder per cliente, ognuno con CLAUDE.md e projects/. Template in `_template/`. **La lista clienti si ottiene sempre leggendo la directory `clients/` — non da MEMORY.md**
 - `claude/` — agenti, skill, hook git. Infrastruttura Claude Code
 - `daily-notes/` — note giornaliere, solo quando ci sono info rilevanti da conservare
 - `inbox/` — area staging per materiale non ancora classificato
@@ -13,9 +13,10 @@
 
 ## Prima di ogni task
 
-1. Leggi `memory/MEMORY.md` per avere il contesto globale
-2. Se trovi materiale in `inbox/`, processalo e classificalo nei posti giusti prima di iniziare il task
-3. Carica i CLAUDE.md del cliente/progetto su cui lavorerai
+1. Leggi `memory/MEMORY.md` per il contesto globale (infrastruttura, decisioni, preferenze)
+2. Per conoscere i clienti attivi: usa `list_files clients/` — non fare riferimento a MEMORY.md per i clienti
+3. Se trovi materiale in `inbox/`, processalo e classificalo nei posti giusti prima di iniziare il task
+4. Carica i CLAUDE.md del cliente/progetto su cui lavorerai
 
 ## Gestione errori MCP
 
@@ -26,6 +27,8 @@ Se durante una sessione un tool MCP restituisce errore o risulta disconnesso:
 ## Memoria
 
 Le regole complete sulla gestione della memoria sono in `claude/agents/memory-agent.md`. Quello è il documento di riferimento per: quando scrivere, dove scrivere, principio di conservazione, compressione automatica.
+
+**Importante:** MEMORY.md non deve elencare i clienti — la fonte di verità per i clienti è la directory `clients/`. MEMORY.md contiene solo contesto globale: infrastruttura, decisioni trasversali, preferenze.
 
 ## Lavorare su un progetto cliente
 
