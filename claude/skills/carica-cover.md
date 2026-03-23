@@ -1,20 +1,18 @@
 ---
 name: carica-cover
-description: Carica un'immagine cover su Google Drive e aggiorna il campo Cover del progetto su Airtable. Usa questa skill ogni volta che l'utente dice "carica cover", "aggiungi immagine progetto", "aggiorna cover", "imposta copertina progetto" o simili. Chiede sempre conferma prima di aggiornare.
+description: Carica un'immagine cover su Google Drive e aggiorna il campo Cover del progetto su Airtable. Usa questa skill ogni volta che l'utente dice "carica cover", "aggiungi immagine progetto", "aggiorna cover", "imposta copertina progetto" o simili. Verifica se il file esiste già su Drive prima di caricare. Chiede sempre conferma prima di aggiornare.
 ---
 
 # Carica Cover Progetto — Digital On Agency
 
-Questa skill carica un'immagine su Google Drive e aggiorna il campo Cover del progetto su Airtable, rendendola visibile su Softr.
+Questa skill carica un'immagine cover su Google Drive e aggiorna il campo Cover del progetto su Airtable, rendendola visibile su Softr.
 
 ## Riferimenti Airtable
 
 **Base:** appHtzPRdNURXVvgo
 **Tabella Progetti/Servizi:** tblylhAgyc47wEal2
 - Nome: fldhGdGhIRk8Op4uL
-- Cover URL: fldSQUzIP2dKwOdBT (url — link pubblico Drive)
-- Business: fld1WwX7YCdV6l9U0
-**Tabella Clienti/Business:** tbldMv8I4Wlo9s9BM
+- Cover: fldzVrkVeBcepZ5dq (multipleAttachments — URL pubblico Drive)
 
 ## Come leggere il token Airtable
 
@@ -28,34 +26,59 @@ if not token:
     for i,a in enumerate(args):
         if '--header' in a and i+1 < len(args):
             token = args[i+1].replace('Authorization:Bearer ','')
-print(token)
+print(token.strip())
 " 2>/dev/null)
 ```
 
+## Naming convention
+
+Il file su Drive deve seguire sempre questo formato:
+```
+Cover/[slug-cliente]/[nome-progetto]-cover.[ext]
+```
+
+Esempi:
+- Cover/studio-legale-pompei/seo-legalepompei-cover.jpg
+- Cover/trovapulizie/portale-transazionale-cover.png
+
+Lo slug del nome progetto è: minuscolo, spazi → trattini, no caratteri speciali.
+
+---
+
 ## Processo
 
-### Step 1 — Ricevi l'immagine
+### Step 1 — Ricevi l'immagine e il progetto
 
-L'immagine può arrivare in due modi:
-- **File allegato** — l'utente allega l'immagine
-- **URL** — l'utente fornisce un URL pubblico dell'immagine
-
-Chiedi anche il nome del progetto a cui associare la cover se non è chiaro.
+Chiedi se non è chiaro:
+- Immagine allegata o URL
+- Nome del progetto
 
 ---
 
-### Step 2 — Carica su Google Drive
+### Step 2 — Verifica se il file esiste già su Drive
 
-Usa il connettore workspace-digitalon per caricare in:
-Cover/[slug-cliente]/[nome-progetto]-cover.[ext]
+Prima di caricare, usa il connettore workspace-digitalon per cercare il file nella cartella `Cover/[slug-cliente]/` con il nome `[nome-progetto]-cover.[ext]`.
 
-Ottieni il link pubblico del file dopo l'upload.
+Se esiste già:
+```
+Il file [nome-progetto]-cover.[ext] esiste già su Drive.
+Vuoi sovrascriverlo o mantenere quello esistente e usare il link già presente?
+```
+
+Se non esiste, procedi con l'upload.
 
 ---
 
-### Step 3 — Trova il Record ID del progetto
+### Step 3 — Carica su Google Drive (solo se non esiste o si vuole sovrascrivere)
 
-Usa curl per cercare il progetto in Progetti/Servizi per nome:
+Cartella: `Cover/[slug-cliente]/`
+Nome file: `[nome-progetto]-cover.[ext]`
+
+Ottieni il link pubblico dopo l'upload.
+
+---
+
+### Step 4 — Trova il Record ID del progetto
 
 ```bash
 curl -s "https://api.airtable.com/v0/appHtzPRdNURXVvgo/tblylhAgyc47wEal2" \
@@ -69,13 +92,13 @@ for r in data.get('records',[]):
 
 ---
 
-### Step 4 — Mostra riepilogo e chiedi conferma
+### Step 5 — Mostra riepilogo e chiedi conferma
 
 ```
 Sto per aggiornare la cover su Airtable:
 
 📁 Progetto: [nome progetto]
-🖼️ Immagine: [nome file]
+🖼️ File: [nome-progetto]-cover.[ext]
 🔗 Link Drive: [link]
 
 Confermo?
@@ -85,7 +108,7 @@ Procedere SOLO dopo conferma esplicita.
 
 ---
 
-### Step 5 — Aggiorna il record su Airtable via curl
+### Step 6 — Aggiorna il record su Airtable via curl
 
 ```bash
 curl -s -X PATCH "https://api.airtable.com/v0/appHtzPRdNURXVvgo/tblylhAgyc47wEal2/[RECORD_ID]" \
@@ -93,24 +116,25 @@ curl -s -X PATCH "https://api.airtable.com/v0/appHtzPRdNURXVvgo/tblylhAgyc47wEal
   -H "Content-Type: application/json" \
   -d '{
     "fields": {
-      "fldSQUzIP2dKwOdBT": "[LINK_DRIVE]"
+      "fldzVrkVeBcepZ5dq": [{"url": "[LINK_DRIVE]", "filename": "[NOME_FILE]"}]
     }
   }'
 ```
 
 ---
 
-### Step 6 — Conferma
+### Step 7 — Conferma
 
-Dopo l'aggiornamento:
-1. Comunica: "Cover aggiornata su Airtable ✓ — visibile su Softr nella pagina Progetti"
+1. Comunica: "Cover aggiornata su Airtable e visibile su Softr nella pagina Progetti"
 
 ---
 
 ## Regole
 
+- MAI caricare senza prima verificare se il file esiste già su Drive
 - MAI aggiornare senza conferma esplicita
-- Cartella Drive: Cover/[slug-cliente]/
+- Usare SEMPRE il formato nome: [nome-progetto]-cover.[ext]
 - Usare SEMPRE curl per Airtable — non il connettore MCP
 - Formati accettati: JPG, PNG, WebP
 - Se il progetto non viene trovato su Airtable, segnalarlo e non procedere
+- Eliminare Cover URL da Airtable se ancora presente — il campo corretto è Cover (fldzVrkVeBcepZ5dq)
