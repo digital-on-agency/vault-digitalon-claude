@@ -6,7 +6,7 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 
 ## Stato attuale
 **Stato**: In corso
-**Ultimo aggiornamento**: 2026-03-22
+**Ultimo aggiornamento**: 2026-03-24
 **Fase attuale**: Pre-go-live — focus su Instant Booking, onboarding cleaner e acquisizione offerta per microarea di lancio
 **URL produzione**: trovapulizie.it
 **URL staging**: <!-- DA COMPLETARE -->
@@ -294,11 +294,37 @@ Monorepo con due applicazioni principali:
 - Introdurre CleanerRoute o protezione equivalente
 - Centralizzare `VITE_BACKEND_URL` in un modulo unico
 
+## Staging — blocchi da risolvere (2026-03-24)
+Analisi fatta su branch `staging` (repo locale `~/trovapulizie`). Nessun branch `origin/v2`.
+
+**Infrastruttura mancante:**
+- `.env` assenti su disco (sia `front-end/.env` che `back-end/.env`) — gitignored ma mai creati localmente. Servono i valori per staging (Supabase, Stripe test keys, Firebase, ecc.)
+- Nessun `ecosystem.config.js` — PM2 non configurato (e non installato sulla macchina locale)
+- Nessuna config Nginx locale (`/etc/nginx/sites-available/` vuoto)
+
+**Backend non pronto per produzione/staging:**
+- `package.json` back-end ha solo `dev` (ts-node-dev) — manca script `build` (tsc) e `start` (node dist/)
+- Serve decidere: compilazione TypeScript + PM2, oppure ts-node-dev anche in staging?
+
+**Deploy:**
+- `front-end-deploy.sh` esiste e punta a `root@46.16.90.190:/srv/trovapulizie/archives/` (produzione Serverplan)
+- Non esiste script deploy per backend ne per staging
+- Non esiste script/config per ambiente staging separato
+
+**Prossimi step per staging:**
+1. Creare `.env` per entrambi (frontend con `VITE_BACKEND_URL` staging, backend con Supabase/Stripe test keys)
+2. Aggiungere script `build` e `start` al back-end `package.json`
+3. Creare `ecosystem.config.js` per PM2 (o decidere alternativa)
+4. Creare config Nginx per staging (subdomain o porta diversa)
+5. Decidere dove gira staging: stessa macchina `46.16.90.190` o altra?
+6. Creare deploy script per staging
+
 ## Note operative
 Hardening tecnico (serverplan, monitoring, alerting, reliability, release gates) è parte integrante di questo progetto — non un progetto separato.
 Accessi → secrets.md
 
 ## Storico
+<!-- 2026-03-24 — Analisi staging: infrastruttura mancante (.env, PM2, Nginx, build script backend, deploy script staging) -->
 <!-- 2026-03-23 — Call strategia lancio: Instant Booking core, espansione microaree, recupero 120 cleaner, matchmaking IA, logo da rifare, assistente AI futuro -->
 <!-- 2026-02-20 — inizio sviluppo con Digital On come socio -->
 <!-- 2026-03-22 — onboarding vault — test controllati completati, pre-go-live -->
