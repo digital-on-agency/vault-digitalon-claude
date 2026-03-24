@@ -49,7 +49,7 @@ Brainstorming operativo e strategico per definire metodo di lavoro, strategia di
 
 ## Action item
 
-- [ ] Implementare sezione brainstorming su Cloud (cartella centralizzata filtrabile) — **Niccolò Fulgaro** — entro: 2026-03-28
+- [x] Implementare sezione brainstorming su Cloud (cartella centralizzata filtrabile) — **Niccolò Fulgaro** — entro: 2026-03-28
 - [ ] Creare script intervista telefonica per cleaner (zone coperte, disponibilità instant booking, uso calendario) — **Digital On (Guido)** — entro: 2026-04-05 <!-- al ritorno di Guido il 5 aprile -->
 - [ ] Contattare telefonicamente i 120 vecchi cleaner con lo script — **Digital On (Guido)** — entro: 2026-04-12
 - [ ] Configurare visualizzazione dati/KPI piattaforma su software — **Matti Sonetti** — entro: 2026-04-04
@@ -59,7 +59,7 @@ Brainstorming operativo e strategico per definire metodo di lavoro, strategia di
 - [ ] Preparare materiale volantinaggio per microarea di lancio — **Digital On** — entro: da definire dopo identificazione microarea
 - [ ] Identificare microarea di partenza in base a copertura geografica cleaner — **Team** — entro: 2026-04-12
 - [ ] Implementare cron job lunedì mattina per riassunto brainstorming/commenti — **Niccolò Fulgaro** — entro: 2026-03-28
-- [ ] Creare canale Discord per Christian Pascolini — **Niccolò Fulgaro** — fatto/in corso
+- [x] Creare canale Discord per Christian Pascolini — **Niccolò Fulgaro** — fatto/in corso
 
 ## Problemi emersi
 
