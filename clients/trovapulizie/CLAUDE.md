@@ -38,6 +38,7 @@
 **Google Workspace**: trovapulizie.it@gmail.com
 **Hosting strategy**: Backend su VPS esterno (non Bluehost — incompatibilità Node), frontend statico su Bluehost (public_html/), DB su Supabase
 **Target risorse**: 2 vCPU, 2GB RAM, 20GB SSD; ~5k utenti registrati, 50-100 concorrenti attivi
+**Figma Design System**: https://www.figma.com/design/UiW4TPgvqCODW5bhyFV5eK — v1.0, creato 2026-03-24 (Cover + Styles + Components + Screens — Video Demo)
 **Accessi sensibili**: → clients/trovapulizie/secrets.md
 
 ## Progetti
@@ -53,6 +54,7 @@
 | recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-24 — Creato Figma Design System v1.0: Cover, Styles (palette + tipografia), Components, Screens — Video Demo -->
 <!-- 2026-03-24 — Call video promozionale: definito formato SaaS trailer UI-only 20-30s, feature confermate (AI assistant, checklist, reminder, riepilogo), route ottimizzata esclusa, matchmaking AI come feature investor-facing. Partecipanti: Guido, Matti. Vedi calls/2026-03-24-video-promozionale.md -->
 <!-- 2026-03-23 — Call strategia lancio: definito metodo lavoro (brain dump settimanale), focus Instant Booking, espansione microaree, recupero 120 cleaner, marketing organico/volantinaggio, logo da rifare, assistente AI in-app futuro. Partecipanti: Guido, Niccolò, Matti, Christian. Vedi calls/2026-03-23-strategia-lancio.md -->
 <!-- 2026-03-23 — Creati 3 nuovi progetti: Acquisizione Cleaner, GTM & Lancio Roma, Brand Identity -->
