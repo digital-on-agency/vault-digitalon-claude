@@ -33,12 +33,13 @@
 **Stack**: TypeScript full-stack — frontend asset statici, backend API separato
 **Analytics**: GA4 — property ID 428236871
 **Ads**: In setup/go-live 2026 — Google Search local intent + Meta/retargeting
-**Repository**: GitHub (TypeScript full-stack)
+**Repository**: GitHub (TypeScript full-stack) — https://github.com/digital-on-agency/trovapulizie.git
 **Integrazioni trasversali**: Airtable (single source of truth operativa/CRM), Supabase
 **Google Workspace**: trovapulizie.it@gmail.com
 **Hosting strategy**: Backend su VPS esterno (non Bluehost — incompatibilità Node), frontend statico su Bluehost (public_html/), DB su Supabase
 **Target risorse**: 2 vCPU, 2GB RAM, 20GB SSD; ~5k utenti registrati, 50-100 concorrenti attivi
-**Figma Design System**: https://www.figma.com/design/UiW4TPgvqCODW5bhyFV5eK — v1.0, creato 2026-03-24 (Cover + Styles + Components + Screens — Video Demo)
+**Brand & UI**: Colore primario `#00C896` (verde), background secondario `#F0FBF7`, testo `#1A1A1A`. Font Inter. Tailwind default senza custom config — colori applicati direttamente nei componenti.
+**Figma Design System**: https://www.figma.com/design/UiW4TPgvqCODW5bhyFV5eK — v1.0, creato 2026-03-24 (Cover + Styles + Components + Screens — Video Demo). Palette da aggiornare con colori reali.
 **Accessi sensibili**: → clients/trovapulizie/secrets.md
 
 ## Progetti
@@ -49,11 +50,12 @@
 | recE1N3FD5rpVlJWf | SEO | SEO | Attivo | clients/trovapulizie/projects/seo/ |
 | recYVmZc1Ty5HFelf | CRM & Tracking | CRM | Attivo | clients/trovapulizie/projects/crm-tracking/ |
 | rec3TrvmAcx5qaWcx | Partnership PM | Generico | Attivo | clients/trovapulizie/projects/partnership-pm/ |
-| recOy0DaOECLLZsEh | Acquisizione Cleaner | Generico | Attivo | clients/trovapulizie/projects/acquisizione-cleaner/ |
+| recOy0DaOECLLZsEh | Acquisizione Cleaner | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 | recJm38vTzSikTZxY | GTM & Lancio Roma | Generico | Attivo | clients/trovapulizie/projects/gtm-lancio-roma/ |
 | recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-24 — Aggiornato CLAUDE.md con colori reali portale (#00C896 verde) e nota palette Figma da aggiornare -->
 <!-- 2026-03-24 — Creato Figma Design System v1.0: Cover, Styles (palette + tipografia), Components, Screens — Video Demo -->
 <!-- 2026-03-24 — Call video promozionale: definito formato SaaS trailer UI-only 20-30s, feature confermate (AI assistant, checklist, reminder, riepilogo), route ottimizzata esclusa, matchmaking AI come feature investor-facing. Partecipanti: Guido, Matti. Vedi calls/2026-03-24-video-promozionale.md -->
 <!-- 2026-03-23 — Call strategia lancio: definito metodo lavoro (brain dump settimanale), focus Instant Booking, espansione microaree, recupero 120 cleaner, marketing organico/volantinaggio, logo da rifare, assistente AI in-app futuro. Partecipanti: Guido, Niccolò, Matti, Christian. Vedi calls/2026-03-23-strategia-lancio.md -->
