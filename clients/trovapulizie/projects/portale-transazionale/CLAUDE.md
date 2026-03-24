@@ -7,7 +7,7 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 ## Stato attuale
 **Stato**: In corso
 **Ultimo aggiornamento**: 2026-03-22
-**Fase attuale**: Pre-go-live — test controllati completati, in attesa di go-live commerciale
+**Fase attuale**: Pre-go-live — focus su Instant Booking, onboarding cleaner e acquisizione offerta per microarea di lancio
 **URL produzione**: trovapulizie.it
 **URL staging**: <!-- DA COMPLETARE -->
 
@@ -30,17 +30,275 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 [BLOCCATO] 2026-04-01 — Go-live Roma-first — strategia approvata dal team
 [DEFAULT] 2026-03-22 — Migrazione hosting Serverplan → Hostinger entro aprile 2026
 [ATTENZIONE] Ogni modifica all'infrastruttura va valutata in ottica fundraising
+[DEFAULT] 2026-03-23 — Instant Booking come funzionalità core del lancio
+[DEFAULT] 2026-03-23 — Espansione per microaree, non lancio aggressivo su tutta Roma
+[DEFAULT] 2026-03-23 — IA per matchmaking predittivo domanda/offerta, rerouting e rimborsi
+[DEFAULT] 2026-03-23 — Sistema ricompensa a doppia logica (crediti/sconti) per fidelizzazione
+[DEFAULT] 2026-03-23 — Prova completamento servizio tramite foto/video
+[DEFAULT] 2026-03-23 — Assistente AI in-app per cleaner (fase futura — effetto "wow")
+[DEFAULT] 2026-03-23 — Logo da rifare pensando ad app mobile
 
 ## Prossimi passi
-<!-- [ ] task — ID: TROVAPULIZIE-26-001 — entro: YYYY-MM-DD -->
+- [ ] Completare onboarding cleaner per Instant Booking — Niccolò — entro: 2026-04-01
+- [ ] Creare script intervista telefonica cleaner — Guido — entro: 2026-04-05
+- [ ] Contattare 120 vecchi cleaner con script — Guido — entro: 2026-04-12
+- [ ] Identificare microarea di lancio da copertura cleaner — Team — entro: 2026-04-12
+- [ ] Configurare dashboard KPI piattaforma — Matti — entro: 2026-04-04
+- [ ] Proporre idee nuovo logo (app-ready) — Matti — entro: 2026-04-04
+- [ ] Preparare volantinaggio per microarea — Digital On — entro: TBD
+
+## Architettura backend
+**Layering**: routes → controllers (thin) → services (business) → models → utils
+- Bootstrap separato: `app.ts` (configurazione Express) vs `server.ts` (avvio)
+- Integrazioni esterne (Supabase, Stripe, Firebase) inizializzate in `src/config` come singleton condivisi
+- Utils pure e riusabili; sottosistemi complessi (notifiche) in sottodirectory dedicate
+- Controller: solo parsing request + chiamata service + risposta. Zero business logic
+
+## Architettura frontend
+**Struttura**: components / pages / lib / models / types / hooks
+- Pages come orchestratori, non contenitori di logica
+- Logiche riusabili in hooks/lib; tipi in models/types
+- Componenti con hook: solo `<Component />`, mai invocati come funzioni
+- UI globali (banner, scroll-to-top, modali persistenti) in App.tsx / Router
+- Route 404 catch-all: `path="*"`
+- Tailwind safelist generata dai JSON di stile per evitare purge classi dinamiche — aggiornare quando cambiano i JSON
+
+## Auth e sicurezza
+- **Supabase Auth + RLS** su tabelle critiche
+- Reset password / operazioni sensibili: `exchangeCodeForSession` prima di update
+- Migrazione massiva utenti: delay **3s** tra signup per evitare 429
+- Query su tabelle RLS: `getSupabaseForUser(token)` per contesto utente
+- Usare `maybeSingle()` per evitare eccezioni con RLS/dati mancanti
+- Delete utenti: cleanup manuale ordinato delle entità dipendenti (FK/trigger/RLS rendono insufficienti i cascade)
+
+## Pagamenti Stripe
+**Metodo**: Stripe Embedded Checkout / PaymentIntents
+
+**Stati job**:
+- `payment_pending` (obbligatorio) → `confirmed` | `paid` (Instant Booking) | `payment_failed` | `expired`
+- `confirmed` = accettazione manuale cleaner; `paid` = pre-servizio Instant Booking (semantica diversa)
+
+**Regole**:
+- Creare sempre record server-side PRIMA del pagamento (job payment_pending)
+- Prezzo, eligibility, offset temporali calcolati server-side
+- Conferma finale via **webhook Stripe** (meccanismo autoritativo)
+- Idempotenza su webhook: usare event id / payment_intent_id
+- `client_secret`: mai in URL o log non protetti; usare `session_id` per pagina ritorno
+- Pagina ritorno: `/checkout/successful-payment` con parametri jobId/requestId+cleanerId + session_id
+
+**Instant Booking**:
+- Endpoint: `POST /api/bookings/instant/checkout`
+  - Valida eligibility/disponibilità con `isInstantBookingEligible(cleaner, executed_at)` (basata su instant_booking, instant_booking_offset, differenza temporale server-side)
+  - Calcola prezzo server-side
+  - Crea job `payment_pending` con `payment_expires_at`
+  - Crea PaymentIntent Stripe, salva `payment_intent_id`
+  - Ritorna al frontend: `{ job_id, client_secret }`
+- Scadenza `payment_expires_at` → stato `expired`: implementazione (cron o lazy) da definire
+
+[ATTENZIONE] Conflitto post-pagamento: flusso esistente ha azioni frontend-driven (dopo retrieve session); Instant Booking richiede webhook autoritativo. Da unificare per evitare doppie scritture e race condition.
+
+## Notifiche e comunicazioni
+- **Push**: Firebase Cloud Messaging con `firebase-admin` nel backend
+- **Token FCM**: tabella `pushtokens` con `UNIQUE(token)`, legati a user_id
+- **Canali**: email HTML transazionali, push, WhatsApp — invio solo se canale abilitato dall'utente
+- **Template**: separati per canale; WhatsApp con variabili `{}`
+- **Errori FCM**: su `registration-token-not-registered` rimuovere token dal DB immediatamente
+- **Invii massivi** (riattivazione piattaforma): script Node per normalizzare contatti + Make via webhook per invio e rate limiting
+
+## Geofilter
+- Coordinate in `cleaners.coordinates` (JSONB lat/lng gradi decimali)
+- Filtro distanza: Haversine, raggio in **km**
+- Logica attualmente lato client; moduli dedicati (`/lib/maps/` o equivalenti)
+- Abbandonato batch reverse geocoding (HERE OAuth/permessi + 429; Google no batch standard)
+- Possibile evoluzione a PostGIS se necessità di scalabilità/precisione
+
+## Deploy production
+- **Nginx** unico ingresso pubblico (80/443), backend solo localhost (es. 3001)
+- Routing: `/api/*` → `proxy_pass` backend; resto → static frontend (`root` + `try_files`)
+- HTTPS forzato; CSP gestita in Nginx; env runtime via PM2 (non in build)
+- Debug: se browser fallisce ma curl ok → quasi sempre CSP/HTTPS/Mixed Content
+- Versionare config Nginx nel progetto
+- [ATTENZIONE] Logrotate da configurare prima del go-live
+
+## Logging
+- **Pino** strutturato JSON; dev su console, prod su file `logs/app.log`
+- `pino.multistream` per più destinazioni
+- Campi pianificati: `module`, `user_id`, `req_id` — da aggiungere
+
+## Timezone e date
+- Backend normalizza con **Luxon**, timezone **Europe/Rome**
+- Frontend invia ISO "grezzo" senza offset manuali
+- Vietati offset manuali lato client
+
+## Modello dati
+- `profiles` = proiezione applicativa di `auth.users`
+- `cleaners` / `searchers` estendono 1:1 `profiles`
+- Campi JSONB per flessibilità, mitigati da vincoli CHECK
+- `selected_cleaners uuid[]` in requests: scelta deliberata (no tabella ponte) — attenzione a implicazioni query/indicizzazione
+- FK multiple su jobs verso profiles e cleaners/searchers: documentare e usare query con cautela
+
+## Error handling
+- **Standard**: HTTP `status` + `code` applicativo stabile — mai inferire errori dal testo
+- **Classificazione**: 401 credenziali invalide, 403 permission, 400/422 validation, 503 infra/retryable
+- In ogni accesso DB: verificare `error` prima di usare `data`
+- Fallback legacy login: non attivare su errori infrastrutturali o DB
+- Mappa `error.code` ↔ messaggi UI frontend: da mantenere e versionare
+
+## Struttura repo
+Monorepo con due applicazioni principali:
+- `front-end/`: SPA React (Vite), porta dev 8080, `base: './'`
+- `back-end/`: API Express, porta default 3001, avvio con `ts-node-dev`
+- `db-migration/`: script JS + dati JSON/GeoJSON per migrazioni DB
+- `launch-script/`, `archives/`, `executable/`: artifacts di deploy
+
+## Env vars chiave
+**Frontend**: `VITE_BACKEND_URL`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_STRIPE_PUBLISHABLE`, `VITE_FIREBASE_*`, `VITE_SUPPORT_MAIL_ADDRESS`, `VITE_SUPPORT_MAIL_WEBHOOK`
+**Backend**: `PORT`, `FRONTEND_URL`, `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET` / `TEST_STRIPE_SECRET`, Firebase credentials JSON, `MULTI_CHANNEL_WEBHOOK`
+
+## Frontend state e pattern
+- **UserContext**: `user`, `profile`, `session`, `loading`, `error` + setter. Init da `supabase.auth.getSession()` + `fetchProfile`; listener `onAuthStateChange`
+- **PaymentCheckoutContext**: `clientSecret` (Stripe), `onCheckoutClose`. CheckoutOverlay globale in App.tsx mostra Embedded Checkout quando clientSecret è valorizzato
+- **Route guards**: `ProtectedRoute` (home → redirect per ruolo), `SearcherRoute` (richiede login + ruolo searcher). Nessuna `CleanerRoute` dedicata — protezione solo interna alle pagine
+- **Ponte tra step** (sessionStorage): `serviceRequestData`, `selectedCleaner`, `redirectAfterAuth`, `request_auth_status`, `requestFlowSource`, `paymentAmount`
+- **i18n**: i18next con it (fallback), en, de, es, fr — risorse in `src/i18n/locales/`
+- **API calls**: nessun client centralizzato; `fetch` + `VITE_BACKEND_URL` ripetuto in più file; `dbUtils` per operazioni comuni (fetchProfile, fetchUserName, fetchCleanerProfile, fetchAllCleaners, fetchServiceTypes, checkSession, mailExists)
+
+## API reference
+
+### Auth (`/api/auth`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | /signup | No | Registrazione — `supabase.auth.signUp`. Ritorna user + session (access_token, refresh_token) |
+| POST | /login | No | Login — `signInWithPassword` + fallback legacy (bcrypt hash → migrazione password). Errori tipizzati: EMAIL_NOT_CONFIRMED, RATE_LIMIT, INVALID_CREDENTIALS |
+| GET | /mail-check | No | Verifica esistenza email (tentativo login con password finta) |
+| POST | /reset-password-email | No | Invia email reset via `supabase.auth.resetPasswordForEmail` |
+| POST | /reset-password | Bearer | Aggiorna password. **BUG**: usa `getSupabaseForUser(email)` invece di `(token)` |
+
+### Profiles (`/api/profiles`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| GET | /:user_id | Bearer | Profilo completo. Usa client anon (non rispetta RLS utente) |
+| GET | /:user_id/name | Bearer | Solo campo `name` |
+| GET | /check-email | No | Email esiste? Query su tabella `profile_emails` |
+| POST | / | Bearer | Crea profilo: user_id, name, email, phone, role, avatar_url |
+| PUT | /:user_id | Bearer | Aggiorna name, phone, avatar_url. Usa `getSupabaseForUser` |
+
+### Cleaners (`/api/cleaners`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | / | No | Crea cleaner (signup): geocoding → createProfile (role cleaner) → insert cleaners con coordinate |
+| PUT | /:user_id | No | Aggiorna bio, services, availability, location, radius, hourly_rate, preferences |
+| GET | /:user_id | Bearer | Cleaner + join profilo |
+| GET | /available | No | Cleaner disponibili — query: date, time, job_type, lat, lng. Filtra per disponibilità, raggio, tipo servizio |
+| GET | /all | No | Tutti i cleaner |
+| POST | /sort | No | Ordinamento "consigliati" (trial period, priority, ranking) |
+
+### Searchers (`/api/searchers`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | / | Bearer | Crea searcher: user_id, preferences |
+| PUT | /:userId | Bearer | Aggiorna preferences (notifiche) |
+| GET | /:userId | Bearer | Dati searcher + preferences |
+
+### Jobs (`/api/jobs`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | / | Bearer | Crea job (status: pending, requested_at: ora locale). Usa `getSupabaseForUser` |
+| POST | /instant-booking | Bearer | Crea job instant booking (status: payment_pending) |
+| GET | /:id | No | Dettaglio job per id |
+| GET | /cleaner/:cleaner_id | No | Job per cleaner |
+| GET | /searcher/:searcher_id | No | Job per searcher |
+| PUT | /:id/c-reject | Bearer | Cleaner rifiuta → aggiorna rejected_at |
+| PUT | /:id/c-accept | Bearer | Cleaner accetta → controlla executed_at ≥ 1h futuro (422 se no), aggiorna confirmed_at |
+| POST | /:id/pay | Bearer | Segna job come pagato (status: paid, paid_at) |
+| POST | /request-to-job | Bearer | Crea job da request accettata: body requestId + cleanerId |
+
+### Requests (`/api/requests`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | / | Bearer | Crea request (make-offer) + assegnazione e notifica cleaner. **BUG**: validateData usa `status: 'JobStatus'` → typeof fallisce sempre |
+| GET | / | Bearer | Request per status e searcherId (query params) |
+| GET | /:req_id | Bearer | Request per id |
+| GET | /cleaner/:cleaner_id | Bearer | Request per cleaner |
+| PUT | /:id/budget | Bearer | Aggiorna budget (offerta economica del cleaner) |
+| PUT | /:id/accept | Bearer | Searcher accetta request → imposta accepted_at |
+| PUT | /:id/cancel | Bearer | Searcher annulla request |
+| PUT | /:id/cancel-offer | Bearer | Cleaner ritira la propria offerta |
+
+### Reviews (`/api/reviews`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | / | Bearer | Crea recensione: cleaner_id, searcher_id, rating, job_id, comment |
+| GET | / | No | Recensioni per cleaner_id (query) |
+| GET | /summary | No | Media rating + conteggio per cleaner_id |
+| POST | /job | No | Recensioni per array di job_ids |
+
+### Maps (`/api/maps`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| GET | /coordinates | No | Geocoding indirizzo → {lat, lng} (API esterna) |
+| POST | /distance | No | Distanza Haversine tra due punti |
+
+### Notifications (`/api/notifications`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | /cleaner-welcome | No | Email welcome cleaner (signup) |
+| POST | /searcher-welcome | No | Email welcome searcher (signup) |
+| POST | /job-request | Bearer | Nuova richiesta job → notifica cleaner (email/push/webhook in base preferenze) |
+| POST | /job-rejected | Bearer | Cleaner rifiuta → notifica searcher |
+| POST | /cleaner-job-cancelled | Bearer | Cleaner annulla job |
+| POST | /searcher-job-cancelled | Bearer | Searcher annulla job |
+| POST | /success-payment | Bearer | Pagamento riuscito → notifica searcher |
+| POST | /job-paid | Bearer | Job pagato → notifica cleaner |
+| POST | /offer-accepted-and-paid | Bearer | Offerta accettata e pagata → notifica cleaner |
+| POST | /support-email | No | Email a supporto (form help) |
+| POST | /save-push-token | No | Salva token FCM: userId, token, deviceInfo |
+| POST | /email | Bearer | Email generica |
+
+### Payments (`/api/payments`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| POST | /create-checkout-session/ | No | Crea Stripe Checkout Session. Body: job_or_request ('job'\|'request'), job_id/request_id, cleaner_name, executed_at, hours, price, type. Ritorna {clientSecret} |
+| GET | /check-session-status/:session_id | No | Stato sessione Stripe: status (open/complete) + payment_status |
+
+### Services (`/api/services`)
+| Method | Path | Auth | Descrizione |
+|--------|------|------|-------------|
+| GET | /types | No | Elenco tipi servizio (id, name_it, name_en, name_es) |
+
+**Nota route ordering**: path fissi (`/available`, `/check-email`, `/instant-booking`) definiti prima di path parametrici (`/:id`) per evitare conflitti.
+
+## Bug noti e tech debt
+1. **auth.service.resetPassword**: usa `getSupabaseForUser(email)` invece di `getSupabaseForUser(token)` — reset password non funziona
+2. **requests.controller createRequest**: `validateData` con `status: 'JobStatus'` — `typeof status !== 'JobStatus'` è sempre true → usare `'string'`
+3. **UserContext onAuthStateChange**: `fetchProfile` chiamata ma risultato non passato a `setProfile` — profilo non si aggiorna dopo cambio auth da altro tab
+4. **BookingRecap getRole()**: async non awaited + `Bearer temp` hardcoded — guard ruolo non funziona
+5. **BookingSuccess**: titoli `hasCleaners ? noCleanerTitle : title` invertiti
+6. **PaymentResult**: `updateJobDatabase()` chiamata due volte (duplicato); `setTimeout 20000ms` probabilmente typo (dovrebbe essere 2000)
+7. **Nessun middleware auth centralizzato**: JWT verificato solo implicitamente da Supabase quando si usa `getSupabaseForUser`
+8. **profiles.service.getProfileByUserId**: usa client anon, non `getSupabaseForUser` — non rispetta RLS utente
+9. **GET senza auth**: jobs/:id, cleaners/available, payments/create-checkout-session — verificare se intenzionalmente pubblici
+10. **Nessun error handler globale Express** `(err, req, res, next)` — eccezioni non catturate danno 500 non formattato
+11. **Route cleaner** (`/c-profile`, `/c-dashboard`): nessuna guard dedicata, protezione solo interna con timeout 20s
+12. **`VITE_BACKEND_URL` ripetuto** in molti file — da centralizzare in modulo `api`
+13. **Firebase foreground notifications**: `listenToForegroundNotifications` commentato in App.tsx
 
 ## Problemi aperti
-<!-- DA COMPLETARE dopo prima sessione di lavoro -->
+- Unificare flusso post-pagamento (frontend-driven vs webhook-driven)
+- Implementare scadenza payment_expires_at (cron o lazy)
+- Configurare logrotate produzione
+- Aggiungere campi strutturati a Pino (module, user_id, req_id)
+- Migrare geofilter da client-side a server-side (eventuale PostGIS)
+- Risolvere bug noti (vedi sezione sopra)
+- Introdurre middleware auth centralizzato
+- Introdurre CleanerRoute o protezione equivalente
+- Centralizzare `VITE_BACKEND_URL` in un modulo unico
 
 ## Note operative
 Hardening tecnico (serverplan, monitoring, alerting, reliability, release gates) è parte integrante di questo progetto — non un progetto separato.
 Accessi → secrets.md
 
 ## Storico
+<!-- 2026-03-23 — Call strategia lancio: Instant Booking core, espansione microaree, recupero 120 cleaner, matchmaking IA, logo da rifare, assistente AI futuro -->
 <!-- 2026-02-20 — inizio sviluppo con Digital On come socio -->
 <!-- 2026-03-22 — onboarding vault — test controllati completati, pre-go-live -->

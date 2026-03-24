@@ -32,6 +32,8 @@
 **Repository**: GitHub (TypeScript full-stack)
 **Integrazioni trasversali**: Airtable (single source of truth operativa/CRM), Supabase
 **Google Workspace**: trovapulizie.it@gmail.com
+**Hosting strategy**: Backend su VPS esterno (non Bluehost — incompatibilità Node), frontend statico su Bluehost (public_html/), DB su Supabase
+**Target risorse**: 2 vCPU, 2GB RAM, 20GB SSD; ~5k utenti registrati, 50-100 concorrenti attivi
 **Accessi sensibili**: → clients/trovapulizie/secrets.md
 
 ## Progetti
