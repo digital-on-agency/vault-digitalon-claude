@@ -50,6 +50,7 @@ Quando un CLAUDE.md contiene sezioni `<!-- DA COMPLETARE -->`, chiedere all'uten
 
 - Nuovo cliente → segui @skills/client-onboarding.md
 - Nuova competenza → segui @skills/aggiungi-knowledge.md
+- Idea di brainstorming → segui @skills/salva-idea.md
 - Non creare file o cartelle al di fuori della struttura definita senza indicazione esplicita
 
 ## Formato commit git
