@@ -23,6 +23,10 @@
 [DEFAULT] 2026-03-23 — Priorità assoluta sull'assorbimento offerta (cleaner) prima di generare domanda
 [DEFAULT] 2026-03-23 — Metodo di lavoro: brain dump settimanale → call → task in roadmap
 [DEFAULT] 2026-03-23 — Nuovi stati task: "Bloccato" e "Collo di bottiglia"
+[DEFAULT] 2026-03-24 — Video promozionale investor: SaaS trailer UI-only, 20–30s, freelancer Fiverr
+[DEFAULT] 2026-03-24 — Feature video investor: AI assistant cleaner + checklist + reminder + riepilogo guadagni
+[ATTENZIONE] 2026-03-24 — Route ottimizzata ESCLUSA dal video: non rispecchia il funzionamento reale (slot fissi)
+[DEFAULT] 2026-03-24 — Matchmaking AI (preferenze implicite da feedback) = feature investor-facing prioritaria, da valutare per inclusione nel video
 
 ## Ecosistema tecnico condiviso
 **Domini**: trovapulizie.it
@@ -49,6 +53,7 @@
 | recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-24 — Call video promozionale: definito formato SaaS trailer UI-only 20-30s, feature confermate (AI assistant, checklist, reminder, riepilogo), route ottimizzata esclusa, matchmaking AI come feature investor-facing. Partecipanti: Guido, Matti. Vedi calls/2026-03-24-video-promozionale.md -->
 <!-- 2026-03-23 — Call strategia lancio: definito metodo lavoro (brain dump settimanale), focus Instant Booking, espansione microaree, recupero 120 cleaner, marketing organico/volantinaggio, logo da rifare, assistente AI in-app futuro. Partecipanti: Guido, Niccolò, Matti, Christian. Vedi calls/2026-03-23-strategia-lancio.md -->
 <!-- 2026-03-23 — Creati 3 nuovi progetti: Acquisizione Cleaner, GTM & Lancio Roma, Brand Identity -->
 <!-- 2026-02-20 — inizio collaborazione -->
