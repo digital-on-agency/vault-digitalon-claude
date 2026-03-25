@@ -26,11 +26,12 @@
 **Analytics**: GTM + GA4 (tracking in configurazione)
 **Ads**: Google Ads + Meta (paid, in avvio)
 **Repository organizzazione**: <!-- DA COMPLETARE -->
+**Airtable Record ID (Business)**: recvgCCQtoREtNYjG
 **Integrazioni trasversali**:
 - Ticketapp (sistema interno per vendite, scansioni, commissioni, payout)
 - Airtable (layer di accountability e reporting)
 - WhatsApp (canale vendita e supporto — bot AI per pre-qualificazione lead in pipeline)
-- Insense (campagna UGC — account creato)
+- Insense (campagna ADV — account creato)
 **Accessi sensibili**: → `clients/gxc-ibiza/secrets.md`
 
 **Design System**: `clients/gxc-ibiza/design-system/tokens.md` — estratto da gxcibiza.com il 2026-03-25
@@ -57,13 +58,14 @@
 - **Costo prodotto**: ~€25, costo struttura: ~€6
 
 ## Progetti
-| ID | Nome progetto | Tipo | Stato | Path |
-|----|---------------|------|-------|------|
-| <!-- DA COMPLETARE --> | Extra Ibiza Partnership | Strategia | Attivo | `projects/extra-ibiza-partnership/` |
-| <!-- DA COMPLETARE --> | UGC Campaign 2026 | Ads | Attivo | `projects/ugc-campaign-2026/` |
-| <!-- DA COMPLETARE --> | Ticketapp 2026 | Sviluppo | Attivo | `projects/ticketapp-2026/` |
+| ID Airtable | Nome progetto | Tipo | Stato | Path |
+|-------------|---------------|------|-------|------|
+| reczD8qu2cNN4YJh0 | Partnership | Strategia | Attivo | `projects/extra-ibiza-partnership/` |
+| recjr6CfteMs3VqCG | ADV Campaign | Ads | Attivo | `projects/adv-campaign/` |
+| recqPvhzcmgEfTxsV | Ticketapp Updates | Sviluppo | Attivo | `projects/ticketapp-2026/` |
 
 ## Storico attività
 - 2024-12 — Onboarding cliente — inizio collaborazione
 - 2026-03-25 — Creazione struttura vault — onboarding completo nel vault Digital On
 - 2026-03-25 — Estrazione design system da gxcibiza.com — salvato in design-system/tokens.md (tool: design-system-extractor)
+- 2026-03-25 — Creati progetti su Airtable: Partnership, ADV Campaign — Record ID salvati
