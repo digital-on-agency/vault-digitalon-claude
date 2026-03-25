@@ -2,11 +2,9 @@
 # Cron job manutenzione vault Digital On
 # Orario: 30 6 * * * (06:30 UTC = 07:30 ora italiana)
 
-set -a
-source /home/niccolo/.env-digitalon 2>/dev/null || true
-set +a
-
 export PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+source /opt/vault-digitalon/claude/.env
+export DISCORD_BOT_TOKEN
 
 TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
 VAULT="/opt/vault-digitalon"

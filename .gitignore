@@ -1,4 +1,5 @@
 .silverbullet.auth.json
 .mcp.json
+claude/.env
 clients/**/secrets.md
 agency/secrets.md
