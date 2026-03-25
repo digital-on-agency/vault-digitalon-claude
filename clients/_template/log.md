@@ -9,17 +9,14 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 **Generare il report:** Claude legge questo file, filtra per mese, raggruppa per categoria e produce la tabella pronta per il portale Softr.
 
 **Categorie disponibili e abbreviazioni:**
-- `STR` — Strategia
-- `DEV` — Sviluppo
-- `ADS` — Ads / Campagne
-- `ANA` — Analytics
+- `SVL` — Sviluppo
 - `CRM` — CRM
 - `BOT` — Chatbot
-- `CALL` — Call / Riunione
+- `ADS` — Ads
+- `ANA` — Analytics
+- `CALL` — Call
+- `STR` — Strategia
 - `SUP` — Supporto
-- `DS` — Design System
-- `UGC` — UGC / Creator
-- `SEO` — SEO
 
 **Stati disponibili:** In corso · Completato · In attesa cliente · Annullato
 
