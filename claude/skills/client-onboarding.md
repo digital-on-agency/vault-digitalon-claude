@@ -1,11 +1,11 @@
 ---
 name: client-onboarding
-description: Crea la struttura completa per un nuovo cliente nel vault E su Airtable. Usa questa skill ogni volta che si menziona l'aggiunta di un nuovo cliente, un onboarding, o la creazione della scheda cliente — anche se la richiesta è vaga come "aggiungi cliente X" o "crea la cartella per Y". La skill guida la raccolta delle informazioni, crea tutti i file necessari nel vault e crea il cliente e i progetti su Airtable.
+description: Crea la struttura completa per un nuovo cliente nel vault E su Airtable. Usa questa skill ogni volta che si menziona l'aggiunta di un nuovo cliente, un onboarding, o la creazione della scheda cliente — anche se la richiesta è vaga come "aggiungi cliente X" o "crea la cartella per Y". La skill guida la raccolta delle informazioni, crea tutti i file necessari nel vault e sincronizza cliente e progetti su Airtable.
 ---
 
 # Client Onboarding — Digital On Agency
 
-Questa skill crea la struttura completa per un nuovo cliente nel vault a partire dal template in `clients/_template/`, e lo sincronizza subito su Airtable.
+Questa skill crea la struttura completa per un nuovo cliente nel vault a partire dal template in `clients/_template/`, e lo sincronizza su Airtable.
 
 ## Struttura vault
 ```
@@ -58,33 +58,52 @@ cp clients/_template/projects/_template/CLAUDE.md clients/[slug]/projects/_templ
 **secrets.md** — solo titolo: `# Accessi — [Nome Cliente]`
 **calls/YYYY-MM-DD-[tema].md** — template invariato
 
-## Step 5 — Crea il cliente su Airtable
+## Step 5 — Cerca il cliente su Airtable
 
-1. Usa `Airtable:create_records_for_table` sulla tabella Clienti/Business (`tbldMv8I4Wlo9s9BM`)
-2. Crea il record con il nome del cliente
-3. Salva il Record ID restituito
-4. Aggiorna il CLAUDE.md del cliente con il Record ID Airtable nella sezione Ecosistema tecnico:
+1. Cerca il cliente nella tabella Clienti/Business (`tbldMv8I4Wlo9s9BM`) per nome
+2. Tre scenari possibili:
+
+**✅ Cliente trovato**
+→ Mostra all'utente: `"Ho trovato '[Nome]' su Airtable (ID: recXXX). Lo associo a questo cliente?"`
+→ Se sì → salva il Record ID nel CLAUDE.md e procedi allo Step 6
+→ Se no → chiedi quale record associare o se crearne uno nuovo
+
+**❌ Cliente non trovato**
+→ Chiedi all'utente: `"[Nome] non esiste ancora su Airtable. Lo creo ora o vuoi associarlo a un record esistente?"`
+→ Se crea → usa `Airtable:create_records_for_table` con il nome del cliente → salva Record ID → procedi
+→ Se associa → chiedi di cercare per nome alternativo e ripeti la ricerca
+
+**⚠️ Più risultati trovati**
+→ Mostra la lista e chiedi all'utente quale associare
+
+3. Salva il Record ID nel CLAUDE.md nella sezione Ecosistema tecnico:
    ```
    **Airtable Record ID (Business):** rec[XXXXXXXXXXXXXXXX]
    ```
 
-## Step 6 — Crea i progetti su Airtable
+## Step 6 — Sincronizza i progetti su Airtable
 
-Per ogni progetto attivo identificato nello Step 1:
+Per ogni progetto attivo identificato nello Step 1, cerca prima se esiste già su Airtable:
 
-1. Usa `Airtable:create_records_for_table` sulla tabella Progetti (`tblylhAgyc47wEal2`)
-2. Crea il record con:
-   - Nome progetto
-   - Business: [Record ID cliente creato allo Step 5]
-   - Tipo: tipo progetto
-   - Stato: `Attivo` o `Da Iniziare`
-3. Salva il Record ID restituito
-4. Aggiorna la tabella `## Progetti` nel CLAUDE.md del cliente con il Record ID Airtable:
+1. Cerca il progetto nella tabella Progetti (`tblylhAgyc47wEal2`) per nome
+2. Tre scenari:
+
+**✅ Trovato**
+→ Chiedi: `"Ho trovato '[Nome progetto]' su Airtable (ID: recXXX). Lo associo?"`
+→ Se sì → salva il Record ID nel CLAUDE.md
+
+**❌ Non trovato**
+→ Chiedi: `"[Nome progetto] non esiste su Airtable. Lo creo ora?"`
+→ Se sì → crea con: nome, Business (Record ID Step 5), Tipo, Stato
+→ Salva il Record ID restituito
+
+**Salta**
+→ Se l'utente non vuole creare né associare → lascia `<!-- DA COMPLETARE -->` e segnala che resoconto-sessione non potrà collegare i task a questo progetto
+
+3. Aggiorna la tabella `## Progetti` nel CLAUDE.md con il Record ID:
    ```
    | rec[XXXXXXXXXXXXXXXX] | Nome progetto | Tipo | Stato | path/progetto/ |
    ```
-
-> ⚠️ Ogni progetto nel CLAUDE.md deve avere il suo Record ID Airtable — mai lasciare `<!-- DA COMPLETARE -->` per i progetti creati in questo step.
 
 ## Step 7 — Commit
 ```
@@ -95,7 +114,7 @@ Non includere mai secrets.md (già in .gitignore)
 
 ## Regole
 - Verifica che lo slug non esista già in `clients/`
+- Non creare mai su Airtable senza conferma esplicita
 - Non creare file fuori da `clients/[slug]/`
-- Progetti interni (Global x Connect, Bid House, Trovapulizie) → stessa struttura clienti esterni
-- Al termine comunica i campi DA COMPLETARE e i prossimi passi
-- Il Record ID Airtable di cliente e progetti è obbligatorio — senza di esso resoconto-sessione non può collegare i task correttamente
+- Al termine comunica i campi DA COMPLETARE e avvisa se ci sono progetti senza Record ID Airtable
+- Il Record ID Airtable di cliente e progetti è necessario per resoconto-sessione — segnalare sempre se mancante
