@@ -1,6 +1,6 @@
 ---
 name: figma-design-system
-description: Crea o aggiorna un design system base su Figma per un cliente. Usare quando si chiede di "creare il design system", "impostare colori/font su Figma", "creare componenti base Figma" o "preparare le schermate per il video". Produce: pagina Styles con colori e tipografia, componenti base (button, card, badge, input, navbar), frame schermate pronte per animazione.
+description: Crea o aggiorna un design system su Figma per un cliente. Usare SOLO quando l'utente specifica esplicitamente "su Figma", "in Figma", "apri Figma", "crea il file Figma" o "aggiorna Figma". NON usare per estrazioni da sito, salvataggio token o generazione UI — per quello usare salva-design-system o ui-ux-pro-max. Produce: file Figma con pagine Styles, Components, Screens.
 allowed-tools: Figma MCP
 ---
 
@@ -15,6 +15,7 @@ Creare un design system base su Figma partendo dall'identità visiva del cliente
 - Connettore Figma MCP attivo
 - Identità visiva del cliente disponibile (colori primari, font, nome app)
 - Eventuale file Figma esistente (se assente, si crea da zero)
+- ⚠️ Questa skill si attiva SOLO se l'utente menziona esplicitamente Figma
 
 ## Processo
 
@@ -24,6 +25,7 @@ Creare un design system base su Figma partendo dall'identità visiva del cliente
 2. Se l'utente ha fornito un link Figma, usa `Figma:get_metadata` per leggere il file esistente.
 3. Se non esiste un file, usa `Figma:create_new_file` con nome `[Cliente] — Design System`.
 4. Leggi il CLAUDE.md del cliente nel vault per estrarre: colori, font, nome app, stack.
+5. Se esiste `clients/[cliente]/design-system/tokens.md`, leggilo — è la fonte di verità per colori e font da usare in Figma.
 
 ### Step 2 — Definisci gli stili (Styles)
 
@@ -124,12 +126,15 @@ Aggiungere nella sezione "Ecosistema tecnico" o "Note operative":
 ## Note operative
 
 - Se il cliente ha già un brand definito (es. palette Figma esistente), leggi prima i colori dal file esistente invece di crearne di nuovi
-- Per Trovapulizie: colore primario `#534AB7` (purple), font system default (SF Pro / Inter)
+- Se esiste `clients/[cliente]/design-system/tokens.md`, usa quei valori come fonte primaria
 - I frame schermate devono rispecchiare lo storyboard approvato — non inventare schermate non pianificate
 - Dopo ogni step complesso, conferma all'utente prima di procedere al successivo
 
 ## Fuori scope
 
-- Progettazione di flussi UX complessi o wireframe navigabili (fuori scope, richiede briefing dedicato)
+- Estrazione design system da sito web (usa ui-ux-pro-max + salva-design-system)
+- Salvataggio token nel vault (usa salva-design-system)
+- Generazione UI/landing page (usa ui-ux-pro-max o frontend-design)
+- Progettazione di flussi UX complessi o wireframe navigabili
 - Export asset per sviluppatori (usa `Figma:get_design_context` separatamente)
 - Animazioni Figma (Protopie/After Effects per quello)
