@@ -2,7 +2,9 @@
 # Uso: task-end.sh "messaggio di commit"
 # Il messaggio viene generato da Claude Code
 
-cd ~/vault-digitalon
+VAULT_DIR="$(dirname "$(readlink -f "$0")")/../.."
+cd "$VAULT_DIR"
+git config --global --add safe.directory "$(pwd)" 2>/dev/null
 
 # Controlla se ci sono modifiche
 if git diff --quiet && git diff --staged --quiet; then

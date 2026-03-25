@@ -6,7 +6,8 @@
       "Bash(bash ~/vault-digitalon/claude/scripts/renew-ga4.sh)",
       "Bash(bash /opt/vault-digitalon/claude/scripts/renew-ga4.sh)",
       "Bash(claude mcp:*)",
-      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"session: 2025-03-25 - rinnovo GA4, verifica struttura brainstorming\")"
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"session: 2025-03-25 - rinnovo GA4, verifica struttura brainstorming\")",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"test: verifica fix path task-end.sh\")"
     ]
   },
   "enabledMcpjsonServers": [
