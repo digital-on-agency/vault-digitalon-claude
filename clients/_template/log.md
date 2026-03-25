@@ -1,40 +1,24 @@
 # Log attività — [Nome Cliente]
 
 <!-- Questo file è la fonte di verità per tutte le attività su questo cliente.
-Claude lo aggiorna al termine di ogni sessione di lavoro.
+Claude lo aggiorna al termine di ogni sessione di lavoro tramite la skill resoconto-sessione.
 Per generare il report mensile per il portale: "genera report [mese] per [cliente]" -->
 
 ## Come usare questo file
-**Aggiungere una riga:** una riga per ogni attività o task completato/aggiornato.
+**Aggiornare il log:** usa sempre la skill `@skills/resoconto-sessione.md` a fine sessione.
 **Generare il report:** Claude legge questo file, filtra per mese, raggruppa per categoria e produce la tabella pronta per il portale Softr.
 
-**Categorie disponibili e abbreviazioni:**
-- `SVL` — Sviluppo
-- `CRM` — CRM
-- `BOT` — Chatbot
-- `ADS` — Ads
-- `ANA` — Analytics
-- `CALL` — Call
-- `STR` — Strategia
-- `SUP` — Supporto
+**Categorie disponibili:** Sviluppo · CRM · Chatbot · Ads · Analytics · Call · Strategia · Supporto · SEO
 
 **Stati disponibili:** In corso · Completato · In attesa cliente · Annullato
 
-**Formato ID Task:** `[SIGLA-CLIENTE]-[GG-MM-AAAA]-[CAT][NUM]`
-Esempio: `GXC-25-03-2026-STR001`
-- SIGLA-CLIENTE: sigla breve del cliente (es. GXC, TRP, ...)
-- GG-MM-AAAA: data del task
-- CAT: abbreviazione categoria (vedi sopra)
-- NUM: numero progressivo per categoria in quella data (001, 002, ...)
+**Formato ID Task:** Record ID Airtable — formato `recXXXXXXXXXXXXXX`
+Il task viene sempre creato prima in Airtable, poi il Record ID viene usato come riferimento nel log.
 
 ---
 
 ## Log
 
-| ID Task | Data | Progetto | Attività | Categoria | Tempo (h) | Operatore | Stato | Note portale |
-|---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
-|         |      |          |          |           |           |           |       |              |
-
-<!--
-Note portale: lasciare vuoto se attività interna. Compilare solo ciò che va comunicato al cliente.
--->
+| ID Task (Airtable) | Data | Progetto | Attività | Categoria | Tempo (h) | Operatore | Stato | Note portale |
+|--------------------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
+|                    |      |          |          |           |           |           |       |              |
