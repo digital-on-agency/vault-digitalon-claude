@@ -60,12 +60,14 @@
 ## Progetti
 | ID Airtable | Nome progetto | Tipo | Stato | Path |
 |-------------|---------------|------|-------|------|
+| reccNun1F2NXMOq6D | Account Management | Misto | Attivo | — |
 | reczD8qu2cNN4YJh0 | Partnership | Strategia | Attivo | `projects/extra-ibiza-partnership/` |
 | recjr6CfteMs3VqCG | ADV | Ads | Attivo | `projects/adv-campaign/` |
 | recqPvhzcmgEfTxsV | Ticketapp Updates | Sviluppo | Attivo | `projects/ticketapp-2026/` |
+| recga9jwinQEzy3PS | Sito Web | Sito Web | Attivo | — |
 
 ## Storico attività
 - 2024-12 — Onboarding cliente — inizio collaborazione
 - 2026-03-25 — Creazione struttura vault — onboarding completo nel vault Digital On
 - 2026-03-25 — Estrazione design system da gxcibiza.com — salvato in design-system/tokens.md
-- 2026-03-25 — Creati progetti su Airtable: Partnership, ADV — Record ID salvati
+- 2026-03-25 — Creati progetti su Airtable: Partnership, ADV, Account Management — Record ID salvati
