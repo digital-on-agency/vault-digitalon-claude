@@ -3,11 +3,16 @@
 # Uso: bash notify-discord.sh "messaggio"
 
 CHANNEL_ID="1485585935424028724"
-BOT_TOKEN="${DISCORD_BOT_TOKEN:?DISCORD_BOT_TOKEN non impostato — source claude/.env}"
+BOT_TOKEN="${DISCORD_BOT_TOKEN:-}"
 MESSAGE="$1"
 
 if [ -z "$MESSAGE" ]; then
   echo "Uso: $0 'messaggio'"
+  exit 1
+fi
+
+if [ -z "$BOT_TOKEN" ]; then
+  echo "ERRORE: DISCORD_BOT_TOKEN non impostato"
   exit 1
 fi
 
