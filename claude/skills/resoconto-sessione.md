@@ -24,7 +24,6 @@ Al termine di una sessione di lavoro, produrre un recap strutturato delle attivi
 - Operator: `fldE8F4pewEKrwewc` (link a Users — cercare per nome)
 - Progetto: `fldbCZdpMKBDsrPcW` (link a Progetti)
 - Business: `fldC2qNiQf4pnCMgy` (link a Clienti/Business)
-- Deadline: `fld2Ze39cTWjkxjk5`
 
 **Tabella Progetti:** `tblylhAgyc47wEal2`
 - Nome: `fldhGdGhIRk8Op4uL`
@@ -37,6 +36,17 @@ Al termine di una sessione di lavoro, produrre un recap strutturato delle attivi
 
 ## Processo
 
+### Step 0 — Leggi il contesto cliente dal vault
+
+Prima di tutto, leggi `clients/[cliente]/CLAUDE.md` per estrarre:
+
+1. **Record ID del cliente in Airtable** — campo `ID Cliente` nella tabella Clienti/Business (se presente)
+2. **Mapping progetti** — dalla tabella `## Progetti` nel CLAUDE.md, estrai per ogni progetto il suo Record ID Airtable (colonna ID)
+
+> ⚠️ Se un progetto ha ID `<!-- DA COMPLETARE -->` significa che non è ancora stato creato su Airtable.
+> In quel caso avvisa l'utente: **"Il progetto [nome] non esiste ancora su Airtable. Usare la skill crea-progetto-airtable prima di procedere, oppure il task verrà creato senza collegamento al progetto."**
+> Chiedi come procedere — senza bloccare l'intero flusso.
+
 ### Step 1 — Recap attività
 
 Leggi la conversazione corrente e identifica tutte le attività svolte. Producile come lista strutturata raggruppata per cliente e progetto:
@@ -45,7 +55,7 @@ Leggi la conversazione corrente e identifica tutte le attività svolte. Producil
 ## Attività svolte
 
 ### [Nome Cliente]
-**Progetto:** [nome progetto]
+**Progetto:** [nome progetto] (Airtable ID: [recXXX o DA COMPLETARE])
 - [descrizione attività 1] — categoria: [X] — ore stimate: [X]
 - [descrizione attività 2] — categoria: [X] — ore stimate: [X]
 ```
@@ -61,14 +71,7 @@ Cerca il nome nella tabella Users di Airtable per ottenere il Record ID dell'ope
 
 ### Step 3 — Verifica in Airtable
 
-Per ogni attività, cerca in Airtable se esiste già un task con titolo simile collegato a quel cliente/progetto:
-
-```
-Airtable:list_records_for_table con filterByFormula:
-SEARCH(LOWER("[parola chiave]"), LOWER({fldswLgF1Yohk2WOK}))
-```
-
-Mostra il risultato per ogni attività:
+Per ogni attività, cerca in Airtable se esiste già un task con titolo simile collegato a quel cliente/progetto. Mostra il risultato:
 - ✅ **Trovata** → mostra titolo, stato attuale, Record ID
 - ❌ **Non trovata** → segnala che va creata
 
@@ -81,15 +84,15 @@ Per ogni attività senza task in Airtable:
 3. Crea il record in Airtable con:
    - Titolo: descrizione sintetica dell'attività
    - Descrizione: dettaglio di cosa è stato fatto
-   - Stato: **"Completato"** direttamente — non creare mai task aperte in questo flusso
+   - Stato: **"Completato"** direttamente
    - Categoria: quella identificata nel recap
    - Ore: quelle stimate/dichiarate
    - Operator: Record ID dell'utente trovato nello Step 2
-   - Business: Record ID del cliente
-   - Progetto: Record ID del progetto (se disponibile)
+   - Business: Record ID del cliente (dal CLAUDE.md o cercato in Airtable)
+   - Progetto: Record ID del progetto dal mapping in CLAUDE.md — ometti se DA COMPLETARE
 4. Salva il Record ID restituito da Airtable
 
-> ⚠️ Non creare mai task aperte (Da iniziare / In corso) in questo flusso — solo Completato.
+> ⚠️ Non creare mai task aperte — solo Completato in questo flusso.
 
 ### Step 5 — Verifica task esistenti
 
@@ -101,7 +104,7 @@ Per le task già presenti in Airtable (Step 3 ✅):
 
 ### Step 6 — Aggiorna il log del vault
 
-Per ogni task completata (nuova o già esistente), aggiorna il log del cliente nel vault.
+Per ogni task completata, aggiorna `clients/[cliente]/log.md`.
 
 **Formato riga:**
 ```
@@ -111,18 +114,16 @@ Per ogni task completata (nuova o già esistente), aggiorna il log del cliente n
 **Regole:**
 - Leggi sempre il log esistente prima di scrivere — non sovrascrivere le righe precedenti
 - Aggiungi le nuove righe in fondo alla tabella
-- Usa il Record ID di Airtable (formato `recXXXXXXXXXXXXXX`) come ID Task
-- Il campo Data è la data odierna in formato GG-MM-AAAA
+- Usa il Record ID di Airtable (`recXXXXXXXXXXXXXX`) come ID Task
+- Data in formato GG-MM-AAAA
 
 ### Step 7 — Conferma finale
-
-Mostra un riepilogo di tutto quello che è stato fatto:
 
 ```
 ## Resoconto completato
 
 ### Task create in Airtable
-- [Record ID] — [Titolo] — [Cliente]
+- [Record ID] — [Titolo] — [Cliente] — [Progetto]
 
 ### Task aggiornate in Airtable
 - [Record ID] — [Titolo] — [nuovo stato]
@@ -133,15 +134,16 @@ Mostra un riepilogo di tutto quello che è stato fatto:
 
 ## Regole operative
 
-- **Mai aggiornare il log senza Record ID Airtable** — il Record ID è obbligatorio
-- **Mai creare task aperte** — solo Completato in questo flusso
-- **Sempre chiedere conferma** prima di creare o aggiornare record in Airtable
-- **Sempre leggere il log esistente** prima di scrivere per non sovrascrivere
-- **Non aggiornare CLAUDE.md o prossimi passi** — questo flusso è solo log e Airtable
-- Se un'attività non è completata, non va nel log — punto
+- **Mai aggiornare il log senza Record ID Airtable** — obbligatorio
+- **Mai creare task aperte** — solo Completato
+- **Sempre leggere CLAUDE.md del cliente** prima di iniziare — è il mapping progetti
+- **Sempre leggere il log esistente** prima di scrivere
+- **Non aggiornare CLAUDE.md o prossimi passi** — solo log e Airtable
+- Se un'attività non è completata, non va nel log
 
 ## Fuori scope
 
-- Creare task aperte o pianificazione futura → usa airtable-task-manager
+- Creare task aperte → usa airtable-task-manager
+- Creare progetti mancanti → usa crea-progetto-airtable
 - Aggiornare stato progetto o CLAUDE.md → flusso separato
-- Generare report mensile → usa genera-report
+- Report mensile → usa genera-report
