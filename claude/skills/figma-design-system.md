@@ -19,6 +19,18 @@ Creare un design system base su Figma partendo dall'identità visiva del cliente
 
 ## Processo
 
+### Step 0 — Verifica stato attuale ⚠️ OBBLIGATORIO
+
+Prima di toccare Figma, verifica cosa esiste già:
+
+1. Leggi `clients/[cliente]/design-system/tokens.md` nel vault — se esiste, usalo come fonte primaria per colori e font. Non reinventare valori già estratti.
+2. Controlla se esiste già un file Figma nel CLAUDE.md del cliente (sezione Ecosistema tecnico):
+   - Se esiste un link Figma → usa `Figma:get_metadata` per leggere il file esistente
+   - Mostra all'utente: `✅ File Figma esistente: [nome] — pagine presenti: [lista]`
+   - Chiedi: **"Vuoi aggiornare il file esistente o crearne uno nuovo?"**
+3. Se non esiste nulla → procedi con la creazione da zero
+4. Non creare mai un file nuovo se ne esiste già uno senza conferma esplicita
+
 ### Step 1 — Ricognizione
 
 1. Usa `Figma:whoami` per verificare che l'autenticazione sia attiva.
@@ -81,19 +93,7 @@ Crea una pagina chiamata `Components` con i seguenti componenti. Ogni componente
 
 ### Step 4 — Crea i frame schermate
 
-Crea una pagina chiamata `Screens — [nome progetto]` con frame in formato **Mobile** (390×844, iPhone 14).
-
-Per ogni schermata del progetto corrente (es. video demo trovapulizie):
-
-| Frame | Contenuto |
-|---|---|
-| `01 — Home / Dashboard` | Saluto, AI bubble, lista lavori del giorno |
-| `02 — Matchmaking AI` | Lista cleaner con score di compatibilità, barra match, tag preferenze |
-| `03 — Assistant + Reminder` | Chat bubble AI, lista reminder pronti da inviare, CTA "Invia tutti" |
-| `04 — Checklist lavoro` | Checklist contestuale, nota allergie/preferenze cliente |
-| `05 — Riepilogo giornata` | Metric cards guadagni, lavori completati, recensioni |
-
-Usa gli stili e componenti creati negli step precedenti.
+Crea una pagina chiamata `Screens — [nome progetto]` con frame in formato **Mobile** (390×844, iPhone 14). Basati sullo storyboard approvato — non inventare schermate non pianificate.
 
 ### Step 5 — Naming e organizzazione
 
@@ -104,37 +104,36 @@ Usa gli stili e componenti creati negli step precedenti.
 
 ### Step 6 — Salva nel vault
 
-Al termine, salva nel vault il link del file Figma:
+Al termine, salva nel vault il link del file Figma nel `clients/[cliente]/CLAUDE.md`:
+
+```markdown
+**Figma Design System**: [link file Figma] — creato/aggiornato YYYY-MM-DD
+```
+
+Aggiorna anche il log:
 
 ```
-clients/[cliente]/projects/[progetto]/CLAUDE.md
-```
-
-Aggiungere nella sezione "Ecosistema tecnico" o "Note operative":
-```
-**Figma Design System**: [link file Figma] — creato YYYY-MM-DD
+| DS-XXX | YYYY-MM-DD | Design System | Creazione/aggiornamento file Figma | Strategia | X | Claude | Completato | |
 ```
 
 ## Output atteso
 
-- File Figma con 4 pagine: `Cover`, `Styles`, `Components`, `Screens — [progetto]`
-- Stili colori e tipografia definiti e applicati
+- File Figma con pagine: `Cover`, `Styles`, `Components`, `Screens — [progetto]`
+- Stili colori e tipografia definiti e applicati (da tokens.md se disponibile)
 - Componenti base con varianti e Auto Layout
-- Frame schermate (almeno 5) pronti per animazione o consegna freelancer
 - Link file salvato nel CLAUDE.md del progetto
 
 ## Note operative
 
-- Se il cliente ha già un brand definito (es. palette Figma esistente), leggi prima i colori dal file esistente invece di crearne di nuovi
-- Se esiste `clients/[cliente]/design-system/tokens.md`, usa quei valori come fonte primaria
-- I frame schermate devono rispecchiare lo storyboard approvato — non inventare schermate non pianificate
+- **Leggi sempre tokens.md prima** — non reinventare colori o font già estratti
+- **Non creare file duplicati** — verifica sempre se esiste già un file Figma
+- I frame schermate devono rispecchiare lo storyboard approvato
 - Dopo ogni step complesso, conferma all'utente prima di procedere al successivo
 
 ## Fuori scope
 
-- Estrazione design system da sito web (usa ui-ux-pro-max + salva-design-system)
-- Salvataggio token nel vault (usa salva-design-system)
-- Generazione UI/landing page (usa ui-ux-pro-max o frontend-design)
+- Estrazione design system da sito web (usa ui-designer + salva-design-system)
+- Generazione UI/landing page (usa ui-ux-pro-max)
 - Progettazione di flussi UX complessi o wireframe navigabili
 - Export asset per sviluppatori (usa `Figma:get_design_context` separatamente)
-- Animazioni Figma (Protopie/After Effects per quello)
+- Animazioni Figma
