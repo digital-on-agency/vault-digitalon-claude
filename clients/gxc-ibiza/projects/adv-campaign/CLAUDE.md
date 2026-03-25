@@ -23,11 +23,15 @@ Lanciare una campagna ADV tramite Insense per creare contenuti autentici da crea
 - [ ] Definire brief per i creator (prodotti da promuovere, tone of voice, formati)
 - [ ] Selezionare creator Ibiza-based su Insense
 - [ ] Lanciare prima wave di contenuti UGC
+- [ ] <!-- DA COMPLETARE — metriche e target da definire -->
 
 ## Problemi aperti
-- [IN ATTESA] Dipendenza da contratto Extra Ibiza — coordinare contenuti con loro strategia
-- [APERTO] Budget ADV da definire
+- [IN ATTESA] Dipendenza da contratto Extra Ibiza — se Extra gestirà gli ads, coordinare i contenuti con la loro strategia
+- [APERTO] Budget ADV da definire — <!-- DA COMPLETARE -->
+
+## Riferimenti tecnici
+<!-- DA COMPLETARE — link account Insense, brief, asset folder -->
 
 ## Storico
 - 2026-03-25 — Creazione progetto nel vault — account Insense creato, campagna "Plan Your Trip" in configurazione
-- 2026-03-25 — Rinominato da ADV Campaign a ADV — allineato con Airtable (recjr6CfteMs3VqCG)
+- 2026-03-25 — Rinominato da UGC Campaign → ADV Campaign → ADV — allineato con Airtable (recjr6CfteMs3VqCG)
