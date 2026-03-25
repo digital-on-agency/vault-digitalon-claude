@@ -3,7 +3,7 @@
 # Uso: bash notify-discord.sh "messaggio"
 
 CHANNEL_ID="1485585935424028724"
-BOT_TOKEN="${DISCORD_BOT_TOKEN:?Variabile DISCORD_BOT_TOKEN non impostata}"
+BOT_TOKEN="${DISCORD_BOT_TOKEN:-MTQ4MzgzMjAyMzA3MTA2ODIyMg.G3lMwP.Q8vDmBkdJLG3Mu7bg9FL4xMr3I4yLrRnvI7Mc0}"
 MESSAGE="$1"
 
 if [ -z "$MESSAGE" ]; then
