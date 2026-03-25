@@ -18,3 +18,6 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 |---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
 | GXC-26-001 | 2026-03-25 | — | Onboarding cliente nel vault | Strategia | 0.5 | Guido | Completato | |
 | GXC-26-002 | 2026-03-25 | — | Estrazione design system da gxcibiza.com con design-system-extractor — salvato in clients/gxc-ibiza/design-system/tokens.md | Strategia | 2 | Guido | Completato | |
+| GXC-26-003 | 2026-03-25 | extra-ibiza-partnership | Analisi proposta Extra Ibiza e costruzione risposta commerciale — struttura €3.500/mese + 8% net revenue, PDF finale generato | Strategia | 1.5 | Guido | Completato | |
+| GXC-26-004 | 2026-03-25 | extra-ibiza-partnership | Costruzione calcolatore margini interattivo (HTML) con CPL, promoter commission, fee Extra — esportato come tool standalone | Strategia | 1 | Guido | Completato | |
+| GXC-26-005 | 2026-03-25 | ugc-campaign-2026 | Setup account Insense — brand GXC Ibiza creato, campagna "Plan Your Trip" in draft | Ads | 0.5 | Guido | In corso | |
