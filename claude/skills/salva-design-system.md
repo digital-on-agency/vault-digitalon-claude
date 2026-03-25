@@ -1,6 +1,6 @@
 ---
 name: salva-design-system
-description: Salva il design system estratto di un cliente nel vault in formato strutturato. Usare quando si chiede di "salvare il design system", "salvare i token", "salvare colori e font di [cliente]", "mettere il design system nel vault", o dopo aver estratto un design system con ui-ux-pro-max o qualsiasi altro tool. Produce un file tokens.md nella cartella design-system/ del cliente, e aggiorna il CLAUDE.md del cliente con un riferimento.
+description: Salva il design system estratto di un cliente nel vault in formato strutturato. Usare quando si chiede di "salvare il design system", "salvare i token", "salvare colori e font di [cliente]", "mettere il design system nel vault", o dopo aver estratto un design system con ui-designer o qualsiasi altro tool. Produce un file tokens.md nella cartella design-system/ del cliente, e aggiorna il CLAUDE.md del cliente con un riferimento.
 allowed-tools: Vault Digital On MCP
 ---
 
@@ -28,6 +28,23 @@ clients/[nome-cliente]/
 
 ## Processo
 
+### Step 0 — Verifica stato attuale ⚠️ OBBLIGATORIO
+
+Prima di scrivere qualsiasi cosa, controlla cosa esiste già nel vault:
+
+1. Verifica se esiste `clients/[cliente]/design-system/` con `list_files`
+2. Se esiste `tokens.md`, leggilo e mostra all'utente un riepilogo di cosa c'è già:
+   ```
+   ✅ tokens.md esistente — ultima estrazione: [data]
+      Colori: [n] definiti | Font: [font] | Spaziature: [sì/no]
+      Componenti: [sì/no]
+   ```
+3. Chiedi esplicitamente:
+   - **"Vuoi aggiornare solo le sezioni mancanti o sovrascrivere tutto?"**
+   - Se aggiornamento parziale → procedi solo sulle sezioni mancanti
+   - Se sovrascrittura → aggiungi nota in cima al file con data e motivo
+4. Non procedere mai senza conferma esplicita dell'utente se il file esiste già
+
 ### Step 1 — Raccogli i dati
 
 Se l'output del design system è già nella conversazione, estrai:
@@ -46,7 +63,8 @@ Crea o aggiorna `clients/[cliente]/design-system/tokens.md` con questo formato:
 ```markdown
 # Design System — [Nome Cliente]
 <!-- estratto da: [URL] — [data] -->
-<!-- tool usato: [es. ui-ux-pro-max / estrazione manuale] -->
+<!-- tool usato: [es. ui-designer / estrazione manuale] -->
+<!-- ultimo aggiornamento: [data] — [motivo aggiornamento] -->
 
 ## Colori
 
@@ -112,7 +130,8 @@ box-shadow: ...;
 
 ### Step 3 — Scrivi components.md (se disponibile)
 
-Se il design system include componenti UI, crea `clients/[cliente]/design-system/components.md`:
+Se il design system include componenti UI, crea `clients/[cliente]/design-system/components.md`.
+Verifica prima se esiste già — stessa logica dello Step 0.
 
 ```markdown
 # Componenti UI — [Nome Cliente]
@@ -139,25 +158,25 @@ Aggiungi nella sezione `Ecosistema tecnico condiviso` del `clients/[cliente]/CLA
 Aggiungi una riga al `clients/[cliente]/log.md`:
 
 ```
-| DS-XXX | YYYY-MM-DD | Design System | Estrazione e salvataggio design system da [URL] | Strategia | 0.5 | Claude | Completato | |
+| DS-XXX | YYYY-MM-DD | Design System | Salvataggio design system — [motivo/tool usato] | Strategia | 0.5 | Claude | Completato | |
 ```
 
 ## Output atteso
 
-- `clients/[cliente]/design-system/tokens.md` — creato o aggiornato
+- `clients/[cliente]/design-system/tokens.md` — creato o aggiornato (mai sovrascritto senza conferma)
 - `clients/[cliente]/design-system/components.md` — creato se disponibile
 - `clients/[cliente]/CLAUDE.md` — aggiornato con riferimento al design system
 - `clients/[cliente]/log.md` — aggiornato con voce attività
 
 ## Note operative
 
-- Se il cliente ha già un `design-system/tokens.md`, non sovrascrivere — aggiorna solo le sezioni cambiate e aggiungi nota in cima con la data di aggiornamento
+- **Non sovrascrivere mai senza conferma esplicita** — se il file esiste, mostra sempre cosa c'è già
 - Se i dati sono parziali (es. solo colori senza font), salva quello che c'è e lascia le sezioni mancanti con `<!-- DA COMPLETARE -->`
 - Il formato tokens.md è pensato per essere leggibile da Claude in future sessioni — usa nomi chiari e hex espliciti, non variabili CSS
-- Dopo il salvataggio, conferma all'utente i path esatti dei file creati
+- Dopo il salvataggio, conferma all'utente i path esatti dei file creati o aggiornati
 
 ## Fuori scope
 
-- Estrarre il design system dal sito (usa ui-ux-pro-max o estrazione manuale)
+- Estrarre il design system dal sito (usa ui-designer)
 - Creare componenti su Figma (usa figma-design-system)
 - Generare codice CSS/Tailwind dai token (richiedi skill separata)
