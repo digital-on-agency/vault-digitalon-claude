@@ -16,5 +16,5 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 
 | ID Task | Data | Progetto | Attività | Categoria | Tempo (h) | Operatore | Stato | Note portale |
 |---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
-| GXC-26-001 | 2026-03-25 | — | Onboarding cliente nel vault | Strategia | 0.5 | Claude | Completato | |
-| GXC-26-002 | 2026-03-25 | — | Estrazione design system da gxcibiza.com — tool: design-system-extractor, salvato in design-system/tokens.md | Strategia | 0.5 | Claude | Completato | |
+| GXC-26-001 | 2026-03-25 | — | Onboarding cliente nel vault | Strategia | 0.5 | Guido | Completato | |
+| GXC-26-002 | 2026-03-25 | — | Estrazione design system da gxcibiza.com con design-system-extractor — salvato in clients/gxc-ibiza/design-system/tokens.md | Strategia | 2 | Guido | Completato | |
