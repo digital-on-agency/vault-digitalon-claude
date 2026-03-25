@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__workspace-digitalon__search_gmail_messages",
+      "mcp__workspace-google__search_gmail_messages",
+      "Bash(bash ~/vault-digitalon/claude/scripts/renew-ga4.sh)",
+      "Bash(bash /opt/vault-digitalon/claude/scripts/renew-ga4.sh)",
+      "Bash(claude mcp:*)",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"session: 2025-03-25 - rinnovo GA4, verifica struttura brainstorming\")"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "workspace-google",
+    "workspace-digitalon",
+    "workspace-trovapulizie",
+    "github",
+    "airtable",
+    "supabase",
+    "ga4"
+  ]
+}
