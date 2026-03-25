@@ -33,6 +33,10 @@
 - Insense (campagna UGC — account creato)
 **Accessi sensibili**: → `clients/gxc-ibiza/secrets.md`
 
+**Design System**: `clients/gxc-ibiza/design-system/tokens.md` — estratto da gxcibiza.com il 2026-03-25
+**Colori principali**: accent #01A781 (teal) | bg #FAFAFA (light) / #020202 (dark) | text #262626
+**Font**: Nexa Black (headings), Be Vietnam Pro (UI/buttons) — self-hosted
+
 ### Brand collegato
 - **EasyGo** — lead magnet / rete scontata
 
@@ -62,3 +66,4 @@
 ## Storico attività
 - 2024-12 — Onboarding cliente — inizio collaborazione
 - 2026-03-25 — Creazione struttura vault — onboarding completo nel vault Digital On
+- 2026-03-25 — Estrazione design system da gxcibiza.com — salvato in design-system/tokens.md (tool: design-system-extractor)
