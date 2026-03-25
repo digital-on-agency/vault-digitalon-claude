@@ -7,8 +7,28 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 ## Come usare questo file
 **Aggiungere una riga:** una riga per ogni attività o task completato/aggiornato.
 **Generare il report:** Claude legge questo file, filtra per mese, raggruppa per categoria e produce la tabella pronta per il portale Softr.
-**Categorie disponibili:** Sviluppo · CRM · Chatbot · Ads · Analytics · Call · Strategia · Supporto
+
+**Categorie disponibili e abbreviazioni:**
+- `STR` — Strategia
+- `DEV` — Sviluppo
+- `ADS` — Ads / Campagne
+- `ANA` — Analytics
+- `CRM` — CRM
+- `BOT` — Chatbot
+- `CALL` — Call / Riunione
+- `SUP` — Supporto
+- `DS` — Design System
+- `UGC` — UGC / Creator
+- `SEO` — SEO
+
 **Stati disponibili:** In corso · Completato · In attesa cliente · Annullato
+
+**Formato ID Task:** `[SIGLA-CLIENTE]-[GG-MM-AAAA]-[CAT][NUM]`
+Esempio: `GXC-25-03-2026-STR001`
+- SIGLA-CLIENTE: sigla breve del cliente (es. GXC, TRP, ...)
+- GG-MM-AAAA: data del task
+- CAT: abbreviazione categoria (vedi sopra)
+- NUM: numero progressivo per categoria in quella data (001, 002, ...)
 
 ---
 
@@ -18,8 +38,6 @@ Per generare il report mensile per il portale: "genera report [mese] per [client
 |---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
 |         |      |          |          |           |           |           |       |              |
 
-<!-- 
-ID Task: formato [CLIENTE]-[ANNO]-[NUM] es: ACME-26-001 — stesso ID usato sul portale Softr
-Data: YYYY-MM-DD
+<!--
 Note portale: lasciare vuoto se attività interna. Compilare solo ciò che va comunicato al cliente.
 -->
