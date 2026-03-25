@@ -40,12 +40,11 @@ Al termine di una sessione di lavoro, produrre un recap strutturato delle attivi
 
 Prima di tutto, leggi `clients/[cliente]/CLAUDE.md` per estrarre:
 
-1. **Record ID del cliente in Airtable** — campo `ID Cliente` nella tabella Clienti/Business (se presente)
-2. **Mapping progetti** — dalla tabella `## Progetti` nel CLAUDE.md, estrai per ogni progetto il suo Record ID Airtable (colonna ID)
+1. **Record ID del cliente in Airtable** — campo `Airtable Record ID (Business)`
+2. **Mapping progetti** — dalla tabella `## Progetti` nel CLAUDE.md, estrai per ogni progetto il suo Record ID Airtable (colonna ID Airtable)
 
 > ⚠️ Se un progetto ha ID `<!-- DA COMPLETARE -->` significa che non è ancora stato creato su Airtable.
-> In quel caso avvisa l'utente: **"Il progetto [nome] non esiste ancora su Airtable. Usare la skill crea-progetto-airtable prima di procedere, oppure il task verrà creato senza collegamento al progetto."**
-> Chiedi come procedere — senza bloccare l'intero flusso.
+> Avvisa l'utente e chiedi come procedere — senza bloccare l'intero flusso.
 
 ### Step 1 — Recap attività
 
@@ -88,7 +87,7 @@ Per ogni attività senza task in Airtable:
    - Categoria: quella identificata nel recap
    - Ore: quelle stimate/dichiarate
    - Operator: Record ID dell'utente trovato nello Step 2
-   - Business: Record ID del cliente (dal CLAUDE.md o cercato in Airtable)
+   - Business: Record ID del cliente (dal CLAUDE.md)
    - Progetto: Record ID del progetto dal mapping in CLAUDE.md — ometti se DA COMPLETARE
 4. Salva il Record ID restituito da Airtable
 
@@ -119,17 +118,21 @@ Per ogni task completata, aggiorna `clients/[cliente]/log.md`.
 
 ### Step 7 — Conferma finale
 
+Mostra sempre cliente, progetto e ore per ogni task:
+
 ```
 ## Resoconto completato
 
 ### Task create in Airtable
-- [Record ID] — [Titolo] — [Cliente] — [Progetto]
+- [Record ID] — [Cliente] — [Progetto] — [Titolo] — [Ore]h
 
 ### Task aggiornate in Airtable
-- [Record ID] — [Titolo] — [nuovo stato]
+- [Record ID] — [Cliente] — [Progetto] — [Titolo] — [nuovo stato]
 
 ### Log aggiornati
 - clients/[cliente]/log.md → [N] righe aggiunte
+
+### Totale ore sessione: [X]h
 ```
 
 ## Regole operative
@@ -139,6 +142,7 @@ Per ogni task completata, aggiorna `clients/[cliente]/log.md`.
 - **Sempre leggere CLAUDE.md del cliente** prima di iniziare — è il mapping progetti
 - **Sempre leggere il log esistente** prima di scrivere
 - **Non aggiornare CLAUDE.md o prossimi passi** — solo log e Airtable
+- **Nel riepilogo finale mostrare sempre: cliente, progetto, titolo, ore** per ogni task
 - Se un'attività non è completata, non va nel log
 
 ## Fuori scope
