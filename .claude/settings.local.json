@@ -27,7 +27,10 @@
       "Read(//home/niccolo/**)",
       "mcp__workspace-digitalon__get_gmail_messages_content_batch",
       "mcp__workspace-digitalon__get_gmail_message_content",
-      "mcp__workspace-digitalon__list_drive_items"
+      "mcp__workspace-digitalon__list_drive_items",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: aggiornamento componenti Figma \\(Button, Nav/Top Bar, Nav/Bottom Bar\\) + knowledge base ui-ux\")",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: aggiornamento componenti Figma \\(Button, Nav/Top Bar, Nav/Bottom Bar\\) + knowledge base ui-ux\")"
     ]
   },
   "enabledMcpjsonServers": [

@@ -171,42 +171,49 @@
 
 ### 6.1 Set Consigliato
 
-**Libreria:** Phosphor Icons (MIT, disponibile per React + React Native)
+**Libreria principale:** Lucide Icons (MIT, outline, 24px) — per navigazione, toolbar, azioni UI
+**Icone custom:** SVG dedicate per Home, Profilo e Bell (Flaticon) — usate nella bottom nav e top bar
 
 | Motivo | Dettaglio |
 |--------|-----------|
-| Stile coerente | Linea pulita, peso regolabile |
-| Leggibilita | Tratto spesso (bold) per target accessibilita |
-| Copertura | Include icone domestiche (scopa, secchio, casa) |
-| Multi-piattaforma | Package per React e React Native |
+| Stile coerente | Outline pulito, stroke 2px, 24x24px |
+| Approccio misto | Outline = stato inattivo/azioni; Filled = stato attivo (bottom nav) |
+| Copertura | Lucide copre la maggior parte dei casi; SVG custom per icone chiave |
 
 ### 6.2 Specifiche
 
 | Proprieta | Valore |
 |-----------|--------|
 | Dimensione default | 24px |
-| Dimensione tocco | 20px icona dentro target 48px |
-| Peso | Bold (per chiarezza su mobile) |
-| Colore default | `color-neutral-500` |
-| Colore attivo | `color-primary-500` |
+| Touch target minimo | 44x44px (icona centrata dentro il target) |
+| Stile default | Outline (stroke 2px) |
+| Stile attivo | Filled (per bottom nav) o outline con colore primario |
+| Colore default | `color-neutral-400` (#A3A3A3) |
+| Colore attivo | `color-primary-500` (#00C896) |
 | Sempre con label | Si, mai icona sola per azioni critiche |
+| Scale: `icon-xs` | 16px — inline con testo, indicatori |
+| Scale: `icon-sm` | 20px — menu, liste, badge |
+| Scale: `icon-md` | 24px — toolbar, navigation, default |
+| Scale: `icon-lg` | 32px — card, empty state, CTA |
 
 ### 6.3 Icone Chiave dell'App
 
-| Azione | Icona Phosphor |
-|--------|---------------|
-| Home | `House` |
-| Cerca | `MagnifyingGlass` |
-| Prenotazioni | `CalendarCheck` |
-| Profilo | `UserCircle` |
-| Pulizia | `Broom` |
-| Posizione | `MapPin` |
-| Pagamento | `CreditCard` |
-| Chat/Supporto | `ChatCircle` |
-| Stella/Recensione | `Star` |
-| Conferma | `CheckCircle` |
-| Errore | `XCircle` |
-| Indietro | `ArrowLeft` |
+| Azione | Fonte | Nome |
+|--------|-------|------|
+| Home | SVG custom (Flaticon) | `fi_1946488` |
+| Cerca | Lucide | `search` |
+| Prenotazioni | Lucide | `calendar` |
+| Profilo | SVG custom (Flaticon) | `fi_456283` |
+| Bell/Notifiche | SVG custom (Flaticon) | `fi_2645897` |
+| Chat/Assistente | Lucide | `message-circle` |
+| Indietro | Lucide | `arrow-left` |
+| Menu/More | Lucide | `ellipsis-vertical` |
+| Pulizia | Lucide | `sparkles` |
+| Posizione | Lucide | `map-pin` |
+| Pagamento | Lucide | `credit-card` |
+| Stella/Recensione | Lucide | `star` |
+| Conferma | Lucide | `check-circle` |
+| Errore | Lucide | `x-circle` |
 
 ---
 
