@@ -147,9 +147,10 @@ Quando l'utente digita "exit":
 
 Il comando per chiudere la sessione in modo corretto è "chiudi sessione" (non /exit).
 Quando l'utente scrive "chiudi sessione":
-1. Aggiornare la memoria con tutto quello che è successo nella sessione
-2. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
-3. Poi scrivere: "Sessione chiusa. Usa /exit per uscire."
+1. Eseguire la skill `resoconto-sessione` (recap attività, sync Airtable, aggiornamento log) — completare tutto il flusso della skill, comprese le domande e conferme all'utente
+2. Aggiornare la memoria con tutto quello che è successo nella sessione
+3. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+4. Poi scrivere: "Sessione chiusa. Usa /exit per uscire."
 
 ## Commit durante la sessione
 

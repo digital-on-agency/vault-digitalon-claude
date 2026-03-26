@@ -2,7 +2,6 @@
   "permissions": {
     "allow": [
       "mcp__workspace-digitalon__search_gmail_messages",
-      "mcp__workspace-google__search_gmail_messages",
       "Bash(bash ~/vault-digitalon/claude/scripts/renew-ga4.sh)",
       "Bash(bash /opt/vault-digitalon/claude/scripts/renew-ga4.sh)",
       "Bash(claude mcp:*)",
@@ -10,16 +9,35 @@
       "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"test: verifica fix path task-end.sh\")",
       "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"fix: rimosso file di test\")",
       "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"manutenzione: 2026-03-26 — tentativo accesso Gmail fallito per OAuth mancante su workspace MCP\")",
-      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"manutenzione: 2026-03-26 — tentativo accesso Gmail fallito per OAuth mancante su workspace MCP\")"
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"manutenzione: 2026-03-26 — tentativo accesso Gmail fallito per OAuth mancante su workspace MCP\")",
+      "Bash(uvx workspace-mcp:*)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli search_gmail_messages '{\"query\": \"in:inbox\", \"max_results\": 3}' 2>&1)",
+      "mcp__claude_ai_Figma__use_figma",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli search_gmail_messages --query \"in:inbox\" --max_results 3 2>&1)",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli search_gmail_messages query=\"in:inbox\" max_results=3 2>&1)",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli search_gmail_messages 'query=in:inbox' 'max_results=3' 2>&1)",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli list_gmail_labels 2>&1)",
+      "Bash(pip show:*)",
+      "Bash(uvx --from workspace-mcp python -c \"import workspace_mcp; print\\(workspace_mcp.__file__\\)\")",
+      "Bash(WORKSPACE_EMAIL=\"info@digital-on.com\" GOOGLE_OAUTH_CLIENT_ID=\"510969569748-heiuoi3mkjbmugbd29eeis490h7tvq1j.apps.googleusercontent.com\" GOOGLE_OAUTH_CLIENT_SECRET=\"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\" uvx workspace-mcp --single-user --cli list_gmail_labels --args '{\"user_google_email\":\"info@digital-on.com\"}' 2>&1)",
+      "mcp__workspace-digitalon__start_google_auth",
+      "Read(//tmp/**)",
+      "Read(//home/niccolo/**)",
+      "mcp__workspace-digitalon__get_gmail_messages_content_batch",
+      "mcp__workspace-digitalon__get_gmail_message_content",
+      "mcp__workspace-digitalon__list_drive_items"
     ]
   },
   "enabledMcpjsonServers": [
-    "workspace-google",
     "workspace-digitalon",
-    "workspace-trovapulizie",
     "github",
     "airtable",
     "supabase",
     "ga4"
+  ],
+  "disabledMcpjsonServers": [
+    "workspace-trovapulizie"
   ]
 }

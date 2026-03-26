@@ -29,4 +29,7 @@ Esempio: `TRP-25-03-2026-SVL001`
 
 | ID Task | Data | Progetto | Attività | Categoria | Tempo (h) | Operatore | Stato | Note portale |
 |---------|------|----------|----------|-----------|-----------|-----------|-------|--------------|
-|         |      |          |          |           |           |           |       |              |
+| recRmKIG4QCYVDj1i | 26-03-2026 | Portale Transazionale | Elaborazione design system Trovapulizie | SVL | 1 | Guido | Completato | |
+| recGrsqzaFwy1gYAJ | 26-03-2026 | Portale Transazionale | Componenti pagina dashboard searcher | SVL | 0.5 | Guido | Completato | |
+| recjXv2tF6Zz7g4Wm | 26-03-2026 | Portale Transazionale | Componenti AI assistant | SVL | 0.33 | Guido | Completato | |
+| rec4QO52nSSh2lKxa | 26-03-2026 | Portale Transazionale | Sitemap portale Trovapulizie | STR | 0.67 | Guido | Completato | |

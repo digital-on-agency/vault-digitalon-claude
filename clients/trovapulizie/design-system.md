@@ -315,13 +315,50 @@
 | Attivo | `primary-500` |
 | Items | 4 max: Home, Cerca, Prenotazioni, Profilo |
 
-### 7.6 Badge / Chip
+### 7.6 Status Pills — Legenda
+
+Sistema di badge per comunicare lo stato delle prenotazioni e informazioni temporali. Ogni colore corrisponde a una categoria semantica precisa.
+
+**Logica colori:**
+- **Giallo (ambra)** = aspetti qualcun altro
+- **Blu** = tocca a te, azione richiesta
+- **Verde pieno** = tutto ok, confermato
+- **Verde muted** = completato con successo
+- **Rosso** = problema, annullamento, scadenza
+- **Blu info** = informazione temporale (quando)
+
+#### Stati prenotazione
+
+| Pill | Background | Testo | Categoria | Significato |
+|------|-----------|-------|-----------|-------------|
+| **In attesa** | `#FEF3C7` | `#854F0B` | Attesa | Richiesta inviata, in attesa di risposta cleaner |
+| **Da pagare** | `#DBEAFE` | `#1D4ED8` | Azione richiesta | L'utente deve completare il pagamento |
+| **Confermata** | `#ECFCCB` | `#3B6D11` | Confermato | Cleaner ha accettato, prossimo step automatico |
+| **Pagato** | `#ECFCCB` | `#3B6D11` | Confermato | Pagamento ricevuto (Instant Booking) |
+| **Completato** | `#F0FBF7` | `#006B50` | Completato | Servizio terminato con successo |
+| **Rifiutato** | `#FEE2E2` | `#A32D2D` | Negativo | Cleaner ha rifiutato la richiesta |
+| **Annullato** | `#FEE2E2` | `#A32D2D` | Negativo | Prenotazione annullata da utente |
+| **Scaduto** | `#FEE2E2` | `#A32D2D` | Negativo | Pagamento non completato in tempo |
+
+#### Badge temporali
+
+| Pill | Background | Testo | Esempio |
+|------|-----------|-------|---------|
+| **Timing** | `#DBEAFE` | `#1D4ED8` | Domani, Oggi, Tra 2h, Tra 45 min |
+
+#### Specifiche UI
+
+| Proprieta | Valore |
+|-----------|--------|
+| Font | Inter Medium, 11-12px |
+| Padding | 4px 10px |
+| Border radius | 6px |
+| Altezza | 22px |
+
+### 7.6b Filtro Chip
 
 | Variante | Background | Testo | Radius |
 |----------|-----------|-------|--------|
-| **Status attivo** | `primary-50` | `primary-700` | `radius-full` |
-| **Status warning** | `warning-light` | `#92400E` | `radius-full` |
-| **Status errore** | `error-light` | `#991B1B` | `radius-full` |
 | **Filtro** | `neutral-50` | `neutral-600` | `radius-sm` |
 | **Filtro attivo** | `primary-500` | `#FFFFFF` | `radius-sm` |
 

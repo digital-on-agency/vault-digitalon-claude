@@ -55,6 +55,7 @@
 | recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-26 — Elaborato design system, componenti dashboard searcher, componenti AI assistant, sitemap portale (tutto su Figma) -->
 <!-- 2026-03-24 — Aggiornato CLAUDE.md con colori reali portale (#00C896 verde) e nota palette Figma da aggiornare -->
 <!-- 2026-03-24 — Creato Figma Design System v1.0: Cover, Styles (palette + tipografia), Components, Screens — Video Demo -->
 <!-- 2026-03-24 — Call video promozionale: definito formato SaaS trailer UI-only 20-30s, feature confermate (AI assistant, checklist, reminder, riepilogo), route ottimizzata esclusa, matchmaking AI come feature investor-facing. Partecipanti: Guido, Matti. Vedi calls/2026-03-24-video-promozionale.md -->
