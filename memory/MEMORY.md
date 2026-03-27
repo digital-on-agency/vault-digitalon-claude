@@ -44,6 +44,14 @@ Non elencare clienti qui — la directory `clients/` è la fonte di verità.
 - `clients/_template/projects/{sito-web,crm,chatbot,ads,seo}/CLAUDE.md` — template progetto per tipo con sezioni specifiche
 - `claude/skills/client-onboarding.md` — skill onboarding nuovo cliente (raccolta info, creazione struttura, commit)
 
+## Decisioni architetturali clienti
+
+- [Landing trovapulizie.it](../../../home/guido/.claude/projects/-opt-vault-digitalon/memory/project_landing_trovapulizie.md) — split subdomain trovapulizie.it (landing) + app.trovapulizie.it (SPA)
+
+## Feedback operativi
+
+- [Figma: mai rimuovere nodi](../../../home/guido/.claude/projects/-opt-vault-digitalon/memory/feedback_figma_no_cleanup.md) — non fare cleanup orfani su pagine Figma, rischio cancellare schermate esistenti
+
 ## Note globali
 
 <!-- Annotazioni trasversali che non rientrano nelle sezioni sopra -->

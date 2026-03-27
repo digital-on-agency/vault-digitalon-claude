@@ -55,6 +55,9 @@
 | recQIdbGIE4T4lcxU | Brand Identity | Generico | Attivo | clients/trovapulizie/projects/brand-identity/ |
 
 ## Storico attività
+<!-- 2026-03-27 — Figma: 7 nuove schermate Searcher Mobile (risultati ricerca caricamento/empty, profilo cleaner caricamento, pagamento + caricamento + fallito, filtri bottom sheet). Search bar aggiornata a posizione (non servizio). Filtri: tipo servizio (chip) al posto di zona. Tasto filtri aggiunto accanto search bar. Decisione architetturale: split subdomain trovapulizie.it (landing SEO) + app.trovapulizie.it (SPA loggata). -->
+<!-- 2026-03-27 — Figma: Home v2 Dual Flow (hero card Flow B AI Match + divider + servizi). Stepper prenotazione Flow A completo: Step 1 Servizio (6 servizi + add-on vetri/stiratura/balcone), Step 2 Data/Ora (calendario + fasce orarie), Step 3 Dettagli (indirizzo, durata, piano, note), Step 4 Conferma (riepilogo + breakdown prezzo), Success. Decisione: Vetri → add-on (non servizio isolato), Condomini sostituisce Vetri nella griglia. Servizio pre-selezionato se utente arriva da ricerca. -->
+<!-- 2026-03-27 — Figma: create 14 schermate Searcher Mobile (prenotazioni 5 varianti + dettaglio, assistente AI 4 varianti, risultati ricerca, profilo cleaner). Aggiunto componente Empty State/Error. Diagramma FigJam flusso prenotazione unificato (Flow A: utente sceglie cleaner, Flow B: match AI). Definita architettura stepper condiviso A+B. -->
 <!-- 2026-03-26 — Elaborato design system, componenti dashboard searcher, componenti AI assistant, sitemap portale (tutto su Figma) -->
 <!-- 2026-03-24 — Aggiornato CLAUDE.md con colori reali portale (#00C896 verde) e nota palette Figma da aggiornare -->
 <!-- 2026-03-24 — Creato Figma Design System v1.0: Cover, Styles (palette + tipografia), Components, Screens — Video Demo -->

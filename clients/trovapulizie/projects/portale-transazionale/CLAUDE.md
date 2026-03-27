@@ -30,7 +30,7 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 [BLOCCATO] 2026-04-01 — Go-live Roma-first — strategia approvata dal team
 [DEFAULT] 2026-03-22 — Migrazione hosting Serverplan → Hostinger entro aprile 2026
 [ATTENZIONE] Ogni modifica all'infrastruttura va valutata in ottica fundraising
-[DEFAULT] 2026-03-23 — Instant Booking come funzionalità core del lancio
+[DEFAULT] 2026-03-23 — Instant Booking come funzionalità core del lancio — prerequisiti e decisioni in `instant-booking.md`
 [DEFAULT] 2026-03-23 — Espansione per microaree, non lancio aggressivo su tutta Roma
 [DEFAULT] 2026-03-23 — IA per matchmaking predittivo domanda/offerta, rerouting e rimborsi
 [DEFAULT] 2026-03-23 — Sistema ricompensa a doppia logica (crediti/sconti) per fidelizzazione
@@ -39,6 +39,7 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 [DEFAULT] 2026-03-23 — Logo da rifare pensando ad app mobile
 
 ## Prossimi passi
+- [ ] Risolvere prerequisiti bloccanti Instant Booking (vedi `instant-booking.md`) — Team — priorità alta
 - [ ] Completare onboarding cleaner per Instant Booking — Niccolò — entro: 2026-04-01
 - [ ] Creare script intervista telefonica cleaner — Guido — entro: 2026-04-05
 - [ ] Contattare 120 vecchi cleaner con script — Guido — entro: 2026-04-12
@@ -72,7 +73,8 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 - Delete utenti: cleanup manuale ordinato delle entità dipendenti (FK/trigger/RLS rendono insufficienti i cascade)
 
 ## Pagamenti Stripe
-**Metodo**: Stripe Embedded Checkout / PaymentIntents
+**Metodo attuale**: Stripe Embedded Checkout / PaymentIntents (frontend-driven)
+**Migrazione prevista**: Stripe Elements (form custom) + webhook autoritativo — vedi `instant-booking.md` §2
 
 **Stati job**:
 - `payment_pending` (obbligatorio) → `confirmed` | `paid` (Instant Booking) | `payment_failed` | `expired`
@@ -95,7 +97,7 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
   - Ritorna al frontend: `{ job_id, client_secret }`
 - Scadenza `payment_expires_at` → stato `expired`: implementazione (cron o lazy) da definire
 
-[ATTENZIONE] Conflitto post-pagamento: flusso esistente ha azioni frontend-driven (dopo retrieve session); Instant Booking richiede webhook autoritativo. Da unificare per evitare doppie scritture e race condition.
+[ATTENZIONE] Conflitto post-pagamento: flusso esistente ha azioni frontend-driven (dopo retrieve session); Instant Booking richiede webhook autoritativo. Da unificare per evitare doppie scritture e race condition. Analisi completa e piano migrazione in `instant-booking.md`.
 
 ## Notifiche e comunicazioni
 - **Push**: Firebase Cloud Messaging con `firebase-admin` nel backend
@@ -324,6 +326,9 @@ Hardening tecnico (serverplan, monitoring, alerting, reliability, release gates)
 Accessi → secrets.md
 
 ## Storico
+<!-- 2026-03-27 — Figma: 7 nuove schermate (risultati ricerca caricamento + empty, profilo cleaner caricamento, pagamento form Stripe + caricamento + fallito, filtri bottom sheet con chip servizi/rating/disponibilità + range prezzo). Search bar mostra posizione, filtri contengono tipo servizio. Tasto filtri aggiunto accanto search bar. Decisione: split subdomain trovapulizie.it (landing) + app.trovapulizie.it (SPA). Sitemap aggiornata. -->
+<!-- 2026-03-27 — Figma: Home v2 Dual Flow + stepper completo Flow A (5 schermate). Servizi: Condomini al posto di Vetri (Vetri → add-on). Add-on in Step 1: Pulizia vetri +€15, Stiratura +€10, Pulizia balcone +€8. Servizio pre-selezionato da ricerca/griglia. Sitemap aggiornata. -->
+<!-- 2026-03-27 — Figma Searcher Mobile: 14 schermate (prenotazioni, assistente AI, ricerca, profilo cleaner) con varianti empty/loading/error. Flusso prenotazione unificato: Flow A (utente sceglie cleaner, lancio) + Flow B (match AI, futuro) con stepper condiviso. Diagramma FigJam. Sitemap aggiornata con stati. -->
 <!-- 2026-03-24 — Analisi staging: infrastruttura mancante (.env, PM2, Nginx, build script backend, deploy script staging) -->
 <!-- 2026-03-23 — Call strategia lancio: Instant Booking core, espansione microaree, recupero 120 cleaner, matchmaking IA, logo da rifare, assistente AI futuro -->
 <!-- 2026-02-20 — inizio sviluppo con Digital On come socio -->

@@ -146,11 +146,11 @@
 | Token | Valore | Uso |
 |-------|--------|-----|
 | `radius-none` | 0px | Divider, elementi full-width |
-| `radius-sm` | 6px | Badge, chip, input |
-| `radius-md` | 12px | Card, bottom sheet |
-| `radius-lg` | 16px | Modale, immagini profilo |
-| `radius-xl` | 24px | FAB, pulsanti pill |
-| `radius-full` | 9999px | Avatar, indicatori |
+| `radius-sm` | 6px | Badge, chip, checkbox, status pill |
+| `radius-md` | 8px | Button, input, text field, select, action row |
+| `radius-lg` | 12px | Card, bottom sheet, modal, toast, dropdown |
+| `radius-xl` | 22px | Search bar (pill), chat bar input |
+| `radius-full` | 9999px | Avatar, toggle, send button, badge count |
 
 ### 5.2 Elevazione (Shadow)
 
@@ -276,19 +276,33 @@
 
 ### 7.3 Card
 
+#### Varianti Card
+
+| Variante | Background | Bordo | Shadow | Radius | Uso |
+|----------|-----------|-------|--------|--------|-----|
+| **Card Cleaner** | `neutral-0` | `neutral-100` 1px | `shadow-xs` | `radius-md` (12px) | Card profilo cleaner, risultati ricerca |
+| **Card Servizio** | `primary-50` | `primary-100` 1px | nessuna | `radius-md` (12px) | Griglia servizi nella Home |
+| **Card Generica** | `neutral-0` | `neutral-100` 1px | `shadow-xs` | `radius-md` (12px) | Prenotazioni, dettagli, contenuti generici |
+
+#### Specifiche comuni
+
 | Proprieta | Valore |
 |-----------|--------|
-| Background | `neutral-0` |
-| Bordo | `neutral-100` 1px |
-| Shadow | `shadow-xs` |
-| Radius | `radius-md` (12px) |
 | Padding | `space-4` (16px) |
 | Gap interno | `space-3` (12px) |
 
-#### Card Servizio (esempio)
+#### Regole bordi e ombre
+
+- **Card su sfondo colorato** (`primary-50`): bordo `primary-100` 1px, **nessuna ombra** — il colore separa gia dal background
+- **Card su sfondo bianco/neutro** (`neutral-0`/`neutral-50`): bordo `neutral-100` 1px + `shadow-xs` — serve elevazione per distinguere
+- **Card hover**: `shadow-sm` (sostituisce `shadow-xs`)
+- **Search bar**: bordo `neutral-100` 1.5px + `shadow-xs` su sfondo bianco
+- **Bottom nav / Top bar**: nessun bordo laterale, solo `shadow-top` o divider 1px `neutral-100`
+
+#### Card Cleaner (esempio)
 
 ```
-┌─────────────────────────────┐
+┌─────────────────────────────┐  ← neutral-0 bg + neutral-100 border + shadow-xs
 │ [Foto profilo]  Nome        │
 │  ★ 4.8 (123)   €15/ora     │
 │                             │
@@ -297,6 +311,15 @@
 │                             │
 │  [ Prenota ora ]            │
 └─────────────────────────────┘
+```
+
+#### Card Servizio (esempio)
+
+```
+┌──────┐ ┌──────┐ ┌──────┐
+│ 🧹   │ │ 🏢   │ │ 🪟   │  ← primary-50 bg + primary-100 border, no shadow
+│Pulizia│ │Uffici │ │Vetri │
+└──────┘ └──────┘ └──────┘
 ```
 
 ### 7.4 Bottom Sheet
@@ -402,6 +425,38 @@ Fallback: iniziali su sfondo `primary-100`, testo `primary-700`.
 | Durata | 4 secondi |
 | Icona | A sinistra, semantica (CheckCircle, XCircle, Info) |
 | Azione | Link testuale opzionale ("Annulla") |
+
+### 7.10 Notifiche — Legenda Colori & Icone
+
+Sistema di categorizzazione visiva per le notifiche in-app. Ogni categoria ha un colore sfondo icona e un colore icona dedicato.
+
+#### Categorie colore
+
+| Categoria | Sfondo icona | Colore icona | Significato | Notifiche |
+|-----------|-------------|-------------|-------------|-----------|
+| **Verde** | `#66E0BF` | `#FFFFFF` | Azione completata / Successo | Prenotazione confermata, Servizio completato, Cleaner in arrivo |
+| **Arancione** | `#F8C259` | `#FFFFFF` | Attenzione / Tempo / Reward | Promemoria, Nuova recensione, Promozione |
+| **Blu** | `#78ABFA` | `#FFFFFF` | Comunicazione / Info | Nuovo messaggio, Nuova offerta cleaner |
+
+#### Icone per tipo notifica
+
+| Notifica | Icona | Colore | Flaticon ID |
+|----------|-------|--------|-------------|
+| Prenotazione confermata | Check cerchio | Verde | `fi_709510` |
+| Servizio completato | Check cerchio | Verde | `fi_709510` |
+| Cleaner in arrivo | Pin location | Verde | `fi_535239` |
+| Promemoria | Campanella | Arancione | `fi_1827422` |
+| Nuova recensione | Stella | Arancione | `fi_2099045` |
+| Promozione | Regalo | Arancione | `fi_548427` |
+| Nuovo messaggio | Chat bubble | Blu | `fi_4468451` |
+| Nuova offerta cleaner | Chat bubble | Blu | `fi_4468451` |
+
+#### Stati notifica
+
+| Stato | Background riga | Titolo | Indicatore |
+|-------|----------------|--------|------------|
+| **Non letta** | `#F2FAF6` | Inter Semi Bold | Pallino verde `#00C896` (8px) |
+| **Letta** | `#FFFFFF` | Inter Medium | Nessuno |
 
 ---
 
