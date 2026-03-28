@@ -33,3 +33,4 @@ Esempio: `TRP-25-03-2026-SVL001`
 | recGrsqzaFwy1gYAJ | 26-03-2026 | Portale Transazionale | Componenti pagina dashboard searcher | SVL | 0.5 | Guido | Completato | |
 | recjXv2tF6Zz7g4Wm | 26-03-2026 | Portale Transazionale | Componenti AI assistant | SVL | 0.33 | Guido | Completato | |
 | rec4QO52nSSh2lKxa | 26-03-2026 | Portale Transazionale | Sitemap portale Trovapulizie | STR | 0.67 | Guido | Completato | |
+| rectplXMhwAJE52v4 | 28-03-2026 | CRM & Tracking | Configurazione MCP workspace-trovapulizie | SUP | 0.5 | Niccolò | Completato | |

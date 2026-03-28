@@ -77,12 +77,12 @@ Costruire visibilità organica locale per Studio Legale Pompei su Cassino, Formi
 [DEFAULT] SEO title blog post: formato `{{seo-title}} | Avv. Pompei` — titoli coinvolgenti, max 60 car.
 
 ## Prossimi passi
-- [ ] Fix pagina 4XX — ID: POMPEI-26-001 — entro: 2026-03-31
-- [ ] Creare e inviare sitemap.xml a GSC — ID: POMPEI-26-002 — entro: 2026-03-31
+- [ ] Fix pagina 4XX — ID: POMPEI-26-001 — entro: 2026-03-31 — BLOCCATO: 3 URL 404 dalla collection Recensioni (2 item in draft + template page). In attesa decisione su ripubblicare, eliminare o redirect 301
+- [x] Creare e inviare sitemap.xml a GSC — ID: POMPEI-26-002 — completato: 2026-03-28
 - [x] Correggere meta description duplicate — ID: POMPEI-26-003 — completato: 2026-03-23
 - [ ] Aggiungere H1 mancanti (2 pagine) — ID: POMPEI-26-004 — entro: 2026-03-31
 - [x] Correggere 5 title tag troppo lunghi — ID: POMPEI-26-005 — completato: 2026-03-23
-- [ ] Aggiungere canonical tag — ID: POMPEI-26-006 — entro: 2026-03-31
+- [x] Aggiungere canonical tag — ID: POMPEI-26-006 — completato: 2026-03-28 — già presenti su tutte le 10 pagine (generati automaticamente da Webflow)
 - [ ] Ottimizzare immagini WebP + lazy loading — ID: POMPEI-26-007 — entro: 2026-03-31
 - [ ] Fix LCP mobile — ID: POMPEI-26-008 — entro: 2026-03-31
 
@@ -102,3 +102,5 @@ Webflow: modifiche solo tramite editor — nessun accesso FTP/server
 2026-03-22 — onboarding portale report in corso — POMPEI-26-012 in corso
 2026-03-23 — POMPEI-26-003 completato: corretta meta description duplicata su pagina Metodologia
 2026-03-23 — POMPEI-26-005 completato: creato campo SEO Title CMS, aggiornati 5 post con titoli ottimizzati e coinvolgenti
+2026-03-28 — POMPEI-26-002 completato: sitemap.xml attiva su Webflow (10 URL), inviata a GSC con successo
+2026-03-28 — POMPEI-26-006 completato: canonical tag già presenti su tutte le pagine (Webflow li genera automaticamente)

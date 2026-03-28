@@ -2,10 +2,11 @@
 
 ## Identità cliente
 **Ragione sociale**:
+**Stato account**: <!-- Prospect / Attivo / In pausa / Chiuso -->
 **Settore**:
 **Dimensione**: <!-- es: 5 dipendenti / PMI / enterprise -->
 **Da quando è cliente**:
-**Contratto**: <!-- tipologia: retainer mensile / progetto fisso / misto -->
+**Contratto**: <!-- tipologia: retainer mensile / progetto fisso / misto — opzionale per Prospect -->
 **Priorità account**: <!-- Alta / Media / Bassa -->
 
 ## Comunicazione
@@ -33,11 +34,12 @@ Formato: [TIPO] YYYY-MM-DD — decisione — motivazione
 **Accessi sensibili**: → `clients/[nome]/secrets.md`
 
 ## Progetti
-| ID | Nome progetto | Tipo | Stato | Path |
-|----|---------------|------|-------|------|
-|    |               |      |       |      |
-<!-- Tipo: Sito web / CRM / Chatbot / Ads / Misto -->
-<!-- Stato: Attivo / In pausa / Completato / Archiviato -->
+| ID | Nome progetto | Tipo | Fase | Stato | Path |
+|----|---------------|------|------|-------|------|
+|    |               |      |      |       |      |
+<!-- Fase: Opportunità (prospect, non su Airtable) / Confermato (cliente attivo, sincronizzato su Airtable) -->
+<!-- Tipo: Sito web / CRM / Chatbot / Ads / SEO / Misto -->
+<!-- Stato: Da Iniziare / In Lavorazione / Attivo / In pausa / Completato / Chiuso -->
 
 ## Storico attività
 <!-- Log sintetico delle attività trasversali al cliente.

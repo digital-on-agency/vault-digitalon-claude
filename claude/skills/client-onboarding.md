@@ -1,11 +1,13 @@
 ---
 name: client-onboarding
-description: Crea la struttura completa per un nuovo cliente nel vault E su Airtable. Usa questa skill ogni volta che si menziona l'aggiunta di un nuovo cliente, un onboarding, o la creazione della scheda cliente — anche se la richiesta è vaga come "aggiungi cliente X" o "crea la cartella per Y". La skill guida la raccolta delle informazioni, crea tutti i file necessari nel vault e sincronizza cliente e progetti su Airtable.
+description: Crea la struttura completa per un nuovo cliente o prospect nel vault E su Airtable. Usa questa skill ogni volta che si menziona l'aggiunta di un nuovo cliente, prospect, un onboarding, o la creazione della scheda cliente — anche se la richiesta è vaga come "aggiungi cliente X" o "crea la cartella per Y". La skill guida la raccolta delle informazioni, crea tutti i file necessari nel vault e sincronizza cliente e progetti su Airtable.
 ---
 
 # Client Onboarding — Digital On Agency
 
-Questa skill crea la struttura completa per un nuovo cliente nel vault a partire dal template in `clients/_template/`, e lo sincronizza su Airtable.
+Questa skill crea la struttura completa per un nuovo cliente o prospect nel vault a partire dal template in `clients/_template/`, e lo sincronizza su Airtable.
+
+> Tutti vivono in `clients/` — la distinzione è nel campo **Stato account** del CLAUDE.md (Prospect / Attivo / In pausa / Chiuso).
 
 ## Struttura vault
 ```
@@ -30,10 +32,13 @@ clients/[slug]/
 ---
 
 ## Step 1 — Raccogli info (prima di creare qualsiasi file)
-**Base:** ragione sociale, slug, settore, dimensione, contratto, priorità
-**Comunicazione:** referente, canale, frequenza, tono, note relazionali
+**Stato account:** Prospect o Attivo? (determina quali campi sono obbligatori)
+**Base:** ragione sociale, slug, settore, dimensione, contratto (opzionale per Prospect), priorità
+**Comunicazione:** referente, canale, frequenza (opzionale per Prospect), tono, note relazionali
 **Tecnico (se disponibile):** domini, GA4, account Ads, repo, integrazioni
 **Progetti attivi (se disponibile):** nome, tipo, stato
+
+> Per i **Prospect**: contratto, frequenza aggiornamenti, accessi e dettagli tecnici sono opzionali. Focus su: chi sono, cosa cercano, stato dell'opportunità.
 
 ## Step 2 — Slug
 Minuscolo, spazi→trattini, no caratteri speciali. "Acme S.r.l."→`acme`
@@ -83,7 +88,9 @@ cp clients/_template/projects/_template/CLAUDE.md clients/[slug]/projects/_templ
 
 ## Step 6 — Sincronizza i progetti su Airtable
 
-Per ogni progetto attivo identificato nello Step 1, cerca prima se esiste già su Airtable:
+> **Prospect:** salta interamente questo step. I progetti vengono censiti nel CLAUDE.md con Fase = Opportunità ma NON creati su Airtable. Quando lo stato account passa ad Attivo, i progetti confermati si aggiornano a Fase = Confermato e si sincronizzano su Airtable.
+
+Per ogni progetto identificato nello Step 1 (solo se stato account = Attivo), cerca prima se esiste già su Airtable:
 
 1. Cerca il progetto nella tabella Progetti (`tblylhAgyc47wEal2`) per nome
 2. Tre scenari:
