@@ -30,7 +30,7 @@ Deduco dal contesto:
 2. Identifica il tipo di informazione da gestire
 3. Se più skill sono necessarie: eseguile tutte in sequenza, in modo ordinato
 4. Se mancano informazioni durante l'esecuzione: delega la decisione alla skill specifica
-5. Al termine esegui `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"` con messaggio esaustivo
+5. Al termine esegui `bash /opt/vault-digitalon/claude/hooks/task-end.sh "messaggio"` con messaggio esaustivo
 6. In caso di errore: fermati e segnala all'utente
 
 ## Skill disponibili

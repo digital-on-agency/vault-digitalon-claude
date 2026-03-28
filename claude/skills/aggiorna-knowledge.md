@@ -31,7 +31,7 @@ Semi-autonomo — classifica, decide e agisce autonomamente. Chiede conferma all
 Prima di qualsiasi operazione, leggi sempre la struttura attuale con:
 
 ```bash
-ls -R ~/vault-digitalon/knowledge/
+ls -R /opt/vault-digitalon/knowledge/
 ```
 
 Non affidarti alla struttura scritta in questo file — la struttura reale sul filesystem è quella autoritativa.
@@ -72,7 +72,7 @@ Determina autonomamente dal contesto quale azione serve:
 
 ### Preparazione (sempre)
 
-1. Leggi la struttura attuale con `ls -R ~/vault-digitalon/knowledge/`
+1. Leggi la struttura attuale con `ls -R /opt/vault-digitalon/knowledge/`
 2. Identifica il file o i file coinvolti
 3. Se il file esiste, leggilo per intero prima di qualsiasi modifica
 

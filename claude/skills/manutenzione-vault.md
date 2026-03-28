@@ -31,5 +31,5 @@ Eseguire la manutenzione automatica quotidiana del vault: controllare i trigger,
 
 ## Gestione token Claude scaduto
 Questa skill viene invocata dal cron job in modo non interattivo. Se Claude Code non è autenticato, il cron job fallirà. In quel caso il cron job stesso (non questa skill) deve mandare una notifica Discord con queste istruzioni:
-"⚠️ Manutenzione vault fallita — token Claude scaduto. Per rinnovare: 1) Sul server lancia: cd ~/vault-digitalon && npx -y mcp-remote@0.1.30 https://mcp-ga.stape.ai/mcp 2) Sul Mac apri tunnel SSH sulla porta indicata 3) Apri l'URL nel browser e completa il login"
+"⚠️ Manutenzione vault fallita — token Claude scaduto. Per rinnovare: 1) Sul server lancia: cd /opt/vault-digitalon && npx -y mcp-remote@0.1.30 https://mcp-ga.stape.ai/mcp 2) Sul Mac apri tunnel SSH sulla porta indicata 3) Apri l'URL nel browser e completa il login"
 

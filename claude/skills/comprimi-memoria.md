@@ -61,7 +61,7 @@ Se trova materiale in `inbox/` durante l'esecuzione, invoca la skill `svuota-inb
       - Sezione "Ultimo commit compressione": scrivi il numero attuale di commit
       - Sezione "Storico compressioni": appendi un nuovo blocco con data, trigger, file compressi e sintesi di cosa è stato riassunto e dove
 
-   d. Invia notifica su Discord: `bash ~/vault-digitalon/claude/scripts/notify-discord.sh "Compressione memoria: [lista file] — [sintesi modifiche]"`
+   d. Invia notifica su Discord: `bash /opt/vault-digitalon/claude/scripts/notify-discord.sh "Compressione memoria: [lista file] — [sintesi modifiche]"`
 
    e. Commit con messaggio `compress: compressa memoria - [lista file] - [sintesi]`
 

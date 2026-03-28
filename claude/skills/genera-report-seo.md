@@ -51,7 +51,7 @@ Il campo Report PDF va lasciato vuoto — allegato manualmente dopo.
 MAI creare senza conferma.
 
 ## Step 5 — Comunica il risultato
-1. Invia notifica su Discord: `bash ~/vault-digitalon/claude/scripts/notify-discord.sh "Report SEO creato per [cliente]"`
+1. Invia notifica su Discord: `bash /opt/vault-digitalon/claude/scripts/notify-discord.sh "Report SEO creato per [cliente]"`
 2. Comunica: "Report creato su Airtable ✓ — allega il PDF al record per renderlo visibile sul portale"
 3. Aggiorna Storico attività nel CLAUDE.md cliente
 

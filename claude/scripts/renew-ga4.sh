@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Rinnovo token OAuth MCP GA4 (Stape)
-# Uso: bash ~/vault-digitalon/claude/scripts/renew-ga4.sh
+# Uso: bash /opt/vault-digitalon/claude/scripts/renew-ga4.sh
 
 LOG_FILE="/tmp/ga4-mcp.log"
 

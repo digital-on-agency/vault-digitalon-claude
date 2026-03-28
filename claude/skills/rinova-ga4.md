@@ -15,7 +15,7 @@ Rinnovare il token OAuth del MCP GA4 Stape in modo semi-automatico, guidando l'u
 
 ## Processo
 1. Avvisa l'utente: "Il MCP GA4 deve essere riautenticato. Avvio il processo..."
-2. Esegui `bash ~/vault-digitalon/claude/scripts/renew-ga4.sh`
+2. Esegui `bash /opt/vault-digitalon/claude/scripts/renew-ga4.sh`
 3. Lo script stamperà:
    - Il comando SSH tunnel da eseguire sul Mac
    - L'URL da aprire nel browser

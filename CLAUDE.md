@@ -60,7 +60,7 @@ I commit automatici usano il formato `session: YYYY-MM-DD HH:MM`. Per commit man
 ## Notifiche Discord
 
 Per inviare notifiche nel canale #sistema di Discord usa sempre:
-`bash ~/vault-digitalon/claude/scripts/notify-discord.sh "messaggio"`
+`bash /opt/vault-digitalon/claude/scripts/notify-discord.sh "messaggio"`
 
 Invia una notifica quando:
 - Una skill di manutenzione completa il suo lavoro (comprimi-memoria, handle-daily-notes, svuota-inbox)
@@ -83,6 +83,6 @@ Quando l'utente scrive **"chiudi sessione"**, eseguire SEMPRE questi step in ord
 
 ## Hook git
 
-- **Inizio task:** eseguire `bash ~/vault-digitalon/claude/hooks/task-start.sh`
-- **Fine task:** generare un messaggio di commit nel formato definito nel memory agent ed eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+- **Inizio task:** eseguire `bash /opt/vault-digitalon/claude/hooks/task-start.sh`
+- **Fine task:** generare un messaggio di commit nel formato definito nel memory agent ed eseguire `bash /opt/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 - Se `task-end.sh` restituisce errori, segnalarli senza bloccare il flusso di lavoro

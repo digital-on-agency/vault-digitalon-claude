@@ -140,7 +140,7 @@ Autonoma, senza conferma. Dopo la compressione inviare notifica su Discord con s
 
 Quando l'utente digita "exit":
 1. Aggiornare la memoria con tutto quello che è successo nella sessione
-2. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+2. Eseguire `bash /opt/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 3. Poi uscire davvero
 
 ## Comando fine sessione
@@ -149,7 +149,7 @@ Il comando per chiudere la sessione in modo corretto è "chiudi sessione" (non /
 Quando l'utente scrive "chiudi sessione":
 1. Eseguire la skill `resoconto-sessione` (recap attività, sync Airtable, aggiornamento log) — completare tutto il flusso della skill, comprese le domande e conferme all'utente
 2. Aggiornare la memoria con tutto quello che è successo nella sessione
-3. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+3. Eseguire `bash /opt/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 4. Poi scrivere: "Sessione chiusa. Usa /exit per uscire."
 
 ## Commit durante la sessione
@@ -168,10 +168,10 @@ Claude esegue `task-end.sh` autonomamente (senza aspettare "chiudi sessione") qu
 ## Sessioni Discord
 
 Ogni invocazione da Discord è un task atomico:
-1. Eseguire `bash ~/vault-digitalon/claude/hooks/task-start.sh`
+1. Eseguire `bash /opt/vault-digitalon/claude/hooks/task-start.sh`
 2. Eseguire il task
 3. Aggiornare la memoria alla fine solo se il task ha prodotto informazioni nuove
-4. Eseguire `bash ~/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
+4. Eseguire `bash /opt/vault-digitalon/claude/hooks/task-end.sh "messaggio"`
 
 ## Tool autorizzati e perché
 

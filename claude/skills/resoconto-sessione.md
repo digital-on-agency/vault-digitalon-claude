@@ -64,9 +64,18 @@ Aspetta conferma prima di procedere.
 
 ### Step 2 — Chi ha lavorato
 
-Chiedi: **"Chi ha svolto queste attività?"**
-Se più persone hanno lavorato su attività diverse, chiedi per ciascuna.
-Cerca il nome nella tabella Users di Airtable per ottenere il Record ID dell'operatore.
+Rileva automaticamente l'utente VPS con `whoami` e usa questo mapping:
+
+| Utente VPS | Nome Airtable |
+|---|---|
+| `niccolo` | Niccolò |
+| `guido` | Guido |
+| `sone` | Sone |
+| `seba` | Seba |
+
+Se l'utente è `root` o non è nella tabella sopra, chiedi esplicitamente: **"Non riesco a identificare l'operatore — chi ha svolto queste attività?"**
+
+Una volta identificato il nome, cerca nella tabella Users di Airtable per ottenere il Record ID dell'operatore.
 
 ### Step 3 — Verifica in Airtable
 
