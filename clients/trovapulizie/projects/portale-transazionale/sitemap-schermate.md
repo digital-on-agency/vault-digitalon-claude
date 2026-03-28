@@ -29,6 +29,7 @@
 |---|-----------|-------------|-------|
 | 5 | Home (attuale) | Greeting top bar, search bar, griglia 6 servizi, cleaner consigliati/vicini | Fatto |
 | 5v2 | Home v2 — Dual Flow | Hero card Flow B (AI Match) + divider "oppure scegli tu" + griglia servizi + consigliati | Fatto |
+| 5v2b | Home / Indirizzo Mancante | Click servizio senza indirizzo: toast warning + search bar highlight arancione + helper text + servizio selezionato (verde). Dopo indirizzo → risultati filtrati | Fatto |
 | 6 | Notifiche | Lista notifiche (prenotazione, reminder, promo) | Da fare |
 
 ### Ricerca & Filtri

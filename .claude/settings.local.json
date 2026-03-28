@@ -30,7 +30,14 @@
       "mcp__workspace-digitalon__list_drive_items",
       "mcp__claude_ai_Figma__get_design_context",
       "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: aggiornamento componenti Figma \\(Button, Nav/Top Bar, Nav/Bottom Bar\\) + knowledge base ui-ux\")",
-      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: aggiornamento componenti Figma \\(Button, Nav/Top Bar, Nav/Bottom Bar\\) + knowledge base ui-ux\")"
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: aggiornamento componenti Figma \\(Button, Nav/Top Bar, Nav/Bottom Bar\\) + knowledge base ui-ux\")",
+      "Bash(git add:*)",
+      "Bash(sudo git:*)",
+      "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: analisi e documentazione prerequisiti Instant Booking + aggiornamento CLAUDE.md progetto\")",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: analisi e documentazione prerequisiti Instant Booking + aggiornamento CLAUDE.md progetto\")",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__claude_ai_Airtable__list_records_for_table"
     ]
   },
   "enabledMcpjsonServers": [

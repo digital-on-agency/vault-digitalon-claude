@@ -165,6 +165,18 @@ Monorepo con due applicazioni principali:
 - **i18n**: i18next con it (fallback), en, de, es, fr — risorse in `src/i18n/locales/`
 - **API calls**: nessun client centralizzato; `fetch` + `VITE_BACKEND_URL` ripetuto in più file; `dbUtils` per operazioni comuni (fetchProfile, fetchUserName, fetchCleanerProfile, fetchAllCleaners, fetchServiceTypes, checkSession, mailExists)
 
+## UX — Regole di interazione Home
+
+### Click servizio senza indirizzo
+**Regola**: l'indirizzo è obbligatorio prima di procedere alla ricerca cleaner.
+**Comportamento**:
+1. Click su card servizio → il servizio si seleziona (bordo verde, sfondo `#E6FFF5`) come feedback visivo
+2. Toast warning (arancione) appare in alto: "Inserisci un indirizzo per continuare"
+3. Search bar evidenziata con bordo arancione (`#F59E0B`) + helper text sotto
+4. Dopo 3s il toast scompare automaticamente, l'highlight sulla search bar resta
+5. Quando l'utente inserisce l'indirizzo → navigazione automatica ai risultati ricerca, filtrati per il servizio selezionato
+**Motivazione**: lancio Roma-first con pochi cleaner per microarea — mostrare risultati senza filtro geografico crea aspettative sbagliate.
+
 ## API reference
 
 ### Auth (`/api/auth`)
@@ -326,6 +338,7 @@ Hardening tecnico (serverplan, monitoring, alerting, reliability, release gates)
 Accessi → secrets.md
 
 ## Storico
+<!-- 2026-03-28 — Figma: creata schermata 5v2b Home/Indirizzo Mancante (toast warning + search bar highlight + helper text) ma DA RIFARE: search bar non corretta (usa componente generico invece di quella della Home), icone servizi sono emoji invece delle icone originali della Home. Problema: API Figma MCP restituisce 0 children per pagina Searcher Mobile (202:2) nonostante lo screenshot mostri ~30 schermate — impossibile leggere i nodi esistenti per copiare icone/search bar. Prossimo step: utente fornisce link diretto alla Home v2 o si risolve il bug API. Regola UX "indirizzo obbligatorio" documentata e confermata. Sitemap aggiornata. -->
 <!-- 2026-03-27 — Figma: 7 nuove schermate (risultati ricerca caricamento + empty, profilo cleaner caricamento, pagamento form Stripe + caricamento + fallito, filtri bottom sheet con chip servizi/rating/disponibilità + range prezzo). Search bar mostra posizione, filtri contengono tipo servizio. Tasto filtri aggiunto accanto search bar. Decisione: split subdomain trovapulizie.it (landing) + app.trovapulizie.it (SPA). Sitemap aggiornata. -->
 <!-- 2026-03-27 — Figma: Home v2 Dual Flow + stepper completo Flow A (5 schermate). Servizi: Condomini al posto di Vetri (Vetri → add-on). Add-on in Step 1: Pulizia vetri +€15, Stiratura +€10, Pulizia balcone +€8. Servizio pre-selezionato da ricerca/griglia. Sitemap aggiornata. -->
 <!-- 2026-03-27 — Figma Searcher Mobile: 14 schermate (prenotazioni, assistente AI, ricerca, profilo cleaner) con varianti empty/loading/error. Flusso prenotazione unificato: Flow A (utente sceglie cleaner, lancio) + Flow B (match AI, futuro) con stepper condiviso. Diagramma FigJam. Sitemap aggiornata con stati. -->
