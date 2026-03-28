@@ -39,7 +39,9 @@
       "Bash(git push:*)",
       "mcp__claude_ai_Airtable__list_records_for_table",
       "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"skill: aggiungi-knowledge → aggiorna-knowledge \\(aggiunta capacità di aggiornamento e review\\)\")",
-      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"skill: aggiungi-knowledge → aggiorna-knowledge \\(aggiunta capacità di aggiornamento e review\\)\")"
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"skill: aggiungi-knowledge → aggiorna-knowledge \\(aggiunta capacità di aggiornamento e review\\)\")",
+      "mcp__claude_ai_Airtable__create_records_for_table",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"session: 2026-03-28 — skill aggiorna-knowledge + sezione chiudi sessione in CLAUDE.md\")"
     ]
   },
   "enabledMcpjsonServers": [

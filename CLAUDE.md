@@ -70,6 +70,17 @@ Invia una notifica quando:
 
 Non inviare notifiche per operazioni routinarie o aggiornamenti normali del vault.
 
+## Comando "chiudi sessione"
+
+Quando l'utente scrive **"chiudi sessione"**, eseguire SEMPRE questi step in ordine:
+
+1. **Invocare la skill `resoconto-sessione`** — recap attività, sync Airtable, aggiornamento log. Completare tutto il flusso della skill, comprese domande e conferme all'utente. NON saltare questo step.
+2. **Aggiornare la memoria** con quello che è successo nella sessione
+3. **Eseguire `task-end.sh`** per commit e push
+4. Scrivere: "Sessione chiusa. Usa /exit per uscire."
+
+> ⚠️ Non eseguire mai `task-end.sh` come prima azione quando l'utente dice "chiudi sessione". Il resoconto viene PRIMA del commit.
+
 ## Hook git
 
 - **Inizio task:** eseguire `bash ~/vault-digitalon/claude/hooks/task-start.sh`
