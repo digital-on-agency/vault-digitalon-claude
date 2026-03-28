@@ -37,7 +37,9 @@
       "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"trovapulizie: analisi e documentazione prerequisiti Instant Booking + aggiornamento CLAUDE.md progetto\")",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "mcp__claude_ai_Airtable__list_records_for_table"
+      "mcp__claude_ai_Airtable__list_records_for_table",
+      "Bash(bash ~/vault-digitalon/claude/hooks/task-end.sh \"skill: aggiungi-knowledge → aggiorna-knowledge \\(aggiunta capacità di aggiornamento e review\\)\")",
+      "Bash(bash /opt/vault-digitalon/claude/hooks/task-end.sh \"skill: aggiungi-knowledge → aggiorna-knowledge \\(aggiunta capacità di aggiornamento e review\\)\")"
     ]
   },
   "enabledMcpjsonServers": [
