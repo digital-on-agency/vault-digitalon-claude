@@ -39,7 +39,7 @@
 **Hosting strategy**: Backend su VPS esterno (non Bluehost — incompatibilità Node), frontend statico su Bluehost (public_html/), DB su Supabase
 **Target risorse**: 2 vCPU, 2GB RAM, 20GB SSD; ~5k utenti registrati, 50-100 concorrenti attivi
 **Brand & UI**: Colore primario `#00C896` (verde), background secondario `#F0FBF7`, testo `#1A1A1A`. Font Inter. Tailwind default senza custom config — colori applicati direttamente nei componenti.
-**Figma Design System**: https://www.figma.com/design/UiW4TPgvqCODW5bhyFV5eK — v1.0, creato 2026-03-24 (Cover + Styles + Components + Screens — Video Demo). Palette da aggiornare con colori reali.
+**Figma Design System**: https://www.figma.com/design/UiW4TPgvqCODW5bhyFV5eK — v2.0, aggiornato 2026-03-29 (Cover + Styles + Components + Screens Searcher Mobile)
 **Accessi sensibili**: → clients/trovapulizie/secrets.md
 
 ## Progetti
