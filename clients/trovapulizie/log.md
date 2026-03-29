@@ -34,3 +34,7 @@ Esempio: `TRP-25-03-2026-SVL001`
 | recjXv2tF6Zz7g4Wm | 26-03-2026 | Portale Transazionale | Componenti AI assistant | SVL | 0.33 | Guido | Completato | |
 | rec4QO52nSSh2lKxa | 26-03-2026 | Portale Transazionale | Sitemap portale Trovapulizie | STR | 0.67 | Guido | Completato | |
 | rectplXMhwAJE52v4 | 28-03-2026 | CRM & Tracking | Configurazione MCP workspace-trovapulizie | SUP | 0.5 | Niccolò | Completato | |
+| recUgMmGBrWcanBig | 29-03-2026 | Brand Identity | Revisione spaziature e border-radius design system Figma | STR | 0.5 | Guido | Completato | |
+| rec2QnO87ngJPOkAc | 29-03-2026 | Brand Identity | Toggle Instant Booking nei Filtri bottom sheet | STR | 0.5 | Guido | Completato | |
+| recG1g7g5O94mmqrj | 29-03-2026 | Brand Identity | Nuove schermate Figma: calendario, toast, modale annulla, contatta cleaner, modifica profilo | STR | 1.5 | Guido | Completato | |
+| recY2zqptgERwz07C | 29-03-2026 | Brand Identity | Revisione Profilo Utente: rimosse freccette Dati Personali | STR | 0.25 | Guido | Completato | |
