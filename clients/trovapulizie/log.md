@@ -41,3 +41,6 @@ Esempio: `TRP-25-03-2026-SVL001`
 | recb12RdRNaSMtGvO | 29-03-2026 | Portale Transazionale | Figma: 7 nuove schermate, icone SVG, riordino layout Searcher Mobile | SVL | 3 | Guido | Completato | |
 | recrfzyodBSPSwC2T | 29-03-2026 | Portale Transazionale | Figma sessione 3: schermate Profilo/Settings, flusso referral, verifica identità | SVL | 4 | Guido | Completato | |
 | recHHEtFItgsjrvvD | 29-03-2026 | CRM & Tracking | Verifica inbox Gmail e Google Drive trovapulizie | SUP | 0.25 | Niccolò | Completato | |
+| recJyY6xQ065pr4N1 | 29-03-2026 | Portale Transazionale | Figma sessione 4: schermate mancanti Searcher + miglioramenti UI | SVL | 2.5 | Guido | Completato | |
+| rec7wjAc27ZWBBbd0 | 29-03-2026 | Portale Transazionale | Figma Cleaner Mobile: Dashboard + bottom bar con icone custom | SVL | 1.2 | Guido | Completato | |
+| recxW9HNHjN7SGKBi | 29-03-2026 | Portale Transazionale | Clone repo trovapulizie su VPS e analisi stack | SVL | 0.25 | Niccolò | Completato | |

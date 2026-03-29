@@ -34,6 +34,8 @@
 **Analytics**: GA4 — property ID 428236871
 **Ads**: In setup/go-live 2026 — Google Search local intent + Meta/retargeting
 **Repository**: GitHub (TypeScript full-stack) — https://github.com/digital-on-agency/trovapulizie.git
+**Repo locale VPS**: /home/niccolo/trovapulizie (clonata 2026-03-29)
+**Airtable Record ID (Business)**: rec84e8gl0Ga4abrb
 **Integrazioni trasversali**: Airtable (single source of truth operativa/CRM), Supabase
 **Google Workspace**: trovapulizie.it@gmail.com
 **Hosting strategy**: Backend su VPS esterno (non Bluehost — incompatibilità Node), frontend statico su Bluehost (public_html/), DB su Supabase
