@@ -39,3 +39,4 @@ Esempio: `TRP-25-03-2026-SVL001`
 | recG1g7g5O94mmqrj | 29-03-2026 | Brand Identity | Nuove schermate Figma: calendario, toast, modale annulla, contatta cleaner, modifica profilo | STR | 1.5 | Guido | Completato | |
 | recY2zqptgERwz07C | 29-03-2026 | Brand Identity | Revisione Profilo Utente: rimosse freccette Dati Personali | STR | 0.25 | Guido | Completato | |
 | recb12RdRNaSMtGvO | 29-03-2026 | Portale Transazionale | Figma: 7 nuove schermate, icone SVG, riordino layout Searcher Mobile | SVL | 3 | Guido | Completato | |
+| recrfzyodBSPSwC2T | 29-03-2026 | Portale Transazionale | Figma sessione 3: schermate Profilo/Settings, flusso referral, verifica identità | SVL | 4 | Guido | Completato | |
