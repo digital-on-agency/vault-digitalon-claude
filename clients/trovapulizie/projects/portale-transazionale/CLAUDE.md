@@ -6,8 +6,8 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 
 ## Stato attuale
 **Stato**: In corso
-**Ultimo aggiornamento**: 2026-03-24
-**Fase attuale**: Pre-go-live — focus su Instant Booking, onboarding cleaner e acquisizione offerta per microarea di lancio
+**Ultimo aggiornamento**: 2026-03-29
+**Fase attuale**: Pre-go-live — focus su Instant Booking, onboarding cleaner e acquisizione offerta per microarea di lancio. Figma searcher quasi completo, dashboard cleaner in progress.
 **URL produzione**: trovapulizie.it
 **URL staging**: <!-- DA COMPLETARE -->
 
@@ -38,7 +38,39 @@ Piattaforma transazionale per prenotazione e pagamento di servizi di pulizia. Bo
 [DEFAULT] 2026-03-23 — Assistente AI in-app per cleaner (fase futura — effetto "wow")
 [DEFAULT] 2026-03-23 — Logo da rifare pensando ad app mobile
 
+### Decisioni UX/architettura — call 2026-03-29
+[DEFAULT] 2026-03-29 — Bottom bar cleaner: Dashboard | Calendario | Assistente | Profilo
+[DEFAULT] 2026-03-29 — Storico lavori cleaner in tab dedicata del menu (non nella home dashboard)
+[DEFAULT] 2026-03-29 — Nessun calendario nativo nel portale searcher — usa tasto "Aggiungi al calendario" (link → Google Calendar)
+[DEFAULT] 2026-03-29 — Vista lista/calendario prenotazioni searcher: switcher con default impostabile nelle preferenze (nice to have, non prioritario)
+[DEFAULT] 2026-03-29 — Le ditte hanno un profilo separato rispetto ai cleaner individuali
+[DEFAULT] 2026-03-29 — Flow A (scegli cleaner): cleaner prima, orario dopo — nessuna data obbligatoria in fase di ricerca
+[DEFAULT] 2026-03-29 — Flow B (trova disponibilità): data/ora prima, sistema trova cleaner — per urgenze e attività
+[DEFAULT] 2026-03-29 — Tipo servizio obbligatorio nella ricerca (da monitorare con bounce rate)
+[DEFAULT] 2026-03-29 — Notifiche conservate 30 giorni poi eliminazione automatica; "archivia lette" = nasconde, non elimina
+[DEFAULT] 2026-03-29 — Codice amico inserito in fase di iscrizione (non al checkout) — modello Revolut. Verifica identità necessaria
+[DEFAULT] 2026-03-29 — Campo codice sconto nel checkout presente (per promozioni future separate dal referral)
+[DEFAULT] 2026-03-29 — Recensioni: stelline obbligatorie, commento e sottocategorie opzionali. Più info = più punti (sistema punti post-lancio)
+[DEFAULT] 2026-03-29 — Assistenza: Email + WhatsApp ora; messaggi in-app nascosti (futura); ticket post-lancio (form → API Claude)
+[DEFAULT] 2026-03-29 — Segnalazione profilo generica separata da segnalazione prenotazione (problema con cleaner specifico)
+[DEFAULT] 2026-03-29 — Splash page app.trovapulizie.it: Registrati | Accedi | Continua come ospite
+[DEFAULT] 2026-03-29 — Ospite al checkout: form login/registrazione embeddato nello stepper (entrambe le opzioni)
+[DEFAULT] 2026-03-29 — Dashboard cleaner su dominio separato (es. cleaner.trovapulizie.it)
+[DEFAULT] 2026-03-29 — Roadmap feature su 3 livelli: Must (go-live) | Nice to have (1-2 mesi) | Opzionali (~1 anno)
+[DEFAULT] 2026-03-29 — Modifica prenotazione: con instant booking → orari disponibili selezionabili; senza → richiesta conferma al cleaner con finestra di rifiuto (N ore da definire)
+[ATTENZIONE] 2026-03-29 — Flusso "conferma lavoro completato" (tipo Deliveroo): da decidere con tutto il team — impatto alto su flusso, implementazione e modello di pagamento
+
 ## Prossimi passi
+- [ ] Continuare disegno dashboard cleaner su Figma — Guido — prossima sessione
+- [ ] Approfondire flusso "conferma lavoro completato" con tutto il team — Guido + Niccolò + team — prossima call
+- [ ] Decidere flusso modifica prenotazione + finestra rifiuto cleaner — Guido + Niccolò — prossimo incontro
+- [ ] Fix icone SVG Figma (fill/stroke uniforme) — Guido
+- [ ] Schermate onboarding first time (2 schermate welcome post-registrazione) — Guido — Figma
+- [ ] Splash page + flusso ospite → login/registrazione nel checkout — Guido — Figma
+- [ ] Strutturare lista feature con 3 livelli (Must / Nice / Opzionale) — Guido + Niccolò
+- [ ] Schermata errore 404 dedicata — Guido — Figma
+- [ ] Nascondere "messaggi in-app" nell'assistenza — Guido — Figma
+- [ ] Separare segnalazione profilo da segnalazione prenotazione — Guido — Figma
 - [ ] Risolvere prerequisiti bloccanti Instant Booking (vedi `instant-booking.md`) — Team — priorità alta
 - [ ] Completare onboarding cleaner per Instant Booking — Niccolò — entro: 2026-04-01
 - [ ] Creare script intervista telefonica cleaner — Guido — entro: 2026-04-05
@@ -307,6 +339,7 @@ Monorepo con due applicazioni principali:
 - Introdurre middleware auth centralizzato
 - Introdurre CleanerRoute o protezione equivalente
 - Centralizzare `VITE_BACKEND_URL` in un modulo unico
+- Decidere flusso "conferma lavoro completato" (tipo Deliveroo) — impatto alto
 
 ## Staging — blocchi da risolvere (2026-03-24)
 Analisi fatta su branch `staging` (repo locale `~/trovapulizie`). Nessun branch `origin/v2`.
@@ -338,6 +371,11 @@ Hardening tecnico (serverplan, monitoring, alerting, reliability, release gates)
 Accessi → secrets.md
 
 ## Storico
+<!-- 2026-03-29 — Call review Figma searcher + prima bozza dashboard cleaner. Definite decisioni UX: bottom bar cleaner, flusso doppio A/B, nessun calendario nativo searcher, codice referral in iscrizione, notifiche 30gg, segnalazioni separate, splash page, dominio cleaner separato, roadmap 3 livelli. Aperti: conferma lavoro completato (tipo Deliveroo), flusso modifica prenotazione con/senza instant booking. Vedi calls/2026-03-29-review-figma-searcher-cleaner.md -->
+<!-- 2026-03-29 — Figma sessione 3: 10 nuove schermate Profilo & Settings + flusso referral + verifica identità. Nuove schermate: Aggiungi Metodo di Pagamento (19e), Menu Profilo 3 puntini con 7 voci (19f), Assistenza FAQ con 6 domande accordion (19g), Contattaci bottom sheet Email/WhatsApp/In-app (19h), Invita un Amico con codice referral + share WhatsApp (19i), Impostazioni Notifiche con toggle canali + tipo (19j), Lingua con 5 opzioni (19k), Verifica Documento upload CI/Patente/Passaporto + numero (20a), Documento Inviato conferma (20b), Bottom sheet verifica richiesta nel checkout (13c2), Step 4 Conferma + Sconto Applicato con -€10 (13b). Aggiunte al profilo originale (19): banner verifica identità arancione con 3 stati (non verificato/pending/verificato). Aggiunto campo codice sconto permanente nel checkout Step 4 (13a). Icone SVG custom su tutte le voci menu profilo (campanella, globo, invita, assistenza, termini, esci, cestino), bottom sheet cambia foto (camera, galleria, cestino), dropdown notifiche (campanella, archivio). Fix bottom sheet corner radius (solo top rounded). Rimossi 3 puntini da tutte le schermate secondarie — restano solo su Profilo (19), Notifiche (6/6b), Profilo Cleaner (09/9c/9d/9e). Note sviluppo aggiunte: CTA dinamico 20b (origin checkout/profile), banner verifica profilo (3 stati + campo DB), Termini e Privacy (link esterno nuova scheda). Schermate mancanti identificate per prossima sessione: Lascia recensione, Elimina account conferma, Cambio password, Ricevuta pagamento. -->
+<!-- 2026-03-29 — Figma sessione 2: 7 nuove schermate (dropdown Notifiche 6b, dropdown Profilo Cleaner 9c, bottom sheet Segnala 9d, Condividi 9e, skeleton Dettaglio Prenotazione 16f, Cambia Foto 19c, Aggiungi Indirizzo 19d). Icone SVG custom su Profilo Utente (casa, ufficio, carta) e Modifica Profilo (fotocamera solid). Icone dropdown Notifiche (double-check, ingranaggio, archivio). Riordinamento frame Searcher Mobile per sezione. Search bar Home v2 spostata sotto hero card. Fix bottom bar Home v2. Rimossi 3 puntini Risultati Ricerca. -->
+<!-- 2026-03-29 — Figma: dropdown menu 3 puntini Notifiche (6b): 3 voci (Segna tutte come lette verde, Impostazioni notifiche, Archivia lette) con icone Lucide-style, separatori, backdrop semitrasparente. Aggiornato sitemap. -->
+<!-- 2026-03-29 — Figma: revisione design system (spaziature Modifica Prenotazione, uniformità border-radius CTA 24→12 su 4 pulsanti, margini bottom sheet). Toggle Instant Booking nei Filtri (sostituisce chip, icona SVG da Home v2, posizionato tra Servizio e Prezzo). 5 nuove schermate/elementi: pulsante Aggiungi al calendario (14), toast conferma modifica (16c), modale annulla prenotazione (16d), bottom sheet contatta cleaner con Chiama/WhatsApp/Messaggio in-app (16e), Modifica Profilo (19b). Revisione Profilo Utente: rimosse freccette Dati Personali. -->
 <!-- 2026-03-28 — Figma: creata schermata 5v2b Home/Indirizzo Mancante (toast warning + search bar highlight + helper text) ma DA RIFARE: search bar non corretta (usa componente generico invece di quella della Home), icone servizi sono emoji invece delle icone originali della Home. Problema: API Figma MCP restituisce 0 children per pagina Searcher Mobile (202:2) nonostante lo screenshot mostri ~30 schermate — impossibile leggere i nodi esistenti per copiare icone/search bar. Prossimo step: utente fornisce link diretto alla Home v2 o si risolve il bug API. Regola UX "indirizzo obbligatorio" documentata e confermata. Sitemap aggiornata. -->
 <!-- 2026-03-27 — Figma: 7 nuove schermate (risultati ricerca caricamento + empty, profilo cleaner caricamento, pagamento form Stripe + caricamento + fallito, filtri bottom sheet con chip servizi/rating/disponibilità + range prezzo). Search bar mostra posizione, filtri contengono tipo servizio. Tasto filtri aggiunto accanto search bar. Decisione: split subdomain trovapulizie.it (landing) + app.trovapulizie.it (SPA). Sitemap aggiornata. -->
 <!-- 2026-03-27 — Figma: Home v2 Dual Flow + stepper completo Flow A (5 schermate). Servizi: Condomini al posto di Vetri (Vetri → add-on). Add-on in Step 1: Pulizia vetri +€15, Stiratura +€10, Pulizia balcone +€8. Servizio pre-selezionato da ricerca/griglia. Sitemap aggiornata. -->
