@@ -38,3 +38,4 @@ Esempio: `TRP-25-03-2026-SVL001`
 | rec2QnO87ngJPOkAc | 29-03-2026 | Brand Identity | Toggle Instant Booking nei Filtri bottom sheet | STR | 0.5 | Guido | Completato | |
 | recG1g7g5O94mmqrj | 29-03-2026 | Brand Identity | Nuove schermate Figma: calendario, toast, modale annulla, contatta cleaner, modifica profilo | STR | 1.5 | Guido | Completato | |
 | recY2zqptgERwz07C | 29-03-2026 | Brand Identity | Revisione Profilo Utente: rimosse freccette Dati Personali | STR | 0.25 | Guido | Completato | |
+| recb12RdRNaSMtGvO | 29-03-2026 | Portale Transazionale | Figma: 7 nuove schermate, icone SVG, riordino layout Searcher Mobile | SVL | 3 | Guido | Completato | |

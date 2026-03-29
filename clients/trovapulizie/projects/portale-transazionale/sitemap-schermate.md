@@ -30,7 +30,8 @@
 | 5 | Home (attuale) | Greeting top bar, search bar, griglia 6 servizi, cleaner consigliati/vicini | Fatto |
 | 5v2 | Home v2 — Dual Flow | Hero card Flow B (AI Match) + divider "oppure scegli tu" + griglia servizi + consigliati | Fatto |
 | 5v2b | Home / Indirizzo Mancante | Click servizio senza indirizzo: toast warning + search bar highlight arancione + helper text + servizio selezionato (verde). Dopo indirizzo → risultati filtrati | Fatto |
-| 6 | Notifiche | Lista notifiche (prenotazione, reminder, promo) | Da fare |
+| 6 | Notifiche | Lista notifiche (prenotazione, reminder, promo) con icone colorate per tipo, sezioni Oggi/Questa settimana, stati letta/non letta | Fatto |
+| 6b | Notifiche / Menu Aperto | Dropdown 3 puntini: Segna tutte come lette, Impostazioni notifiche, Archivia lette. Backdrop semitrasparente | Fatto |
 
 ### Ricerca & Filtri
 | # | Schermata | Descrizione | Stato |
@@ -41,6 +42,9 @@
 | 8 | Filtri (Bottom Sheet) | Tipo di servizio (chip), range prezzo (min/max), rating minimo (chip stelle), disponibilità (chip) | Fatto |
 | 9 | Profilo cleaner | Avatar, rating 4.8, bio, chip servizi, recensione, CTA sticky "Prenota ora" | Fatto |
 | 9b | Profilo cleaner / Caricamento | Skeleton fedele al profilo (hero, bio, servizi chip, recensione, CTA) | Fatto |
+| 9c | Profilo cleaner / Menu Aperto | Dropdown 3 puntini: Condividi profilo, Segnala (rosso). Backdrop semitrasparente | Fatto |
+| 9d | Profilo cleaner / Segnala (Bottom Sheet) | 5 opzioni radio (info false, foto inappropriata, comportamento, spam, altro) + CTA rosso "Invia segnalazione" | Fatto |
+| 9e | Profilo cleaner / Condividi (Bottom Sheet) | Anteprima URL + 4 opzioni: Copia link, WhatsApp, Messaggio, Altro... | Fatto |
 
 ### Prenotazione (stepper)
 | # | Schermata | Descrizione | Stato |
@@ -64,6 +68,7 @@
 | 15d | Prenotazioni / Empty State | "Nessuna prenotazione" + CTA cerca servizio | Fatto |
 | 15e | Prenotazioni / Errore | Empty State Error + "Riprova" | Fatto |
 | 16 | Dettaglio prenotazione | Status, servizio, prezzo, cleaner, dettagli, note, azioni (Contatta/Modifica + link annulla) | Fatto |
+| 16f | Dettaglio prenotazione / Caricamento | Skeleton fedele al layout (badge, titolo, prezzo, avatar cleaner, dettagli, note, bottoni) | Fatto |
 | 17 | Annulla prenotazione | Modal danger con conferma | Da fare |
 
 ### AI Assistant
@@ -77,7 +82,10 @@
 ### Profilo & Settings
 | # | Schermata | Descrizione | Stato |
 |---|-----------|-------------|-------|
-| 19 | Profilo utente | Avatar, dati personali, indirizzi salvati, metodi pagamento | Da fare |
+| 19 | Profilo utente | Avatar, dati personali, indirizzi salvati (icone SVG casa/ufficio), metodi pagamento (icona carta) | Fatto |
+| 19b | Modifica Profilo | Avatar con badge fotocamera, campi nome/email/telefono, CTA "Salva modifiche" | Fatto |
+| 19c | Modifica Profilo / Cambia Foto (Bottom Sheet) | 3 opzioni: Scatta foto, Scegli dalla galleria, Rimuovi foto (rosso) + Annulla | Fatto |
+| 19d | Aggiungi Indirizzo | Chip tipo (Casa/Ufficio/Altro), ricerca indirizzo, nome opzionale, piano/interno, note cleaner, CTA "Salva indirizzo" | Fatto |
 | 20 | Impostazioni | Toggle notifiche, privacy, logout | Da fare |
 
 ---
