@@ -2,9 +2,15 @@
 
 ## Ultimo commit compressione
 
-171
+198
 
 ## Storico compressioni
+
+# 2026-03-29
+
+* Trigger: 198 commit totali, 27 dall'ultima compressione (soglia 20)
+* File compressi: nessuno — tutti i file soggetti sono sotto 50KB (max ~23KB: portale-transazionale/CLAUDE.md)
+* Sintesi: reset contatore a 198, nessuna compressione necessaria
 
 # 2026-03-23
 
