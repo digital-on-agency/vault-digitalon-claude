@@ -9,7 +9,7 @@
 **Priorità account**: Alta
 
 ## Comunicazione
-**Referente principale**: <!-- DA COMPLETARE -->
+**Referente principale**: Niek (owner)
 **Altri contatti**: <!-- DA COMPLETARE -->
 **Canale preferito**: WhatsApp
 **Frequenza aggiornamenti**: <!-- DA COMPLETARE -->
@@ -71,3 +71,4 @@
 - 2026-03-25 — Creazione struttura vault — onboarding completo nel vault Digital On
 - 2026-03-25 — Estrazione design system da gxcibiza.com — salvato in design-system/tokens.md
 - 2026-03-25 — Creati progetti su Airtable: Partnership, ADV, Account Management — Record ID salvati
+- 2026-03-29 — Sviluppo gestionale Airtable 2026 + Softr front-end — moduli Case e Finanza completati
