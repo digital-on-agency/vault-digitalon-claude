@@ -44,3 +44,4 @@ Esempio: `TRP-25-03-2026-SVL001`
 | recJyY6xQ065pr4N1 | 29-03-2026 | Portale Transazionale | Figma sessione 4: schermate mancanti Searcher + miglioramenti UI | SVL | 2.5 | Guido | Completato | |
 | rec7wjAc27ZWBBbd0 | 29-03-2026 | Portale Transazionale | Figma Cleaner Mobile: Dashboard + bottom bar con icone custom | SVL | 1.2 | Guido | Completato | |
 | recxW9HNHjN7SGKBi | 29-03-2026 | Portale Transazionale | Clone repo trovapulizie su VPS e analisi stack | SVL | 0.25 | Niccolò | Completato | |
+| recNCjGa8ic5Svipw | 29-03-2026 | Portale Transazionale | Setup workflow staging/production | SVL | 1.5 | Niccolò | Completato | |

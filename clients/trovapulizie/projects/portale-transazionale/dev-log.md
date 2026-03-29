@@ -1,5 +1,56 @@
 # Dev Log — Portale Transazionale TrovaPulizie
 
+## 2026-03-29 — Workflow staging/production
+
+### Analisi iniziale
+Analizzato il repo (`/home/niccolo/trovapulizie`) su branch `staging` (7 commit avanti rispetto a `master`). Trovati diversi problemi infrastrutturali:
+- `back-end/node_modules/` tracciato in git (~14k file)
+- `archives/`, `executable/`, dump DB committati
+- `launch-script/relaunch-script.js` con Supabase service role key hardcoded
+- Stripe config hardcoded su test key (non env-driven)
+- Nessun `.env.example`, nessun deploy script per backend, nessuna separazione staging/production
+
+### Modifiche implementate (branch `staging`, commit `11fad21`)
+
+**Git cleanup:**
+- Aggiornato `.gitignore`: aggiunto `back-end/node_modules/`, `archives/`, `executable/`, `launch-script/`, `*.tar.gz`, `db_cluster*`, env files con eccezione per `.env.example`
+- Rimossi dal tracking (non dal disco): `back-end/node_modules/`, `archives/`, `executable/`, `launch-script/relaunch-script.js`, dump DB, artefatti frontend
+
+**Gestione env:**
+- Creato `back-end/.env.example` (18 variabili: APP_ENV, PORT, Supabase, Firebase, HERE Maps, Stripe, webhooks)
+- Creato `front-end/.env.example` (16 variabili: VITE_APP_ENV, backend URL, Supabase, Firebase, HERE Maps, Stripe, support)
+
+**Stripe fix:**
+- `back-end/src/config/stripe.ts` ora usa `APP_ENV` per selezionare automaticamente test vs live key. Production = `STRIPE_SECRET`, tutto il resto = `TEST_STRIPE_SECRET`. Throw se manca la key.
+
+**Deploy script:**
+- Creato `scripts/deploy.sh` con parametri `<staging|production> <frontend|backend|all>`
+- Backend: compila TS → rsync dist + package files → scp .env → npm ci + pm2 restart
+- Frontend: copia .env per build → npm build → rsync dist → cleanup
+- Path VPS: `/srv/trovapulizie/{backend-staging,backend-production,frontend-staging,frontend-production}`
+- PM2 names: `tp-staging` (port 3001), `tp-production` (port 3002)
+- Conferma interattiva per deploy production
+
+**Documentazione:**
+- Creato `DEPLOY.md` con setup iniziale, comandi deploy, smoke test, checklist production, rollback
+- Rimosso vecchio `front-end-deploy.sh` (parziale, solo frontend via SCP)
+
+### Dati ambiente confermati
+- Backend su VPS 46.16.90.190 con PM2
+- Frontend servito dal VPS (non Bluehost)
+- Supabase: un solo progetto (da separare in futuro)
+- Branch strategy: `staging` → test → PR verso `master` → deploy production
+
+### Prossimi step
+1. Creare file `.env.staging` e `.env.production` per backend e frontend (con valori reali)
+2. Setup directory VPS: `mkdir -p /srv/trovapulizie/{backend-staging,...}`
+3. Primo deploy staging: `./scripts/deploy.sh staging all`
+4. Configurare nginx per routing domini (opzionale, può usare IP:porta)
+5. Push branch staging
+6. Aggiungere script `build` e `start` al `back-end/package.json`
+
+---
+
 ## Stato refactor
 
 Refactor verticale (FE+BE+DB) della Cleaner Dashboard. Obiettivo: ridurre le ~35 chiamate FE a 1-2 max, spostare aggregazione/logica nel backend, rendere il frontend "dumb".
